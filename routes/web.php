@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,8 @@ Route::get('/', function () {
 // Route::get('/', function () {
 //     return view('test');
 // });
+
+// pemanggilan baru
+
+Route::get('/dashboard',[DashboardController::class,'index']);
+Route::get('/notfound',[DashboardController::class,'page']);
