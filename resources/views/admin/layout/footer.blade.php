@@ -19,6 +19,11 @@
     <script src="{{asset('admin/assets/js/pages/dashboard.js')}}"></script>
 
     <script src="{{asset('admin/assets/js/main.js')}}"></script>
+
+    <script src="{{asset('admin/assets/vendors/simple-datatables/simple-datatables.js')}}"></script>
+    <script src="{{asset('admin/assets/vendors/simple-datatables/style.css')}}"></script>
+
+    
 </body>
 </html>
 

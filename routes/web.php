@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProgramkerjaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,6 @@ Route::get('/', function () {
 
 Route::get('/dashboard',[DashboardController::class,'index']);
 Route::get('/notfound',[DashboardController::class,'page']);
+
+// tabel program kerja
+Route::get('/programkerja',[ProgramkerjaController::class,'index']);
