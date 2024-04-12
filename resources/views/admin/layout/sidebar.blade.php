@@ -28,6 +28,10 @@
         margin-bottom: 20px;
         }
 
+        .dataTables_paginate a {
+        margin: 0 2px;
+        }
+
     </style>
 
     

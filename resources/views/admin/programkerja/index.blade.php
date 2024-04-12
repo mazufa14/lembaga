@@ -40,7 +40,8 @@
                             <td>{{$proker->nama_program}}</td>
                             <td>
 
-                            <a href="#" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Edit data</a>
+                            <a href="#" class="btn btn-sm btn-primary"> Tambah data</a>
+                            <a href="#" class="btn btn-sm btn-warning"> Edit data</a>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash"></i> Hapus</button>
 
