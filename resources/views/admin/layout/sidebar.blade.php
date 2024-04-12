@@ -6,12 +6,36 @@
     <title>Dashboard - Voler Admin Dashboard</title>
     
     <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.css')}}">
-    
+    <link rel="stylesheet" href="{{asset('admin/vendors/simple-datatables/style.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendors/chartjs/Chart.min.css')}}">
-
     <link rel="stylesheet" href="{{asset('admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/css/app.css')}}">
     <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.svg')}}" type="image/x-icon">
+
+
+    <style>
+        .dataTables_filter {
+            float: right;
+        }
+
+        .dataTables_info {
+            margin-right: 1rem;
+            width: 200px;
+
+        }
+
+        .dataTables_paginate {
+        margin-bottom: 20px;
+        }
+
+    </style>
+
+    
+    
+
+    <!--  -->
+    
+
 </head>
 <body>
     <div id="app">

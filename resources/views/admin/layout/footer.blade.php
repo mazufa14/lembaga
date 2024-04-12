@@ -17,13 +17,40 @@
     <script src="{{asset('admin/assets/vendors/chartjs/Chart.min.js')}}"></script>
     <script src="{{asset('admin/assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
     <script src="{{asset('admin/assets/js/pages/dashboard.js')}}"></script>
-
+    <script src="{{asset('admin/assets/vendors/simple-datatables/simple-datatables.js')}}"></script>
     <script src="{{asset('admin/assets/js/main.js')}}"></script>
 
-    <script src="{{asset('admin/assets/vendors/simple-datatables/simple-datatables.js')}}"></script>
-    <script src="{{asset('admin/assets/vendors/simple-datatables/style.css')}}"></script>
 
-    
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+
+    <script>
+        // $(document).ready(function() {
+        //     $('#table1').DataTable({
+            
+        //     });
+        // });
+
+        $(document).ready(function() {
+            $('#table1').DataTable({
+                "language": {
+                "lengthMenu": "Display _MENU_ records per page",
+                "zeroRecords": "Nothing found - sorry",
+                "info": "Showing page _PAGE_ of _PAGES_",
+                "infoEmpty": "No records available",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "search": "Search:",
+                "paginate": {
+                    "first": "First",
+                    "last": "Last",
+                    "next": "Next",
+                    "previous": "Previous"
+                }
+                }
+            });
+            });
+    </script>
 </body>
 </html>
 
