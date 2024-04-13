@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{asset('admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/css/app.css')}}">
     <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.svg')}}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
 
 
     <style>
@@ -141,71 +143,31 @@
             
                 
                 <li class="sidebar-item  has-sub">
-
                     <a href="#" class='sidebar-link'>
                         <i data-feather="briefcase" width="20"></i> 
                         <span>Extra Components</span>
                     </a>
-
-                    
                     <ul class="submenu ">
-                        
                         <li>
                             <a href="component-extra-avatar.html">Avatar</a>
                         </li>
-                        
                         <li>
                             <a href="component-extra-divider.html">Divider</a>
                         </li>
-                        
                     </ul>
-                    
                 </li>
+
+                <li class="sidebar-item  ">
+                <a href="{{url('/programkerja')}}" class='sidebar-link'>
+                    <i data-feather="layers" width="20"></i> 
+                    <span>Program Kerja</span>
+                </a>
+                </li>
+                
                 
             
                 
                 <li class='sidebar-title'>Forms &amp; Tables</li>
-                
-            
-                
-                <li class="sidebar-item  has-sub">
-
-                    <a href="#" class='sidebar-link'>
-                        <i data-feather="file-text" width="20"></i> 
-                        <span>Form Elements</span>
-                    </a>
-
-                    
-                    <ul class="submenu ">
-                        
-                        <li>
-                            <a href="form-element-input.html">Input</a>
-                        </li>
-                        
-                        <li>
-                            <a href="form-element-input-group.html">Input Group</a>
-                        </li>
-                        
-                        <li>
-                            <a href="form-element-select.html">Select</a>
-                        </li>
-                        
-                        <li>
-                            <a href="form-element-radio.html">Radio</a>
-                        </li>
-                        
-                        <li>
-                            <a href="form-element-checkbox.html">Checkbox</a>
-                        </li>
-                        
-                        <li>
-                            <a href="form-element-textarea.html">Textarea</a>
-                        </li>
-                        
-                    </ul>
-                    
-                </li>
-                
             
                 
                 <li class="sidebar-item  ">

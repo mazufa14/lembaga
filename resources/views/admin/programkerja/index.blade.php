@@ -1,6 +1,16 @@
 @extends('admin.layout.appadmin')
 @section('content')
 
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+    </div>
+@endif
+
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
@@ -21,10 +31,12 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                Simple Datatable
-            </div>
+                        <a href="{{url('programkerja/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a>
+                    </div>
             <div class="card-body">
+
                 <table class='table table-striped' id="table1">
+                    
                     <thead>
                         <tr>
                             <th>No</th>
@@ -40,31 +52,32 @@
                             <td>{{$proker->nama_program}}</td>
                             <td>
 
-                            <a href="#" class="btn btn-sm btn-primary"> Tambah data</a>
-                            <a href="#" class="btn btn-sm btn-warning"> Edit data</a>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash"></i> Hapus</button>
+                            
+                            <a href="{{url('programkerja/edit/'.$proker->id)}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Edit data</a>
 
-            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Apakah anda yakin akan menghapus data {{$proker->nama_program}} ?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <a href="#" type="button" class="btn btn-danger">Delete</a>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
+                                                <!-- Button trigger modal -->
+                                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal{{$proker->id}}"><i class="fas fa-trash"></i> Hapus</button>
+
+<!-- Modal -->
+                                                    <div class="modal fade" id="exampleModal{{$proker->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Apakah anda yakin akan menghapus data {{$proker->nama_program}} ?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <a href="{{url('programkerja/delete/'.$proker->id)}}" type="button" class="btn btn-danger">Delete</a>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
 
                             </td>
 

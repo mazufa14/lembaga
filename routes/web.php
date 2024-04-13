@@ -31,3 +31,5 @@ Route::get('/notfound',[DashboardController::class,'page']);
 
 // tabel program kerja
 Route::get('/programkerja',[ProgramkerjaController::class,'index']);
+Route::get('/programkerja/create', [ProgramKerjaController::class, 'create']);
+Route::post('/programkerja/store', [ProgramKerjaController::class, 'store']);
