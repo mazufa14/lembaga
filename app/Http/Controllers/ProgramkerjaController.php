@@ -35,10 +35,51 @@ class ProgramkerjaController extends Controller
             'nama_program' => $request->input('proker')
         ]);
 
-        return redirect('/programkerja')->with('success', 'Data merk berhasil ditambahkan!');
+        return redirect('/programkerja')->with('success', 'Data Berhasil Tersimpan');
 
+    }
+
+
+    public function edit(string $id)
+    {
+        $program_kerja = program_kerja::all()->where('id',$id);
+        return view ('admin.programkerja.edit', compact('program_kerja'));
+    }
+
+
+    public function update(Request $request, string $id)
+    {
+
+        // 
+        // 
+        $this->validate($request,[
+            'proker' => 'required|max:50',
+        ],
+        [
+            'proker.required' => 'Wajib diisi',
+            'proker.max' => 'Tidak lebih dari 50 karakter',
+        ]);
+
+        $program_kerja = program_kerja::find($id);
+        $program_kerja->nama_program = $request->input('proker');
+        $program_kerja->save();
+
+        return redirect('/programkerja')->with('success','Data berhasil diubah!');
     }
    
 
+    public function delete($id)
+    {
+        $program_kerja = program_kerja::find($id);
 
+        if(!$program_kerja){
+            return redirect('/programkerja')->with('error','Data tidak ditemukan!');
+        }
+
+        $program_kerja->delete();
+
+        return redirect('/programkerja')->with('success','Data berhasil dihapus!');
+
+
+    }
 }

@@ -2,33 +2,7 @@
 @section('content')
 
 
-<!-- @if($errors->any())
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <strong style="margin-bottom: 0.5em;">Warning!</strong> There were some problems with your input.
-  <ul>
-      @foreach($errors->all() as $error)
-      <li>{{$error}}</li>
-      @endforeach
-  </ul>
-</div>
-@endif -->
-
-<!-- @if($errors->any())
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <div class="d-flex justify-content-between">
-        <strong style="margin-bottom: 0.5em;">Warning!</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="color: white; outline: none; border: none; background: none; font-size: 2.5rem;">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    There were some problems with your input.
-    <ul>
-        @foreach($errors->all() as $error)
-        <li>{{$error}}</li>
-        @endforeach
-    </ul>
-</div>
-@endif -->
+@foreach ($program_kerja as $proker)
 
 <div class="page-title">
         <div class="row">
@@ -45,13 +19,13 @@
                 </nav>
             </div>
         </div>
-    </div>
+</div>
 
-<form class="p-3 card border" method="POST" action="{{url('programkerja/store')}}" enctype="multipart/form-data">
+<form class="p-3 card border" method="POST" action="{{url('programkerja/update/'.$proker->id)}}" enctype="multipart/form-data">
     @csrf
     
     <div class="card-header">
-        <h4 class="card-title">Tambah Program Kerja</h4>
+        <h4 class="card-title">Edit Program Kerja</h4>
     </div>
     
     <div class="card-body">
@@ -66,12 +40,7 @@
                             <i class="fa fa-address-card"></i>
                         </div>
                     </div>
-                    <input id="text" name="proker" type="text" class="form-control @error('proker') is-invalid @enderror" placeholder="Program Kerja">
-                    @error('proker')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
+                    <input id="text" name="proker" type="text" class="form-control" value="{{$proker->nama_program}}">
                 </div>
             </div>
         </div> 
@@ -85,6 +54,5 @@
 </form>
 
 
-
-
+@endforeach
 @endsection

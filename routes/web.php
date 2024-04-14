@@ -33,3 +33,6 @@ Route::get('/notfound',[DashboardController::class,'page']);
 Route::get('/programkerja',[ProgramkerjaController::class,'index']);
 Route::get('/programkerja/create', [ProgramKerjaController::class, 'create']);
 Route::post('/programkerja/store', [ProgramKerjaController::class, 'store']);
+Route::get('/programkerja/delete/{id}', [ProgramKerjaController::class, 'delete']);
+Route::get('/programkerja/edit/{id}', [ProgramKerjaController::class, 'edit']);
+Route::post('/programkerja/update/{id}', [ProgramKerjaController::class, 'update']);

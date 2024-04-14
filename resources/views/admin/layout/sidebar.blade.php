@@ -43,6 +43,7 @@
     
 
 </head>
+
 <body>
     <div id="app">
         <div id="sidebar" class='active'>
@@ -84,58 +85,6 @@
                             <a href="component-alert.html">Alert</a>
                         </li>
                         
-                        <li>
-                            <a href="component-badge.html">Badge</a>
-                        </li>
-                        
-                        <li>
-                            <a href="component-breadcrumb.html">Breadcrumb</a>
-                        </li>
-                        
-                        <li>
-                            <a href="component-buttons.html">Buttons</a>
-                        </li>
-                        
-                        <li>
-                            <a href="component-card.html">Card</a>
-                        </li>
-                        
-                        <li>
-                            <a href="component-carousel.html">Carousel</a>
-                        </li>
-                        
-                        <li>
-                            <a href="component-dropdowns.html">Dropdowns</a>
-                        </li>
-                        
-                        <li>
-                            <a href="component-list-group.html">List Group</a>
-                        </li>
-                        
-                        <li>
-                            <a href="component-modal.html">Modal</a>
-                        </li>
-                        
-                        <li>
-                            <a href="component-navs.html">Navs</a>
-                        </li>
-                        
-                        <li>
-                            <a href="component-pagination.html">Pagination</a>
-                        </li>
-                        
-                        <li>
-                            <a href="component-progress.html">Progress</a>
-                        </li>
-                        
-                        <li>
-                            <a href="component-spinners.html">Spinners</a>
-                        </li>
-                        
-                        <li>
-                            <a href="component-tooltips.html">Tooltips</a>
-                        </li>
-                        
                     </ul>
                     
                 </li>
@@ -159,8 +108,22 @@
 
                 <li class="sidebar-item  ">
                 <a href="{{url('/programkerja')}}" class='sidebar-link'>
-                    <i data-feather="layers" width="20"></i> 
+                    <i data-feather="user" width="20"></i> 
+                    <span>Pendaftar Kerja</span>
+                </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                <a href="{{url('/programkerja')}}" class='sidebar-link'>
+                    <i data-feather="list" width="20"></i> 
                     <span>Program Kerja</span>
+                </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                <a href="{{url('/programkerja')}}" class='sidebar-link'>
+                    <i data-feather="layers" width="20"></i> 
+                    <span>Proses kerja</span>
                 </a>
                 </li>
                 
