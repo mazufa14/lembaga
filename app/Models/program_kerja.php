@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-
+use App\Models\pendaftar_kerja;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,9 +17,9 @@ class program_kerja extends Model
     public $timestamps = false;
 
     //relasi antar table
-    // public function program_kerja(){
-    //     return $this->hasMany(pendaftar_kerja::class);
-    // }
+    public function pendaftar_kerja(){
+        return $this->hasMany(pendaftar_kerja::class);
+    }
 
     // public function proses_kerja(){
     //     return $this->hasMany(proses_kerja::class);

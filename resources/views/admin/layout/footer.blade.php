@@ -23,8 +23,6 @@
 
 
     <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
-    <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
         <!-- jQuery -->
@@ -33,14 +31,12 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!-- DataTables JavaScript -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+
 
     <script>
-        // $(document).ready(function() {
-        //     $('#table1').DataTable({
-            
-        //     });
-        // }); script dibawah untuk pagination dan search
-
         $(document).ready(function() {
             $('#table1').DataTable({
                 "language": {

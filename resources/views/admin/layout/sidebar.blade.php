@@ -106,8 +106,10 @@
                     </ul>
                 </li>
 
+                <li class='sidebar-title'>Pendaftar Kerja</li>
+
                 <li class="sidebar-item  ">
-                <a href="{{url('/programkerja')}}" class='sidebar-link'>
+                <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
                     <i data-feather="user" width="20"></i> 
                     <span>Pendaftar Kerja</span>
                 </a>
@@ -121,8 +123,8 @@
                 </li>
 
                 <li class="sidebar-item  ">
-                <a href="{{url('/programkerja')}}" class='sidebar-link'>
-                    <i data-feather="layers" width="20"></i> 
+                <a href="{{url('/proseskerja')}}" class='sidebar-link'>
+                    <i data-feather="check-circle" width="20"></i> 
                     <span>Proses kerja</span>
                 </a>
                 </li>
@@ -130,172 +132,28 @@
                 
             
                 
-                <li class='sidebar-title'>Forms &amp; Tables</li>
+                <li class='sidebar-title'>Pendaftar Belajar</li>
             
-                
                 <li class="sidebar-item  ">
-
-                    <a href="form-layout.html" class='sidebar-link'>
-                        <i data-feather="layout" width="20"></i> 
-                        <span>Form Layout</span>
-                    </a>
-
-                    
+                <a href="{{url('/programkerja')}}" class='sidebar-link'>
+                    <i data-feather="user" width="20"></i> 
+                    <span>Pendaftar Belajar</span>
+                </a>
                 </li>
-                
-            
-                
+
                 <li class="sidebar-item  ">
-
-                    <a href="form-editor.html" class='sidebar-link'>
-                        <i data-feather="layers" width="20"></i> 
-                        <span>Form Editor</span>
-                    </a>
-
-                    
+                <a href="{{url('/programkerja')}}" class='sidebar-link'>
+                    <i data-feather="list" width="20"></i> 
+                    <span>Program Belajar</span>
+                </a>
                 </li>
-                
-            
-                
+
                 <li class="sidebar-item  ">
-
-                    <a href="table.html" class='sidebar-link'>
-                        <i data-feather="grid" width="20"></i> 
-                        <span>Table</span>
-                    </a>
-
-                    
+                <a href="{{url('/programkerja')}}" class='sidebar-link'>
+                    <i data-feather="check-circle" width="20"></i> 
+                    <span>Proses Belajar</span>
+                </a>
                 </li>
-                
-            
-                
-                <li class="sidebar-item  ">
-
-                    <a href="table-datatable.html" class='sidebar-link'>
-                        <i data-feather="file-plus" width="20"></i> 
-                        <span>Datatable</span>
-                    </a>
-
-                    
-                </li>
-                
-            
-                
-                <li class='sidebar-title'>Extra UI</li>
-                
-            
-                
-                <li class="sidebar-item  has-sub">
-
-                    <a href="#" class='sidebar-link'>
-                        <i data-feather="user" width="20"></i> 
-                        <span>Widgets</span>
-                    </a>
-
-                    
-                    <ul class="submenu ">
-                        
-                        <li>
-                            <a href="ui-chatbox.html">Chatbox</a>
-                        </li>
-                        
-                        <li>
-                            <a href="ui-pricing.html">Pricing</a>
-                        </li>
-                        
-                        <li>
-                            <a href="ui-todolist.html">To-do List</a>
-                        </li>
-                        
-                    </ul>
-                    
-                </li>
-                
-            
-                
-                <li class="sidebar-item  has-sub">
-
-                    <a href="#" class='sidebar-link'>
-                        <i data-feather="trending-up" width="20"></i> 
-                        <span>Charts</span>
-                    </a>
-
-                    
-                    <ul class="submenu ">
-                        
-                        <li>
-                            <a href="ui-chart-chartjs.html">ChartJS</a>
-                        </li>
-                        
-                        <li>
-                            <a href="ui-chart-apexchart.html">Apexchart</a>
-                        </li>
-                        
-                    </ul>
-                    
-                </li>
-                
-            
-                
-                <li class='sidebar-title'>Pages</li>
-                
-            
-                
-                <li class="sidebar-item  has-sub">
-
-                    <a href="#" class='sidebar-link'>
-                        <i data-feather="user" width="20"></i> 
-                        <span>Authentication</span>
-                    </a>
-
-                    
-                    <ul class="submenu ">
-                        
-                        <li>
-                            <a href="auth-login.html">Login</a>
-                        </li>
-                        
-                        <li>
-                            <a href="auth-register.html">Register</a>
-                        </li>
-                        
-                        <li>
-                            <a href="auth-forgot-password.html">Forgot Password</a>
-                        </li>
-                        
-                    </ul>
-                    
-                </li>
-                
-            
-                
-                <li class="sidebar-item  has-sub">
-
-                    <a href="#" class='sidebar-link'>
-                        <i data-feather="alert-circle" width="20"></i> 
-                        <span>Errors</span>
-                    </a>
-
-                    
-                    <ul class="submenu ">
-                        
-                        <li>
-                            <a href="error-403.html">403</a>
-                        </li>
-                        
-                        <li>
-                            <a href="error-404.html">404</a>
-                        </li>
-                        
-                        <li>
-                            <a href="error-500.html">500</a>
-                        </li>
-                        
-                    </ul>
-                    
-                </li>
-                
-            
         </ul>
     </div>
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

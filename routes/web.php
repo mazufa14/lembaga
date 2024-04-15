@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProgramkerjaController;
+use App\Http\Controllers\PendaftarkerjaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,10 @@ Route::post('/programkerja/store', [ProgramKerjaController::class, 'store']);
 Route::get('/programkerja/delete/{id}', [ProgramKerjaController::class, 'delete']);
 Route::get('/programkerja/edit/{id}', [ProgramKerjaController::class, 'edit']);
 Route::post('/programkerja/update/{id}', [ProgramKerjaController::class, 'update']);
+
+
+
+
+//tabel pendaftar kerja
+Route::get('/pendaftarkerja',[PendaftarkerjaController::class,'index']);
+Route::get('/pendaftarkerja/create',[PendaftarkerjaController::class,'create']);
