@@ -104,10 +104,35 @@ class PendaftarkerjaController extends Controller
 
         return redirect('/pendaftarkerja')->with('success','Data Berhasil Tersimpan');
 
+    }
+
+    public function show(string $id)
+    {
+        $pendaftar_kerja = pendaftar_kerja::join('program_kerja','program', '=', 'program_kerja.id')
+        ->select('pendaftar_kerja.*','program_kerja.nama_program as namaprogram')
+        ->where('pendaftar_kerja.id', $id)
+        ->get();
+        return view ('admin.pendaftarkerja.detail', compact('pendaftar_kerja'));
+    }
 
 
+    public function edit(string $id)
+    {
+        $program_kerja = DB::table('program_kerja')->get();
+        $pendaftar_kerja = DB::table('pendaftar_kerja')->where('id',$id)->get();
+        return view ('admin.pendaftarkerja.edit', compact('program_kerja','pendaftar_kerja'));
+    }
+
+    public function update(Request $request, string $id)
+    {
 
     }
 
+
+    public function destroy(string $id)
+    {
+        DB::table('pendaftar_kerja')->where('id',$id)->delete();
+        return redirect('/pendaftarkerja')->with('success', 'Data berhasil dihapus');
+    }
 
 }

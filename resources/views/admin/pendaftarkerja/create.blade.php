@@ -47,7 +47,7 @@
                                     <div class="row">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="first-name-column">Nama Pendaftar</label>
+                                                <label for="first-name-column">Nama Pendaftar </label>
                                             <input type="text" name="nama" id="first-name-column" class="form-control @error('nama') is-invalid @enderror">
                                             @error('nama')
                                             <div class="invalid-feedback">
@@ -59,7 +59,7 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="first-name-column">Tempat Lahir</label>
+                                                <label for="first-name-column">Tempat Lahir </label>
                                             <input type="text" name="tempat_lahir" id="first-name-column" class="form-control @error('tempat_lahir') is-invalid @enderror">
                                             @error('tempat_lahir')
                                             <div class="invalid-feedback">
@@ -71,7 +71,7 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="first-name-column">Tanggal Lahir</label>
+                                                <label for="first-name-column">Tanggal Lahir </label>
                                             <input type="date" name="tanggal_lahir" id="first-name-column" class="form-control @error('tanggal_lahir') is-invalid @enderror">
                                             @error('tanggal_lahir')
                                             <div class="invalid-feedback">
@@ -83,7 +83,7 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="first-name-column">Berat Badan</label>
+                                                <label for="first-name-column">Berat Badan </label>
                                             <input type="number" name="berat_badan" id="first-name-column" class="form-control @error('berat_badan') is-invalid @enderror">
                                             @error('berat_badan')
                                             <div class="invalid-feedback">
@@ -95,7 +95,7 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="jenis_kelamin">Jenis Kelamin</label>
+                                                <label for="jenis_kelamin">Jenis Kelamin </label>
                                                 <select id="jenis_kelamin" name="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror">
                                                 <option value="" disabled selected>Pilih Jenis Kelamin</option>
                                                     <option value="Laki-laki">Laki-laki</option>
@@ -112,7 +112,7 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="nikah">Status Pernikahan</label>
+                                                <label for="nikah">Status Pernikahan </label>
                                                 <select id="nikah" name="nikah" class="form-control @error('nikah') is-invalid @enderror">
                                                 <option value="" disabled selected>Pilih Status Pernikahan</option>
                                                     <option value="Menikah">Menikah</option>
@@ -130,7 +130,7 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="first-name-column">Alamat Email</label>
+                                                <label for="first-name-column">Alamat Email <code> *Pastikan alamat email sudah benar </code></label>
                                             <input type="email" name="alamat_email" id="first-name-column" class="form-control @error('alamat_email') is-invalid @enderror">
                                             @error('alamat_email')
                                             <div class="invalid-feedback">
@@ -142,7 +142,7 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="first-name-column">No hp</label>
+                                                <label for="first-name-column">No hp <code> *Pastikan no telepon sudah benar </code></label>
                                             <input type="number" name="no_hp" id="first-name-column" class="form-control @error('no_hp') is-invalid @enderror">
                                             @error('no_hp')
                                             <div class="invalid-feedback">
@@ -166,7 +166,7 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="first-name-column">Riwayat Penyakit</label>
+                                                <label for="first-name-column">Riwayat Penyakit <code> *Jika tidak ada cukup dengan (-) </code></label>
                                             <input type="text" name="sakit" id="first-name-column" class="form-control @error('sakit') is-invalid @enderror">
                                             @error('sakit')
                                             <div class="invalid-feedback">
@@ -210,7 +210,7 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="foto">Foto 3*4 </label>
+                                                <label for="foto">Foto 3*4 <code> *Pastikan foto sudah benar </code></label>
                                             <input type="file" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
                                             @error('foto')
                                             <div class="invalid-feedback">

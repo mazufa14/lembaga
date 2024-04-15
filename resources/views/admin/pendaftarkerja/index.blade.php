@@ -72,7 +72,7 @@
                             <td>{{$proker->namaprogram}}</td>
                             <td>
 
-                            <a href="{{url('pendaftarkeja/show/'.$proker->id)}}" class="btn btn-sm btn-success mb-2"><i class="fas fa-eye"></i> Lihat data</a>
+                            <a href="{{url('pendaftarkerja/show/'.$proker->id)}}" class="btn btn-sm btn-success mb-2"><i class="fas fa-eye"></i> Lihat data</a>
                             <a href="{{url('pendaftarkerja/edit/'.$proker->id)}}" class="btn btn-sm btn-warning mb-2"><i class="fas fa-edit"></i> Edit data </a>
 
                                             
