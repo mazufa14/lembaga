@@ -22,7 +22,7 @@
     <script src="{{asset('admin/assets/js/main.js')}}"></script>
 
 
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
         <!-- jQuery -->
@@ -32,7 +32,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- DataTables JavaScript -->
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> 
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
 
 

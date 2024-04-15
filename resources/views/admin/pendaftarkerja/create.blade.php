@@ -1,10 +1,6 @@
 @extends('admin.layout.appadmin')
 @section('content')
 
-
-
-
-
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
@@ -214,8 +210,8 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="first-name-column">Foto 3*4 </label>
-                                            <input type="file" name="foto" id="first-name-column" class="form-control @error('foto') is-invalid @enderror">
+                                                <label for="foto">Foto 3*4 </label>
+                                            <input type="file" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
                                             @error('foto')
                                             <div class="invalid-feedback">
                                             {{ $message }}
@@ -223,14 +219,6 @@
                                             @enderror
                                             </div>
                                         </div>
-
-
-
-                                        
-                                        
-
-                                        
-                
 
                                         <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>

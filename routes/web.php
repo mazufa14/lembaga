@@ -44,3 +44,4 @@ Route::post('/programkerja/update/{id}', [ProgramKerjaController::class, 'update
 //tabel pendaftar kerja
 Route::get('/pendaftarkerja',[PendaftarkerjaController::class,'index']);
 Route::get('/pendaftarkerja/create',[PendaftarkerjaController::class,'create']);
+Route::post('/pendaftarkerja/store',[PendaftarkerjaController::class,'store']);

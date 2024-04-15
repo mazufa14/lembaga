@@ -14,7 +14,7 @@ class pendaftar_kerja extends Model
 
 
     public function program_kerja(){
-        return $this->belongTo(program_kerja::class,'program');
+        return $this->belongsTo(program_kerja::class,'program');
     }
 
 

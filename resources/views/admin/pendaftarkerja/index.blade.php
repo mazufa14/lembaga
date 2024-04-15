@@ -35,10 +35,21 @@
                         <th>Tanggal Lahir</th>
                         <th>Berat Badan</th>
                         <th>Jenis Kelamin</th>
-                        <th>Status Pernikahan</th>
+
+                        <!-- <th>nikah</th>
+                        <th>alamat email</th>
+                        <th>no hp</th>
+                        <th>alamat rumah</th>
+                        <th>sakit berat</th>
+                        <th>pendidikan </th> -->
+                        
+                        <th>Program </th> 
                         <th>Action</th>
                         </tr>
                     </thead>
+
+<!-- <tbody> -->
+                    
                     <tbody>
                         @php $no=1 @endphp
                         @foreach ($pendaftar_kerja as $proker)
@@ -49,7 +60,16 @@
                             <td>{{$proker->tanggal_lahir}}</td>
                             <td>{{$proker->berat_badan}}</td>
                             <td>{{$proker->jenis_kelamin}}</td>
-                            <td>{{$proker->nikah}}</td>
+
+                            <!-- <td>{{ $proker->nikah}}</td>
+                            <td>{{ $proker->alamat_email}}</td>
+                            <td>{{ $proker->no_hp}}</td>
+                            <td>{{ $proker->alamat_rumah}}</td>
+                            <td>{{ $proker->sakit_berat}}</td>
+                            <td>{{ $proker->pendidikan_terakhir}}</td> -->
+                            
+
+                            <td>{{$proker->namaprogram}}</td>
                             <td>
 
                             <a href="{{url('pendaftarkeja/show/'.$proker->id)}}" class="btn btn-sm btn-success mb-2"><i class="fas fa-eye"></i> Lihat data</a>
@@ -80,11 +100,13 @@
                                                     </div>
 
                             </td>
-
-                            
                         </tr>
                         @endforeach
+
+
                     </tbody>
+
+                    <!-- <tbody> -->
                 </table>
             </div>
         </div>
