@@ -47,3 +47,5 @@ Route::get('/pendaftarkerja/create',[PendaftarkerjaController::class,'create']);
 Route::post('/pendaftarkerja/store',[PendaftarkerjaController::class,'store']);
 Route::get('/pendaftarkerja/show/{id}',[PendaftarkerjaController::class,'show']);
 Route::get('/pendaftarkerja/delete/{id}',[PendaftarkerjaController::class,'destroy']);
+Route::post('/pendaftarkerja/update/{id}', [PendaftarkerjaController::class, 'update']);
+Route::get('/pendaftarkerja/edit/{id}', [PendaftarkerjaController::class, 'edit']);
