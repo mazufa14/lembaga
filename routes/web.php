@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProgramkerjaController;
 use App\Http\Controllers\PendaftarkerjaController;
+use App\Http\Controllers\ProseskerjaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +39,6 @@ Route::get('/programkerja/delete/{id}', [ProgramKerjaController::class, 'delete'
 Route::get('/programkerja/edit/{id}', [ProgramKerjaController::class, 'edit']);
 Route::post('/programkerja/update/{id}', [ProgramKerjaController::class, 'update']);
 
-
-
-
 //tabel pendaftar kerja
 Route::get('/pendaftarkerja',[PendaftarkerjaController::class,'index']);
 Route::get('/pendaftarkerja/create',[PendaftarkerjaController::class,'create']);
@@ -49,3 +47,12 @@ Route::get('/pendaftarkerja/show/{id}',[PendaftarkerjaController::class,'show'])
 Route::get('/pendaftarkerja/delete/{id}',[PendaftarkerjaController::class,'destroy']);
 Route::post('/pendaftarkerja/update/{id}', [PendaftarkerjaController::class, 'update']);
 Route::get('/pendaftarkerja/edit/{id}', [PendaftarkerjaController::class, 'edit']);
+
+// tabel proses kerja
+Route::get('/proseskerja',[ProseskerjaController::class,'index']);
+Route::get('/proseskerja/create',[ProseskerjaController::class,'create']);
+Route::post('/proseskerja/store',[ProseskerjaController::class,'store']);
+Route::get('/proseskerja/show/{id}',[ProseskerjaController::class,'show']);
+Route::get('/proseskerja/delete/{id}',[ProseskerjaController::class,'destroy']);
+Route::post('/proseskerja/update/{id}', [ProseskerjaController::class, 'update']);
+Route::get('/proseskerja/edit/{id}', [ProseskerjaController::class, 'edit']);

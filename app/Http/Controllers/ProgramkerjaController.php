@@ -14,12 +14,14 @@ class ProgramkerjaController extends Controller
         $program_kerja = program_kerja::all();
         return view ('admin.programkerja.index', compact('program_kerja'));
     }
-
+    
+    
 
     public function create()
     {
         return view('admin.programkerja.create');
     }
+    
 
 
     public function store(Request $request){
