@@ -26,7 +26,7 @@
         <div class="card-body">
        
         
-                <form class="form" method="POST" action="#" enctype="multipart/form-data">
+                <form class="form" method="POST" action="{{url('proseskerja/update/'.$proker->id)}}" enctype="multipart/form-data">
                         @csrf
                     
                         <div class="card-header">
@@ -40,8 +40,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="nama">Nama</label>
-                                            <select id="nama" disabled name="nama" class="form-control @error('nama') is-invalid @enderror">
-                                                <option value="" disabled selected>Pilih Program Kerja</option>   
+                                            <select id="nama" disabled  class="form-control @error('nama') is-invalid @enderror">
+                                                <option value="" disabled selected>Pilih Nama Siswa</option>   
 
                                                 @foreach ($pendaftar_kerja as $p)
                                                 @php $sel = ($p->id == $proker->nama_pekerja) ? 'selected' : ''; @endphp                                                     
@@ -50,6 +50,9 @@
 
                                             </select>
                                         </div>
+
+
+
 
                                         <div class="form-group">
                                             <label for="programkerja">Program Kerja</label>
@@ -62,19 +65,24 @@
                                                 @endforeach
 
                                             </select>
+                                            @error('program_kerja')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
 
                                     <div class="col-md-6 ">
                                         <div class="form-group">
-                                            <label for="kebahasaan">Sertifikasi Kebahasaan </label>
-                                            <select id="kebahasaan" name="kebahasaan" class="form-control @error('kebahasaan') is-invalid @enderror">
+                                            <label for="sertifikasi_kebahasaan">Sertifikasi Kebahasaan </label>
+                                            <select id="sertifikasi_kebahasaan" name="sertifikasi_kebahasaan" class="form-control @error('sertifikasi_kebahasaan') is-invalid @enderror">
                                                 <option value="" disabled>Pilih Jenis Kelamin</option>
                                                 <option value="Sudah" {{ $proker->kebahasaan == 'Sudah' ? 'selected' : '' }}>Sudah</option>
                                                 <option value="Belum" {{ $proker->kebahasaan == 'Belum' ? 'selected' : '' }}>Belum</option>
                                                 <option value="Tidak diperlukan" {{ $proker->kebahasaan == 'Tidak diperlukan' ? 'selected' : '' }}>Tidak diperlukan</option>
                                             </select>
-                                            @error('kebahasaan')
+                                            @error('sertifikasi_kebahasaan')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -83,7 +91,7 @@
 
                                         <div class="form-group">
                                             <label for="sertfikasi">Sertifikasi Pekerjaan </label>
-                                            <select id="sertfikasi" name="sertifikasi" class="form-control @error('sertifikasi') is-invalid @enderror">
+                                            <select id="sertfikasi" name="sertifikasi_pekerjaan" class="form-control @error('sertifikasi') is-invalid @enderror">
                                                 <option value="" disabled>Pilih Jenis Kelamin</option>
                                                 <option value="Sudah" {{ $proker->sertifikasi == 'Sudah' ? 'selected' : '' }}>Sudah</option>
                                                 <option value="Belum" {{ $proker->sertifikasi == 'Belum' ? 'selected' : '' }}>Belum</option>
@@ -98,10 +106,16 @@
 
                                     </div>
 
+                                    
                                     <div class="justify-content-center text-center mb-3">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea class="form-control" id="deskripsi" rows="5">{{$proker->deskripsi}}</textarea>
+                                        <textarea name="deskripsi" rows="5" id="deskripsi"  class="form-control @error('deskripsi') is-invalid @enderror">{{$proker->deskripsi}}</textarea>
                                     </div>
+                                    @error('deskripsi')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                 </div>
                                 
                                     <div class="col-12 d-flex justify-content-end">

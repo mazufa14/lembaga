@@ -52,42 +52,33 @@ class ProseskerjaController extends Controller
     }
 
 
-    // public function update(Request $request, string $id)
-    // {
-    //     $this->validate($request,[
-    //         'nama' => 'required',
-    //         'program_kerja' => 'required',
-    //         'kebahasaan' => 'required',
-    //         'pekerjaan' => 'required',
-    //         'deskripsi' => 'required|max:225',
-    //     ],
-    //     [
-    //         'program_kerja.required' => 'Program kerja wajib diisi',
-    //         'deskripsi.required' => 'Deskripsi siswa wajib diisi',
-    //         'deskripsi.max' => 'Maksimal deskripsi 225 karakter',
-    //         'pekerjaan.required' => 'Sertfikasi pekerjaan wajib diisi',
-    //         'kebahasaan.required' => 'Sertifkasi wajib diisi', 
-    //     ]);
+    public function update(Request $request, string $id)
+    {
+        $this->validate($request,[
+            // 'nama' => 'required',
+            'program_kerja' => 'required',
+            'sertifikasi_kebahasaan' => 'required',
+            'sertifikasi_pekerjaan' => 'required',
+            'deskripsi' => 'required|max:225',
+        ],
+        [
+            'program_kerja.required' => 'Program kerja wajib diisi',
+            'sertifikasi_pekerjaan.required' => 'Sertfikasi pekerjaan wajib diisi',
+            'sertifikasi_kebahasaan.required' => 'Sertifkasi wajib diisi', 
+            'deskripsi.required' => 'Deskripsi siswa wajib diisi',
+            'deskripsi.max' => 'Maksimal deskripsi 225 karakter',
+        ]);
 
-    //     DB::table('proses_kerja')->where('id', $request->id)->update([
-    //         'nama_pekerja' => $request->nama,
-    //         'program_proses_kerja' =>$request->program_kerja,
-    //         'deskripsi' => $request->deskripsi,
-    //         'sertifikasi' => $request->pekerjaan,
-    //         'kebahasaan' => $request->kebahasaan,
-    //     ]);
+        DB::table('proses_kerja')->where('id', $request->id)->update([
+            // 'nama_pekerja' => $request->nama,
+            'program_proses_kerja' =>$request->program_kerja,
+            'deskripsi' => $request->deskripsi,
+            'sertifikasi' => $request->sertifikasi_pekerjaan,
+            'kebahasaan' => $request->sertifikasi_kebahasaan,
+        ]);
 
-    //     $proses_kerja = proses_kerja::find($id);
-
-    //     $proses_kerja->nama_pekerja = $request->input('nama');
-    //     $proses_kerja->program_proses_kerja = $request->input('program_kerja');
-    //     $proses_kerja->deskripsi = $request->input('deskripsi');
-    //     $proses_kerja->sertifikasi =$request->input('sertfikasi');
-    //     $proses_kerja->kebahasaan = $request->input('kebahasaan');
-    //     $proses_kerja->save();
-
-    //     return redirect('/proseskerja')->with('success','Data berhasil diupdate!');
-    // }
+        return redirect('/proseskerja')->with('success','Data berhasil diupdate!');
+    }
 
 
 
@@ -96,11 +87,11 @@ class ProseskerjaController extends Controller
 
 
 
-    // |unique:proses_kerja,nama_pekerja'
+    // 
 
     public function store(Request $request){
         $this->validate($request,[
-            'nama' => 'required',
+            'nama' => 'required|unique:proses_kerja,nama_pekerja',
             'program_kerja' => 'required',
             'kebahasaan' => 'required',
             'pekerjaan' => 'required',
@@ -108,7 +99,7 @@ class ProseskerjaController extends Controller
         ],
         [
             'nama.required' => 'Nama siswa wajib diisi',
-            // 'nama.unique' => 'Nama yang sudah diinput sudah ada', 
+            'nama.unique' => 'Nama yang sudah diinput sudah ada', 
             'program_kerja.required' => 'Program kerja wajib diisi',
             'deskripsi.required' => 'Deskripsi siswa wajib diisi',
             'deskripsi.max' => 'Maksimal deskripsi 225 karakter',

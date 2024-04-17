@@ -13,9 +13,9 @@ class pendaftar_kerja extends Model
     public $timestamps = false;
 
 
-    public function program_kerja(){
-        return $this->belongsTo(program_kerja::class,'program');
-    }
+    // public function program_kerja(){
+    //     return $this->belongsTo(program_kerja::class,'program');
+    // }
 
 
 
