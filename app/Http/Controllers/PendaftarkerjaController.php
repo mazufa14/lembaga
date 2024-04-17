@@ -179,17 +179,7 @@ class PendaftarkerjaController extends Controller
         $namaFileFotoLama = $f->foto;
       }
 
-        // if(!empty($request->foto)){
-        //     if(!empty($namaFileFotoLama->foto)) 
-        //          unlink('admin/img'.$namaFileFotoLama->foto);
-        //     $fileName = 'foto-' .$request->id . '.' . $request->foto->extension();
-        //     $request->foto->move(public_path('admin/img'), $fileName);
-        // } 
-        // else {
-        //     $fileName = '';
-        // }
-
-
+       
         if (!empty($request->foto)) {
             // Hapus foto lama hanya jika ada foto baru yang diunggah
             if (!empty($namaFileFotoLama)) {

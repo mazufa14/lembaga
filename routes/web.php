@@ -6,6 +6,8 @@ use App\Http\Controllers\ProgramkerjaController;
 use App\Http\Controllers\PendaftarkerjaController;
 use App\Http\Controllers\ProseskerjaController;
 
+use App\Http\Controllers\PendaftarbelajarController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +33,8 @@ Route::get('/', function () {
 Route::get('/dashboard',[DashboardController::class,'index']);
 Route::get('/notfound',[DashboardController::class,'page']);
 
+
+// PROGRAM KERJA
 // tabel program kerja
 Route::get('/programkerja',[ProgramkerjaController::class,'index']);
 Route::get('/programkerja/create', [ProgramKerjaController::class, 'create']);
@@ -56,3 +60,14 @@ Route::get('/proseskerja/show/{id}',[ProseskerjaController::class,'show']);
 Route::get('/proseskerja/delete/{id}',[ProseskerjaController::class,'destroy']);
 Route::post('/proseskerja/update/{id}', [ProseskerjaController::class, 'update']);
 Route::get('/proseskerja/edit/{id}', [ProseskerjaController::class, 'edit']);
+
+// PROGRAM BELAJAR
+
+//tabel pendaftar BELAJAR
+Route::get('/pendaftarbelajar',[PendaftarbelajarController::class,'index']);
+Route::get('/pendaftarbelajar/create',[PendaftarbelajarController::class,'create']);
+Route::post('/pendaftarbelajar/store',[PendaftarbelajarController::class,'store']);
+Route::get('/pendaftarbelajar/show/{id}',[PendaftarbelajarController::class,'show']);
+Route::get('/pendaftarbelajar/delete/{id}',[PendaftarbelajarController::class,'destroy']);
+Route::post('/pendaftarbelajar/update/{id}', [PendaftarbelajarController::class, 'update']);
+Route::get('/pendaftarbelajar/edit/{id}', [PendaftarbelajarController::class, 'edit']);

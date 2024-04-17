@@ -17,7 +17,7 @@
                 </nav>
             </div>
         </div>
-    </div>
+</div>
 
 @foreach ($pendaftar_kerja as $proker)
 
@@ -143,6 +143,8 @@
                                             </div>
                                         </div>
 
+                                        
+
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">Alamat Rumah</label>
@@ -204,34 +206,36 @@
                                         </div>
 
 
-                                        <div class="col-md-6 col-12">
+                                        <div class="col-md-6 col-12 mb-3">
                                             <div class="form-group">
-                                            <label for="foto">Foto 3*4 <code> *Pastikan foto sudah benar </code></label>
+                                                <label for="foto">Foto 3*4 <code> *Pastikan foto sudah benar </code></label>
 
-                                            <input type="file" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
-                                             @if(!empty($proker->foto))                       
-                                             <img src="{{url('admin/img')}}/{{$proker->foto}}" alt="" class="mt-3 border p-3">
-                                            @endif   
+                                                <input type="file" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
+                                                @if(!empty($proker->foto))                       
+                                                <img src="{{url('admin/img')}}/{{$proker->foto}}" alt="" class="mt-3 border p-3">
+                                                @endif   
 
 
-                                            @error('foto')
-                                            <div class="invalid-feedback">
-                                            {{ $message }}
+                                                @error('foto')
+                                                <div class="invalid-feedback">
+                                                {{ $message }}
+                                                </div>
+                                                @enderror
+                                                </div>
+
                                             </div>
-                                            @enderror
+
+                                            <div class="col-12 ">
+                                                <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
                                             </div>
-
-                                        </div>
-
-                                        <div class="col-12 d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
-                                        </div>
+                                        
                                     </div>
                         </form>
             </div>
         </div>
     </div>
 @endforeach
+
+
 
 @endsection
