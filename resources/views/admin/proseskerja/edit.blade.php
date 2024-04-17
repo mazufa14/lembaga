@@ -106,7 +106,6 @@
 
                                     </div>
 
-                                    
                                     <div class="justify-content-center text-center mb-3">
                                         <label for="deskripsi">Deskripsi</label>
                                         <textarea name="deskripsi" rows="5" id="deskripsi"  class="form-control @error('deskripsi') is-invalid @enderror">{{$proker->deskripsi}}</textarea>

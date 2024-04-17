@@ -2,11 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ProgramkerjaController;
-use App\Http\Controllers\PendaftarkerjaController;
-use App\Http\Controllers\ProseskerjaController;
 
+use App\Http\Controllers\ProgramkerjaController;
+use App\Http\Controllers\ProgrambelajarController;
+use App\Http\Controllers\PendaftarkerjaController;
 use App\Http\Controllers\PendaftarbelajarController;
+use App\Http\Controllers\ProseskerjaController;
+use App\Http\Controllers\ProsesbelajarController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,8 +65,8 @@ Route::get('/proseskerja/delete/{id}',[ProseskerjaController::class,'destroy']);
 Route::post('/proseskerja/update/{id}', [ProseskerjaController::class, 'update']);
 Route::get('/proseskerja/edit/{id}', [ProseskerjaController::class, 'edit']);
 
-// PROGRAM BELAJAR
 
+// PROGRAM BELAJAR
 //tabel pendaftar BELAJAR
 Route::get('/pendaftarbelajar',[PendaftarbelajarController::class,'index']);
 Route::get('/pendaftarbelajar/create',[PendaftarbelajarController::class,'create']);
@@ -71,3 +75,21 @@ Route::get('/pendaftarbelajar/show/{id}',[PendaftarbelajarController::class,'sho
 Route::get('/pendaftarbelajar/delete/{id}',[PendaftarbelajarController::class,'destroy']);
 Route::post('/pendaftarbelajar/update/{id}', [PendaftarbelajarController::class, 'update']);
 Route::get('/pendaftarbelajar/edit/{id}', [PendaftarbelajarController::class, 'edit']);
+
+// tabel program belajar
+Route::get('/programbelajar',[ProgrambelajarController::class,'index']);
+Route::get('/programbelajar/create', [ProgrambelajarController::class, 'create']);
+Route::post('/programbelajar/store', [ProgrambelajarController::class, 'store']);
+Route::get('/programbelajar/delete/{id}', [ProgrambelajarController::class, 'delete']);
+Route::get('/programbelajar/edit/{id}', [ProgrambelajarController::class, 'edit']);
+Route::post('/programbelajar/update/{id}', [ProgrambelajarController::class, 'update']);
+
+
+// tabel proses belajar
+Route::get('/prosesbelajar',[ProsesbelajarController::class,'index']);
+Route::get('/prosesbelajar/create',[ProsesbelajarController::class,'create']);
+Route::post('/prosesbelajar/store',[ProsesbelajarController::class,'store']);
+Route::get('/prosesbelajar/show/{id}',[ProsesbelajarController::class,'show']);
+Route::get('/prosesbelajar/delete/{id}',[ProsesbelajarController::class,'destroy']);
+Route::post('/prosesbelajar/update/{id}', [ProsesbelajarController::class, 'update']);
+Route::get('/prosesbelajar/edit/{id}', [ProsesbelajarController::class, 'edit']);

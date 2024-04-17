@@ -81,12 +81,6 @@ class ProseskerjaController extends Controller
     }
 
 
-
-
-
-
-
-
     // 
 
     public function store(Request $request){
@@ -99,7 +93,7 @@ class ProseskerjaController extends Controller
         ],
         [
             'nama.required' => 'Nama siswa wajib diisi',
-            'nama.unique' => 'Nama yang sudah diinput sudah ada', 
+            'nama.unique' => 'Nama yang diinput sudah ada', 
             'program_kerja.required' => 'Program kerja wajib diisi',
             'deskripsi.required' => 'Deskripsi siswa wajib diisi',
             'deskripsi.max' => 'Maksimal deskripsi 225 karakter',
