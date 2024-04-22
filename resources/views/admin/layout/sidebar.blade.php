@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Voler Admin Dashboard</title>
+    <title>Hikkari Gakkai</title>
     
     <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('admin/vendors/simple-datatables/style.css')}}">
@@ -59,7 +59,7 @@
                 
             
                 
-                <li class="sidebar-item active ">
+                <li class="sidebar-item ">
 
                     <a href="index.html" class='sidebar-link'>
                         <i data-feather="home" width="20"></i> 
@@ -71,33 +71,33 @@
                 
              
 
-                <li class='sidebar-title'>Pendaftar Kerja</li>
+                <li class='sidebar-title'>Data Lembaga</li>
 
                 <li class="sidebar-item  ">
                 <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
                     <i data-feather="user" width="20"></i> 
-                    <span>Pendaftar Kerja</span>
+                    <span>Data Pendaftaran Awal </span>
                 </a>
                 </li>
 
                 <li class="sidebar-item  ">
                 <a href="{{url('/programkerja')}}" class='sidebar-link'>
                     <i data-feather="list" width="20"></i> 
-                    <span>Program Kerja</span>
+                    <span>Program Kerja Lembaga</span>
                 </a>
                 </li>
 
                 <li class="sidebar-item  ">
                 <a href="{{url('/proseskerja')}}" class='sidebar-link'>
                     <i data-feather="check-circle" width="20"></i> 
-                    <span>Proses kerja</span>
+                    <span>Proses Dokumen Siswa</span>
                 </a>
                 </li>
                 
                 
             
                 
-                <li class='sidebar-title'>Pendaftar Belajar</li>
+                <!-- <li class='sidebar-title'>Pendaftar Belajar</li>
             
                 <li class="sidebar-item  ">
                 <a href="{{url('/pendaftarbelajar')}}" class='sidebar-link'>
@@ -118,7 +118,7 @@
                     <i data-feather="check-circle" width="20"></i> 
                     <span>Proses Belajar</span>
                 </a>
-                </li>
+                </li> -->
         </ul>
     </div>
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
