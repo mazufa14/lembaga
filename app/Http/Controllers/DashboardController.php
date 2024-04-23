@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pendaftar_kerja;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     //function index
     public function index(){
-        return view('admin.dashboard'); //mengarahkan ke file dashboard yg ada didalam admin
+
+        $pendaftar_kerja = pendaftar_kerja::count();
+
+        return view('admin.dashboard', compact('pendaftar_kerja')); 
+        //mengarahkan ke file dashboard yg ada didalam admin
     }
 
     //function index

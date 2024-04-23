@@ -31,7 +31,7 @@
                         <th>No</th>
                         <th>Nama Pendaftar</th>
                         <th>Program </th>
-                        <!-- <th>Deskripsi</th> -->
+                        <!-- <th>Akun</th> -->
                         <th>Action</th>
                         </tr>
                     </thead>
@@ -45,7 +45,7 @@
                             <td>{{$no++}}</td>
                             <td>{{$proker->namapekerja}}</td>
                             <td>{{$proker->namaprogram}}</td>
-                            <!-- <td>{{$proker->deskripsi}}</td> -->
+                            <!-- <td>{{$proker->namaakun}}</td>  -->
                             <td>
 
                             <a href="{{url('proseskerja/show/'.$proker->id)}}" class="btn btn-sm btn-success "><i class="fas fa-eye"></i> Lihat data</a>
