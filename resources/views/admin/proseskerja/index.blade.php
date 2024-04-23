@@ -18,7 +18,9 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
+                        @if (Auth::user()->role == 'admin')
                         <a href="{{url('proseskerja/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a>
+                        @endif
                     </div>
             <div class="card-body">
 
@@ -47,21 +49,26 @@
                             <td>
 
                             <a href="{{url('proseskerja/show/'.$proker->id)}}" class="btn btn-sm btn-success "><i class="fas fa-eye"></i> Lihat data</a>
+                            
+                            @if (Auth::user()->role == 'admin')
                             <a href="{{url('proseskerja/edit/'.$proker->id)}}" class="btn btn-sm btn-warning "><i class="fas fa-edit"></i> Edit data </a>
+                            
 
-                                            
+                                                
                                                 <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal{{$proker->id}}"><i class="fas fa-trash"></i> Hapus data </button>
-
+                                                @endif
 
                                                     <div class="modal fade" id="exampleModal{{$proker->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
+                                                       
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabel">Hapus </h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
+                                                        
                                                         <div class="modal-body">
                                                             Apakah anda yakin akan menghapus data {{$proker->namapekerja}} ?
                                                         </div>

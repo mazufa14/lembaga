@@ -2,34 +2,62 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\proses_kerja;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException; 
 
 class ProseskerjaController extends Controller
 {
-    //
-    public function index(){
+    
 
-        // $proses_kerja = proses_kerja::join('pendaftar_kerja','nama_pekerja', '=', 'pendaftar_kerja.id')
-        // ->select('proses_kerja.*','pendaftar_kerja.pendaftar_pekerja as namapekerja')
-        // ->get();
+    // public function index(){
+    
+    //     // Mendapatkan ID pengguna yang sedang login
+    //     $user_id = Auth::id(); 
 
-        // proses_kerja::join('program_kerja','program_proses_pekerja', '=', 'program_kerja.id')
-        // ->select('proses_kerja.*','program_kerja.nama_program as namaprogram')
-        // ->get();
+    //     // Mengambil data proses kerja yang dimiliki oleh pengguna yang sedang login
+    //     $proses_kerja = proses_kerja::join('users', 'proses_kerja.user_id', '=', 'users.id')
+    //     ->join('pendaftar_kerja', 'proses_kerja.nama_pekerja', '=', 'pendaftar_kerja.id')
+    //     ->join('program_kerja', 'proses_kerja.program_proses_kerja', '=', 'program_kerja.id')
+    //     ->where('users.id', $user_id) // Memfilter berdasarkan user_id yang sedang login
+    //     ->select('proses_kerja.*', 'pendaftar_kerja.pendaftar_pekerja as namapekerja', 'program_kerja.nama_program as namaprogram')
+    //     ->paginate(10); // Menggunakan paginate untuk membuat data ter-segmentasi
 
-       
-        $proses_kerja = proses_kerja::join('pendaftar_kerja', 'nama_pekerja', '=', 'pendaftar_kerja.id')
-        ->join('program_kerja', 'program_proses_kerja', '=', 'program_kerja.id')
-        ->select('proses_kerja.*', 'pendaftar_kerja.pendaftar_pekerja as namapekerja', 'program_kerja.nama_program as namaprogram')
-        ->get();
+    // return view('admin.proseskerja.index', compact('proses_kerja'));
 
+    // }
+
+
+
+    public function index() {
+        // Mendapatkan role pengguna yang sedang login
+        $role = Auth::user()->role;
+    
+        // Inisialisasi query untuk mengambil data proses kerja
+        $query = proses_kerja::join('pendaftar_kerja', 'proses_kerja.nama_pekerja', '=', 'pendaftar_kerja.id')
+                             ->join('program_kerja', 'proses_kerja.program_proses_kerja', '=', 'program_kerja.id')
+                             ->select('proses_kerja.*', 'pendaftar_kerja.pendaftar_pekerja as namapekerja', 'program_kerja.nama_program as namaprogram');
+    
+        // Jika pengguna adalah admin, ambil semua data tanpa filter
+        if($role === 'admin') {
+            $proses_kerja = $query->paginate(10);
+        } else {
+            // Jika pengguna bukan admin, ambil data sesuai dengan user_id yang sedang login
+            $user_id = Auth::id();
+            $proses_kerja = $query->join('users', 'proses_kerja.user_id', '=', 'users.id')
+                                 ->where('users.id', $user_id)
+                                 ->paginate(10);
+        }
+    
         return view('admin.proseskerja.index', compact('proses_kerja'));
-
     }
+    
 
+
+    
     public function create()
     {
         //

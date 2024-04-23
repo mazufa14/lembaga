@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hikkari Gakkai</title>
+    <title>Lembaga tiga</title>
     
     <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('admin/vendors/simple-datatables/style.css')}}">
@@ -104,6 +104,11 @@
                 <a href="{{url('/pendaftarbelajar')}}" class='sidebar-link'>
                     <i data-feather="user" width="20"></i> 
                     <span>Info</span>
+                </a>
+
+                <a href="{{url('/pendaftarbelajar')}}" class='sidebar-link'>
+                    <i data-feather="user" width="20"></i> 
+                    <span>Management akun</span>
                 </a>
                 @endif
                 
