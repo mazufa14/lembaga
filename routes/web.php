@@ -43,12 +43,12 @@ Route::get('/home',function () {
 });
 
 Route::middleware(['guest'])->group(function() {
-    // login
     Route::get('/login',[SesiController::class,'index'])->name('login');
     Route::post('/login',[SesiController::class,'login']);
 });
 
-Route::middleware(['auth'])->group(function(){
+
+Route::group(['middleware' => ['auth', 'peran:admin-siswa-owner']], function(){
     Route::get('/logout',[SesiController::class,'logout']);
     Route::get('/dashboard',[DashboardController::class,'index']);
 
@@ -78,8 +78,10 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/proseskerja/delete/{id}',[ProseskerjaController::class,'destroy']);
     Route::post('/proseskerja/update/{id}', [ProseskerjaController::class, 'update']);
     Route::get('/proseskerja/edit/{id}', [ProseskerjaController::class, 'edit']);
-
 });
+
+// Route::middleware(['auth'])->group(function(){
+// });
 
 
 

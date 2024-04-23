@@ -61,7 +61,7 @@
                 
                 <li class="sidebar-item ">
 
-                    <a href="index.html" class='sidebar-link'>
+                    <a href="{{url('/dashboard')}}" class='sidebar-link'>
                         <i data-feather="home" width="20"></i> 
                         <span>Dashboard</span>
                     </a>
@@ -74,18 +74,23 @@
                 <li class='sidebar-title'>Data Lembaga</li>
 
                 <li class="sidebar-item  ">
+                 
+              
                 <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
                     <i data-feather="user" width="20"></i> 
                     <span>Data Pendaftaran Awal </span>
                 </a>
                 </li>
+              
 
+                @if (Auth::user()->role == 'admin')
                 <li class="sidebar-item  ">
                 <a href="{{url('/programkerja')}}" class='sidebar-link'>
                     <i data-feather="list" width="20"></i> 
                     <span>Program Kerja Lembaga</span>
                 </a>
                 </li>
+                @endif
 
                 <li class="sidebar-item  ">
                 <a href="{{url('/proseskerja')}}" class='sidebar-link'>
@@ -94,6 +99,13 @@
                 </a>
                 </li>
                 
+                @if (Auth::user()->role == 'admin')
+                <li class='sidebar-title'>Kelola data Halaman</li>
+                <a href="{{url('/pendaftarbelajar')}}" class='sidebar-link'>
+                    <i data-feather="user" width="20"></i> 
+                    <span>Info</span>
+                </a>
+                @endif
                 
             
                 

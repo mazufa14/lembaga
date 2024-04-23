@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\pendaftar_kerja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 class PendaftarkerjaController extends Controller
 {
@@ -214,10 +215,20 @@ class PendaftarkerjaController extends Controller
     }
 
 
+    // public function destroy(string $id)
+    // {
+    //     DB::table('pendaftar_kerja')->where('id',$id)->delete();
+    //     return redirect('/pendaftarkerja')->with('success', 'Data berhasil dihapus');
+    // }
+
     public function destroy(string $id)
     {
-        DB::table('pendaftar_kerja')->where('id',$id)->delete();
-        return redirect('/pendaftarkerja')->with('success', 'Data berhasil dihapus');
+        try {
+            DB::table('pendaftar_kerja')->where('id', $id)->delete();
+            return redirect('/pendaftarkerja')->with('success', 'Data berhasil dihapus');
+        } catch (QueryException $e) {
+            return redirect('/pendaftarkerja')->with('error', 'Gagal menghapus data. Terdapat relasi yang terkait.');
+        }
     }
 
 }

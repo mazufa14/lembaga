@@ -48,7 +48,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">Nama Pendaftar </label>
-                                            <input type="text" name="nama" id="first-name-column" class="form-control @error('nama') is-invalid @enderror">
+                                            <input type="text" value="{{ old('nama')}}" name="nama" id="first-name-column" class="form-control @error('nama') is-invalid @enderror">
                                             @error('nama')
                                             <div class="invalid-feedback">
                                             {{ $message }}
@@ -60,7 +60,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">Tempat Lahir </label>
-                                            <input type="text" name="tempat_lahir" id="first-name-column" class="form-control @error('tempat_lahir') is-invalid @enderror">
+                                            <input type="text" value="{{ old('tempat_lahir')}}" name="tempat_lahir" id="first-name-column" class="form-control @error('tempat_lahir') is-invalid @enderror">
                                             @error('tempat_lahir')
                                             <div class="invalid-feedback">
                                             {{ $message }}
@@ -72,7 +72,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">Tanggal Lahir </label>
-                                            <input type="date" name="tanggal_lahir" id="first-name-column" class="form-control @error('tanggal_lahir') is-invalid @enderror">
+                                            <input type="date" value="{{ old('tanggal_lahir')}}" name="tanggal_lahir" id="first-name-column" class="form-control @error('tanggal_lahir') is-invalid @enderror">
                                             @error('tanggal_lahir')
                                             <div class="invalid-feedback">
                                             {{ $message }}
@@ -84,7 +84,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">Berat Badan <code> *kg </code> </label>
-                                            <input type="number" name="berat_badan" id="first-name-column" class="form-control @error('berat_badan') is-invalid @enderror">
+                                            <input type="number" value="{{ old('berat_badan')}}" name="berat_badan" id="first-name-column" class="form-control @error('berat_badan') is-invalid @enderror">
                                             @error('berat_badan')
                                             <div class="invalid-feedback">
                                             {{ $message }}
@@ -113,8 +113,8 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="nikah">Status Pernikahan </label>
-                                                <select id="nikah" name="nikah" class="form-control @error('nikah') is-invalid @enderror">
-                                                <option value="" disabled selected>Pilih Status Pernikahan</option>
+                                                <select id="nikah"  value="{{ old('nikah')}}" name="nikah" class="form-control @error('nikah') is-invalid @enderror">
+                                                <option  disabled selected>Pilih Status Pernikahan</option>
                                                     <option value="Menikah">Menikah</option>
                                                     <option value="Belum Menikah">Belum Menikah</option>
                                                     <option value="Single Father">Single Father</option>
@@ -131,7 +131,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">Alamat Email <code> *Pastikan alamat email sudah benar </code></label>
-                                            <input type="email" name="alamat_email" id="first-name-column" class="form-control @error('alamat_email') is-invalid @enderror">
+                                            <input type="email" value="{{ old('alamat_email')}}" name="alamat_email" id="first-name-column" class="form-control @error('alamat_email') is-invalid @enderror">
                                             @error('alamat_email')
                                             <div class="invalid-feedback">
                                             {{ $message }}
@@ -143,7 +143,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">No hp <code> *Pastikan no telepon sudah benar </code></label>
-                                            <input type="number" name="no_hp" id="first-name-column" class="form-control @error('no_hp') is-invalid @enderror">
+                                            <input type="number" value="{{ old('no_hp')}}" name="no_hp" id="first-name-column" class="form-control @error('no_hp') is-invalid @enderror">
                                             @error('no_hp')
                                             <div class="invalid-feedback">
                                             {{ $message }}
@@ -155,7 +155,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">Alamat Rumah</label>
-                                            <input type="text" name="alamat_rumah" id="first-name-column" class="form-control @error('alamat_rumah') is-invalid @enderror">
+                                            <input type="text" value="{{ old('alamat_rumah')}}" name="alamat_rumah" id="first-name-column" class="form-control @error('alamat_rumah') is-invalid @enderror">
                                             @error('alamat_rumah')
                                             <div class="invalid-feedback">
                                             {{ $message }}
@@ -167,7 +167,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">Riwayat Penyakit <code> *Jika tidak ada cukup dengan (-) </code></label>
-                                                <textarea name="sakit" rows="4" id="first-name-column" class="form-control @error('sakit') is-invalid @enderror"></textarea>
+                                                <textarea name="sakit" value="{{ old('sakit')}}" rows="4" id="first-name-column" class="form-control @error('sakit') is-invalid @enderror"></textarea>
                                                 @error('sakit')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -179,7 +179,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="pendidikan">Pendidikan Terakhir</label>
-                                                <select id="pendidikan" name="pendidikan" class="form-control @error('pendidikan') is-invalid @enderror">
+                                                <select id="pendidikan" value="{{ old('pendidikan')}}" name="pendidikan" class="form-control @error('pendidikan') is-invalid @enderror">
                                                 <option value="" disabled selected>Pilih Pendidikan Terakhir</option>
                                                     <option value="SMA">SMA/Sederajat</option>
                                                     <option value="SMK">SMK/Sederajat</option>
@@ -198,7 +198,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="programkerja">Program Kerja</label>
-                                                <select id="programkerja" name="programkerja" class="form-control @error('programkerja') is-invalid @enderror">
+                                                <select id="programkerja" value="{{ old('programkerja')}}" name="programkerja" class="form-control @error('programkerja') is-invalid @enderror">
                                                  <option value="" disabled selected>Pilih Program Kerja</option>   
                                                  @foreach ($program_kerja as $p)                                                       
                                                  <option value="{{$p->id}}">{{$p->nama_program}}</option>
@@ -211,7 +211,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="foto">Foto 3*4 <code> *Pastikan foto sudah benar </code></label>
-                                            <input type="file" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
+                                            <input type="file" value="{{ old('foto')}}" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
                                             @error('foto')
                                             <div class="invalid-feedback">
                                             {{ $message }}

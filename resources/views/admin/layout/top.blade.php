@@ -48,7 +48,7 @@
                                 <div class="avatar me-1">
                                     <img src="{{asset('admin/assets/images/avatar/avatar-s-1.png')}}" alt="" srcset="">
                                 </div>
-                                <div class="d-none d-md-block d-lg-inline-block">{{Auth::user()->email}}</div>
+                                <div class="d-none d-md-block d-lg-inline-block">{{Auth::user()->name}}</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Profil</a>

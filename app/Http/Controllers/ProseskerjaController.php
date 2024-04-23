@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\proses_kerja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException; 
 
 class ProseskerjaController extends Controller
 {
@@ -131,10 +132,21 @@ class ProseskerjaController extends Controller
     }
 
 
+    // public function destroy(string $id)
+    // {
+    //     DB::table('proses_kerja')->where('id',$id)->delete();
+    //     return redirect('/proseskerja')->with('success','Data berhasil dihapus!');
+    // }
+   
     public function destroy(string $id)
     {
-        DB::table('proses_kerja')->where('id',$id)->delete();
-        return redirect('/proseskerja')->with('success','Data berhasil dihapus!');
+    try {
+        DB::table('proses_kerja')->where('id', $id)->delete();
+        return redirect('/proseskerja')->with('success', 'Data berhasil dihapus!');
+    } catch (QueryException $e) {
+        return redirect('/proseskerja')->with('error', 'Gagal menghapus data. Terdapat relasi yang terkait.');
+    } catch (\Exception $e) {
+        return redirect('/proseskerja')->with('error', 'Gagal menghapus data.');
     }
-   
+    }
 }

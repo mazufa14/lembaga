@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use illuminate\Http\Facades\DB;
 use App\Models\program_kerja;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException; 
+
 
 class ProgramkerjaController extends Controller
 {
@@ -70,18 +72,33 @@ class ProgramkerjaController extends Controller
     }
    
 
+    // public function delete($id)
+    // {
+    //     $program_kerja = program_kerja::find($id);
+
+    //     if(!$program_kerja){
+    //         return redirect('/programkerja')->with('error','Data tidak ditemukan!');
+    //     }
+
+    //     $program_kerja->delete();
+
+    //     return redirect('/programkerja')->with('success','Data berhasil dihapus!');
+
+
+    // }
+
     public function delete($id)
     {
-        $program_kerja = program_kerja::find($id);
-
-        if(!$program_kerja){
-            return redirect('/programkerja')->with('error','Data tidak ditemukan!');
-        }
-
+    try {
+        $program_kerja = program_kerja::findOrFail($id);
         $program_kerja->delete();
-
-        return redirect('/programkerja')->with('success','Data berhasil dihapus!');
-
-
+        return redirect('/programkerja')->with('success', 'Data berhasil dihapus!');
+    } catch (QueryException $e) {
+        return redirect('/programkerja')->with('error', 'Gagal menghapus data. Terdapat relasi yang terkait.');
+    } catch (\Exception $e) {
+        return redirect('/programkerja')->with('error', 'Gagal menghapus data.');
     }
+    }
+
+
 }
