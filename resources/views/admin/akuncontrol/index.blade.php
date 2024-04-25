@@ -19,7 +19,7 @@
         <div class="card">
             <div class="card-header">
                         @if (Auth::user()->role == 'admin')
-                        <a href="{{url('proseskerja/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a>
+                        <a href="{{url('akun/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a>
                         @endif
                     </div>
             <div class="card-body">
@@ -29,10 +29,10 @@
                     <thead>
                         <tr>
                         <th>No</th>
-                        <th>Nama Pendaftar</th>
-                        <th>Program </th>
-                        <th>Akun</th>
-                        <!-- <th>Akun</th> -->
+                        <th>Nama</th>
+                        <th>Email </th>
+                        <th>Role</th>
+                        <th>Id </th>
                         <th>Action</th>
                         </tr>
                     </thead>
@@ -41,19 +41,18 @@
                     
                     <tbody>
                         @php $no=1 @endphp
-                        @foreach ($proses_kerja as $proker)
+                        @foreach ($user as $proker)
                         <tr>
                             <td>{{$no++}}</td>
-                            <td>{{$proker->namapekerja}}</td>
-                            <td>{{$proker->namaprogram}}</td>
-                            <td>{{$proker->namaakun}}</td>
-                            <!-- <td>{{$proker->namaakun}}</td>  -->
+                            <td>{{$proker->name}}</td>
+                            <td>{{$proker->email}}</td>
+                            <td>{{$proker->role}}</td> 
+                            <td>{{$proker->id}}</td>
                             <td>
 
-                            <a href="{{url('proseskerja/show/'.$proker->id)}}" class="btn btn-sm btn-success mb-2"><i class="fas fa-eye"></i> Lihat data</a>
-                            
+                           
                             @if (Auth::user()->role == 'admin')
-                            <a href="{{url('proseskerja/edit/'.$proker->id)}}" class="btn btn-sm btn-warning mb-2"><i class="fas fa-edit"></i> Edit data </a>
+                            <!-- <a href="{{url('akun/edit/'.$proker->id)}}" class="btn btn-sm btn-warning mb-2"><i class="fas fa-edit"></i> Edit data </a> -->
                             
 
                                                 
@@ -72,11 +71,11 @@
                                                         </div>
                                                         
                                                         <div class="modal-body">
-                                                            Apakah anda yakin akan menghapus data {{$proker->namapekerja}} ?
+                                                            Apakah anda yakin akan menghapus data {{$proker->name}} ?
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <a href="{{url('proseskerja/delete/'.$proker->id)}}" type="button" class="btn btn-danger">Delete</a>
+                                                            <a href="{{url('akun/delete/'.$proker->id)}}" type="button" class="btn btn-danger">Delete</a>
                                                         </div>
                                                         </div>
                                                     </div>

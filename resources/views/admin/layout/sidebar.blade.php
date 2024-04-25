@@ -70,12 +70,15 @@
                 </li>
                 
              
-
+                @if (Auth::user()->role == 'admin')
                 <li class='sidebar-title'>Data Lembaga</li>
+                @endif
+               
+                @if (Auth::user()->role == 'siswa')
+                <li class='sidebar-title'>Data Siswa</li>
+                @endif
 
-                <li class="sidebar-item  ">
-                 
-              
+                <li class="sidebar-item ">
                 <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
                     <i data-feather="user" width="20"></i> 
                     <span>Data Pendaftaran Awal </span>
@@ -101,13 +104,13 @@
                 
                 @if (Auth::user()->role == 'admin')
                 <li class='sidebar-title'>Kelola data Halaman</li>
-                <a href="{{url('/pendaftarbelajar')}}" class='sidebar-link'>
-                    <i data-feather="user" width="20"></i> 
+                <a href="{{url('/info')}}" class='sidebar-link'>
+                    <i data-feather="info" width="20"></i> 
                     <span>Info</span>
                 </a>
 
-                <a href="{{url('/pendaftarbelajar')}}" class='sidebar-link'>
-                    <i data-feather="user" width="20"></i> 
+                <a href="{{url('/akun')}}" class='sidebar-link'>
+                    <i data-feather="user-check" width="20"></i> 
                     <span>Management akun</span>
                 </a>
                 @endif

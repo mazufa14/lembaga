@@ -53,6 +53,23 @@
                                     </div>
 
                                     <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                            <label for="user_id">Akun Siswa</label>
+                                            <select id="user_id" name="user_id" class="form-control @error('user_id') is-invalid @enderror">
+                                                <option value="" disabled selected>Pilih Akun</option>   
+                                                @foreach ($user as $p)                                                       
+                                                <option value="{{$p->id}}">{{$p->name}}</option>
+                                                @endforeach
+                                            </select>
+                                                @error('user_id')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                    <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="program_kerja">Program yang dipilih sebelumnya</label>
                                             <select id="program_kerja" name="program_kerja" class="form-control @error('program_kerja') is-invalid @enderror">
@@ -116,6 +133,11 @@
                                             </div>
                                         </div>
                                         
+
+
+                                        
+
+
                                         <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
                                             <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>

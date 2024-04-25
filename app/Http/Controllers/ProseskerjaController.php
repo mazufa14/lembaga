@@ -12,25 +12,28 @@ use Illuminate\Database\QueryException;
 class ProseskerjaController extends Controller
 {
     
-
-    // public function index(){
+    // public function index() {
+    //     // Mendapatkan role pengguna yang sedang login
+    //     $role = Auth::user()->role;
     
-    //     // Mendapatkan ID pengguna yang sedang login
-    //     $user_id = Auth::id(); 
-
-    //     // Mengambil data proses kerja yang dimiliki oleh pengguna yang sedang login
-    //     $proses_kerja = proses_kerja::join('users', 'proses_kerja.user_id', '=', 'users.id')
-    //     ->join('pendaftar_kerja', 'proses_kerja.nama_pekerja', '=', 'pendaftar_kerja.id')
-    //     ->join('program_kerja', 'proses_kerja.program_proses_kerja', '=', 'program_kerja.id')
-    //     ->where('users.id', $user_id) // Memfilter berdasarkan user_id yang sedang login
-    //     ->select('proses_kerja.*', 'pendaftar_kerja.pendaftar_pekerja as namapekerja', 'program_kerja.nama_program as namaprogram')
-    //     ->paginate(10); // Menggunakan paginate untuk membuat data ter-segmentasi
-
-    // return view('admin.proseskerja.index', compact('proses_kerja'));
-
+    //     // Inisialisasi query untuk mengambil data proses kerja
+    //     $query = proses_kerja::join('pendaftar_kerja', 'proses_kerja.nama_pekerja', '=', 'pendaftar_kerja.id')
+    //                          ->join('program_kerja', 'proses_kerja.program_proses_kerja', '=', 'program_kerja.id')
+    //                          ->select('proses_kerja.*', 'pendaftar_kerja.pendaftar_pekerja as namapekerja', 'program_kerja.nama_program as namaprogram');
+    
+    //     // Jika pengguna adalah admin, ambil semua data tanpa filter
+    //     if($role === 'admin') {
+    //         $proses_kerja = $query->paginate(10);
+    //     } else {
+    //         // Jika pengguna bukan admin, ambil data sesuai dengan user_id yang sedang login
+    //         $user_id = Auth::id();
+    //         $proses_kerja = $query->join('users', 'proses_kerja.user_id', '=', 'users.id')
+    //                              ->where('users.id', $user_id)
+    //                              ->paginate(10);
+    //     }
+    
+    //     return view('admin.proseskerja.index', compact('proses_kerja'));
     // }
-
-
 
     public function index() {
         // Mendapatkan role pengguna yang sedang login
@@ -39,7 +42,8 @@ class ProseskerjaController extends Controller
         // Inisialisasi query untuk mengambil data proses kerja
         $query = proses_kerja::join('pendaftar_kerja', 'proses_kerja.nama_pekerja', '=', 'pendaftar_kerja.id')
                              ->join('program_kerja', 'proses_kerja.program_proses_kerja', '=', 'program_kerja.id')
-                             ->select('proses_kerja.*', 'pendaftar_kerja.pendaftar_pekerja as namapekerja', 'program_kerja.nama_program as namaprogram');
+                             ->join('users as u1', 'proses_kerja.user_id', '=', 'u1.id')
+                             ->select('proses_kerja.*', 'pendaftar_kerja.pendaftar_pekerja as namapekerja', 'program_kerja.nama_program as namaprogram', 'u1.name as namaakun');
     
         // Jika pengguna adalah admin, ambil semua data tanpa filter
         if($role === 'admin') {
@@ -47,8 +51,8 @@ class ProseskerjaController extends Controller
         } else {
             // Jika pengguna bukan admin, ambil data sesuai dengan user_id yang sedang login
             $user_id = Auth::id();
-            $proses_kerja = $query->join('users', 'proses_kerja.user_id', '=', 'users.id')
-                                 ->where('users.id', $user_id)
+            $proses_kerja = $query->join('users as u2', 'proses_kerja.user_id', '=', 'u2.id')
+                                 ->where('u2.id', $user_id)
                                  ->paginate(10);
         }
     
@@ -64,7 +68,8 @@ class ProseskerjaController extends Controller
 
         $pendaftar_kerja = DB::table('pendaftar_kerja')->get();
         $program_kerja = DB::table('program_kerja')->get();
-        return view ('admin.proseskerja.create', compact('pendaftar_kerja','program_kerja'));
+        $user = DB::table('users')->get();
+        return view ('admin.proseskerja.create', compact('pendaftar_kerja','program_kerja','user'));
 
 
     }
@@ -115,16 +120,19 @@ class ProseskerjaController extends Controller
     public function store(Request $request){
         $this->validate($request,[
             'nama' => 'required|unique:proses_kerja,nama_pekerja',
+            'user_id' => 'required|unique:proses_kerja,user_id',
             'program_kerja' => 'required',
             'kebahasaan' => 'required',
             'pekerjaan' => 'required',
-            'deskripsi' => 'required|max:225',
+            'deskripsi' => 'nullable|max:225',
         ],
         [
             'nama.required' => 'Nama siswa wajib diisi',
             'nama.unique' => 'Nama yang diinput sudah ada', 
+            'user_id.required' => 'Akun siswa Belum diisi',
+            'user_id.unique' => 'Akun siswa sudah digunakan',
             'program_kerja.required' => 'Program kerja wajib diisi',
-            'deskripsi.required' => 'Deskripsi siswa wajib diisi',
+            // 'deskripsi.required' => 'Deskripsi siswa wajib diisi',
             'deskripsi.max' => 'Maksimal deskripsi 225 karakter',
             'pekerjaan.required' => 'Sertfikasi pekerjaan wajib diisi',
             'kebahasaan.required' => 'Sertifkasi wajib diisi',
@@ -135,6 +143,7 @@ class ProseskerjaController extends Controller
         // Tambah data 
         DB::table('proses_kerja')->insert([
             'nama_pekerja' => $request->nama,
+            'user_id' => $request->user_id,
             'program_proses_kerja' =>$request->program_kerja,
             'deskripsi' => $request->deskripsi,
             'sertifikasi' => $request->pekerjaan,

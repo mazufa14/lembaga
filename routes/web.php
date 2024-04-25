@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SesiController;
+use App\Http\Controllers\AkunController;
 
 use App\Http\Controllers\ProgramkerjaController;
 use App\Http\Controllers\ProgrambelajarController;
@@ -78,6 +79,13 @@ Route::group(['middleware' => ['auth', 'peran:admin-siswa-owner']], function(){
     Route::get('/proseskerja/delete/{id}',[ProseskerjaController::class,'destroy']);
     Route::post('/proseskerja/update/{id}', [ProseskerjaController::class, 'update']);
     Route::get('/proseskerja/edit/{id}', [ProseskerjaController::class, 'edit']);
+
+    // Akun controller
+    Route::get('/akun',[AkunController::class,'index']);
+    Route::get('/akun/create',[AkunController::class,'create']);
+    Route::post('/akun/store',[AkunController::class,'store']);
+    Route::get('/akun/delete/{id}',[AkunController::class,'destroy']);
+
 });
 
 // Route::middleware(['auth'])->group(function(){
