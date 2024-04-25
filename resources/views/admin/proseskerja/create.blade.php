@@ -39,6 +39,24 @@
                                         <div class="form-group">
                                             <label for="nama">Nama Siswa</label>
                                             <select id="nama" name="nama" class="form-control @error('nama') is-invalid @enderror">
+                                                <option value="" disabled {{ old('nama') == null ? 'selected' : '' }}>Pilih Siswa</option>
+                                                @foreach ($pendaftar_kerja as $p)
+                                                    <option value="{{ $p->id }}" {{ old('nama') == $p->id ? 'selected' : '' }}>{{ $p->pendaftar_pekerja }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('nama')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+
+                                    <!-- <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="nama">Nama Siswa</label>
+                                            <select id="nama" name="nama" class="form-control @error('nama') is-invalid @enderror">
                                                 <option value="" disabled selected>Pilih Siswa</option>   
                                                 @foreach ($pendaftar_kerja as $p)                                                       
                                                 <option value="{{$p->id}}">{{$p->pendaftar_pekerja}}</option>
@@ -50,15 +68,32 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="user_id">Akun Siswa</label>
+                                            <select id="user_id" name="user_id" class="form-control @error('user_id') is-invalid @enderror">
+                                                <option value="" disabled {{ old('user_id') == null ? 'selected' : '' }}>Pilih Akun</option>
+                                                @foreach ($user as $p)                                                       
+                                                    <option value="{{ $p->id }}" {{ old('user_id') == $p->id ? 'selected' : '' }}>{{ $p->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('user_id')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="col-md-6 col-12">
                                             <div class="form-group">
                                             <label for="user_id">Akun Siswa</label>
                                             <select id="user_id" name="user_id" class="form-control @error('user_id') is-invalid @enderror">
                                                 <option value="" disabled selected>Pilih Akun</option>   
                                                 @foreach ($user as $p)                                                       
-                                                <option value="{{$p->id}}">{{$p->name}}</option>
+                                                <option value="{{$p->id}}"  >{{$p->name}}</option>
                                                 @endforeach
                                             </select>
                                                 @error('user_id')
@@ -67,24 +102,44 @@
                                                     </div>
                                                 @enderror
                                             </div>
-                                        </div>
+                                        </div> -->
 
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="program_kerja">Program yang dipilih sebelumnya</label>
-                                            <select id="program_kerja" name="program_kerja" class="form-control @error('program_kerja') is-invalid @enderror">
-                                                <option value="" disabled selected>Pilih Program</option>   
-                                                @foreach ($program_kerja as $p)                                                       
-                                                <option value="{{$p->id}}">{{$p->nama_program}}</option>
-                                                @endforeach
-                                            </select>
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="program_kerja">Program yang dipilih sebelumnya</label>
+                                                <select id="program_kerja" name="program_kerja" class="form-control @error('program_kerja') is-invalid @enderror">
+                                                    <option value="" disabled {{ old('program_kerja') == null ? 'selected' : '' }}>Pilih Program</option>
+                                                    @foreach ($program_kerja as $p)
+                                                        <option value="{{ $p->id }}" {{ old('program_kerja') == $p->id ? 'selected' : '' }}>{{ $p->nama_program }}</option>
+                                                    @endforeach
+                                                </select>
                                                 @error('program_kerja')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
+                                            </div>
                                         </div>
-                                    </div>
+
+
+                                        <!-- <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="program_kerja">Program yang dipilih sebelumnya</label>
+                                                <select id="program_kerja" name="program_kerja" class="form-control @error('program_kerja') is-invalid @enderror">
+                                                    <option value="" disabled selected>Pilih Program</option>   
+                                                    @foreach ($program_kerja as $p)                                                       
+                                                    <option value="{{$p->id}}">{{$p->nama_program}}</option>
+                                                    @endforeach
+                                                </select>
+                                                    @error('program_kerja')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                            </div>
+                                        </div> -->
+
                                        
                                     
                                         <div class="col-md-6 col-12">
@@ -133,11 +188,6 @@
                                             </div>
                                         </div>
                                         
-
-
-                                        
-
-
                                         <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
                                             <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>

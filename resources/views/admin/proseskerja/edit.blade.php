@@ -51,9 +51,20 @@
                                             </select>
                                         </div>
 
+                                        <div class="form-group">
+                                            <label for="user_id">Akun</label>
+                                            <select id="user_id"  name="user_id" class="form-control @error('user_id') is-invalid @enderror">
+                                                <option value="" disabled selected>Pilih Akun</option>   
 
+                                                @foreach ($user as $p)
+                                                @php $sel = ($p->id == $proker->user_id) ? 'selected' : ''; @endphp                                                     
+                                                <option value="{{$p->id}}" {{$sel}}>{{$p->name}}</option>
+                                                @endforeach
 
+                                            </select>
+                                        </div>
 
+                                        
                                         <div class="form-group">
                                             <label for="programkerja">Program Kerja</label>
                                             <select id="programkerja" name="program_kerja" class="form-control @error('program_kerja') is-invalid @enderror">
@@ -104,18 +115,19 @@
                                             @enderror
                                         </div>
 
-                                    </div>
+                                        <div class="justify-content-center text-center mb-3">
+                                            <label for="deskripsi">Deskripsi</label>
+                                            <textarea name="deskripsi" rows="5" id="deskripsi"  class="form-control @error('deskripsi') is-invalid @enderror">{{$proker->deskripsi}}</textarea>
+                                            </div>
+                                            @error('deskripsi')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                            </div>
+                                        </div>
 
-                                    <div class="justify-content-center text-center mb-3">
-                                        <label for="deskripsi">Deskripsi</label>
-                                        <textarea name="deskripsi" rows="5" id="deskripsi"  class="form-control @error('deskripsi') is-invalid @enderror">{{$proker->deskripsi}}</textarea>
-                                    </div>
-                                    @error('deskripsi')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                </div>
+                                    
                                 
                                     <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>

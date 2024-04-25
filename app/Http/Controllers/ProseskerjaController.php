@@ -68,7 +68,13 @@ class ProseskerjaController extends Controller
 
         $pendaftar_kerja = DB::table('pendaftar_kerja')->get();
         $program_kerja = DB::table('program_kerja')->get();
-        $user = DB::table('users')->get();
+
+        // $user = DB::table('users')->get();
+        // Mengambil daftar pengguna yang bukan admin atau owner
+        $user = DB::table('users')
+        ->whereNotIn('role', ['admin', 'owner'])
+        ->get();
+
         return view ('admin.proseskerja.create', compact('pendaftar_kerja','program_kerja','user'));
 
 
@@ -80,8 +86,14 @@ class ProseskerjaController extends Controller
                
         $program_kerja = DB::table('program_kerja')->get();
         $pendaftar_kerja = DB::table('pendaftar_kerja')->get();
+
+        // Mengambil daftar pengguna yang bukan admin atau owner
+        $user = DB::table('users')
+        ->whereNotIn('role', ['admin', 'owner'])
+        ->get();
+
         $proses_kerja = DB::table('proses_kerja')->where('id',$id)->get();
-        return view ('admin.proseskerja.edit', compact('pendaftar_kerja','proses_kerja','program_kerja'));
+        return view ('admin.proseskerja.edit', compact('pendaftar_kerja','proses_kerja','program_kerja','user'));
         
     }
 
@@ -90,21 +102,25 @@ class ProseskerjaController extends Controller
     {
         $this->validate($request,[
             // 'nama' => 'required',
+            'user_id' => 'required|unique:proses_kerja,user_id',
             'program_kerja' => 'required',
             'sertifikasi_kebahasaan' => 'required',
             'sertifikasi_pekerjaan' => 'required',
-            'deskripsi' => 'required|max:225',
+            'deskripsi' => 'nullable|max:225',
         ],
         [
+            'user_id.required' => 'Akun siswa belum ada',
+            'user_id.unique' => 'Akun siswa sudah digunakan',
             'program_kerja.required' => 'Program kerja wajib diisi',
             'sertifikasi_pekerjaan.required' => 'Sertfikasi pekerjaan wajib diisi',
             'sertifikasi_kebahasaan.required' => 'Sertifkasi wajib diisi', 
-            'deskripsi.required' => 'Deskripsi siswa wajib diisi',
+            // 'deskripsi.required' => 'Deskripsi siswa wajib diisi',
             'deskripsi.max' => 'Maksimal deskripsi 225 karakter',
         ]);
 
         DB::table('proses_kerja')->where('id', $request->id)->update([
             // 'nama_pekerja' => $request->nama,
+            'user_id' => $request->user_id,
             'program_proses_kerja' =>$request->program_kerja,
             'deskripsi' => $request->deskripsi,
             'sertifikasi' => $request->sertifikasi_pekerjaan,

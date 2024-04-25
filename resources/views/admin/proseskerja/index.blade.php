@@ -29,10 +29,10 @@
                     <thead>
                         <tr>
                         <th>No</th>
+                        <th>Akun</th>
                         <th>Nama Pendaftar</th>
                         <th>Program </th>
-                        <th>Akun</th>
-                        <!-- <th>Akun</th> -->
+                        <th>Sertfikasi Kebahasaan</th>
                         <th>Action</th>
                         </tr>
                     </thead>
@@ -44,11 +44,10 @@
                         @foreach ($proses_kerja as $proker)
                         <tr>
                             <td>{{$no++}}</td>
+                            <td>{{$proker->namaakun}}</td>
                             <td>{{$proker->namapekerja}}</td>
                             <td>{{$proker->namaprogram}}</td>
-                            <td>{{$proker->namaakun}}</td>
-                            <!-- <td>{{$proker->namaakun}}</td>  -->
-                            <td>
+                            <td>{{$proker->kebahasaan}}<td>
 
                             <a href="{{url('proseskerja/show/'.$proker->id)}}" class="btn btn-sm btn-success mb-2"><i class="fas fa-eye"></i> Lihat data</a>
                             

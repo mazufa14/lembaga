@@ -35,7 +35,7 @@ class PendaftarkerjaController extends Controller
         $this->validate($request,[
             'nama' => 'required|max:50',
             'tempat_lahir' => 'required|max:20',
-            'tanggal_lahir' => 'required',
+            'tanggal_lahir' => 'required|before_or_equal: -17 years',
             'berat_badan' => 'required|max:3',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'nikah' => 'required',
@@ -54,6 +54,7 @@ class PendaftarkerjaController extends Controller
             'tempat_lahir.max' => 'Maksimal 50 karakter untuk tempat lahir.',
             'tanggal_lahir.required' => 'Tanggal lahir wajib diisi.',
             'tanggal_lahir.date' => 'Format tanggal lahir tidak valid.',
+            'tanggal_lahir.before_or_equal' => 'Anda harus berusia minimal 18 tahun.',
             'berat_badan.required' => 'Berat badan wajib diisi.',
             'berat_badan.max' => 'Maksimal 3 karakter untuk berat badan.',
             'jenis_kelamin.required' => 'Jenis kelamin wajib diisi.',
