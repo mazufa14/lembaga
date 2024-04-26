@@ -53,47 +53,55 @@
     </div>
     <div class="sidebar-menu">
         <ul class="menu">
-            
-                
-                <li class='sidebar-title'>hikari chart</li>
-                
-            
-                
-                <li class="sidebar-item ">
 
+                 <!--  siswa akses side bar-->
+                @if (Auth::user()->role == 'siswa')
+                <li class='sidebar-title'>Data Siswa</li>
+
+                <li class="sidebar-item ">
                     <a href="{{url('/dashboard')}}" class='sidebar-link'>
                         <i data-feather="home" width="20"></i> 
                         <span>Dashboard</span>
                     </a>
+                </li>
 
-                    
+                <li class="sidebar-item  ">
+                    <a href="{{url('/proseskerja')}}" class='sidebar-link'>
+                        <i data-feather="check-circle" width="20"></i> 
+                        <span>Proses Dokumen Siswa</span>
+                    </a>
+                </li>
+
+                @endif
+
+                <!--  admin akses side bar-->
+            
+                @if (Auth::user()->role == 'admin')
+
+                <li class='sidebar-title'>hikari chart</li>
+                
+                <li class="sidebar-item ">
+                    <a href="{{url('/dashboard')}}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i> 
+                        <span>Dashboard</span>
+                    </a>
                 </li>
                 
-             
-                @if (Auth::user()->role == 'admin')
                 <li class='sidebar-title'>Data Lembaga</li>
-                @endif
                
-                @if (Auth::user()->role == 'siswa')
-                <li class='sidebar-title'>Data Siswa</li>
-                @endif
-
                 <li class="sidebar-item ">
-                <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
-                    <i data-feather="user" width="20"></i> 
-                    <span>Data Pendaftaran Awal </span>
-                </a>
+                    <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
+                        <i data-feather="user" width="20"></i> 
+                        <span>Data Pendaftaran Awal </span>
+                    </a>
                 </li>
               
-
-                @if (Auth::user()->role == 'admin')
                 <li class="sidebar-item  ">
-                <a href="{{url('/programkerja')}}" class='sidebar-link'>
-                    <i data-feather="list" width="20"></i> 
-                    <span>Program Kerja Lembaga</span>
-                </a>
+                    <a href="{{url('/programkerja')}}" class='sidebar-link'>
+                        <i data-feather="list" width="20"></i> 
+                        <span>Program Kerja Lembaga</span>
+                    </a>
                 </li>
-                @endif
 
                 <li class="sidebar-item  ">
                 <a href="{{url('/proseskerja')}}" class='sidebar-link'>
@@ -102,7 +110,6 @@
                 </a>
                 </li>
                 
-                @if (Auth::user()->role == 'admin')
                 <li class='sidebar-title'>Kelola data Halaman</li>
                 <a href="{{url('/info')}}" class='sidebar-link'>
                     <i data-feather="info" width="20"></i> 
