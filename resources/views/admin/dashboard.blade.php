@@ -88,6 +88,30 @@
     <div class="card-body">
         <h5 class="card-title"> <i class="fas fa-circle fa-lg" style="color: #50ff05;"></i> Selamat Datang , {{Auth::user()->role}} !</h5>
         <p class="card-text">Ini adalah area kelola data admin lembaga hikari gakkai</p>
+
+         <hr>
+        <h5>Akun </h5>
+        <hr>
+         <div class="column" style="display: flex;">
+            <p class="card-text" style="margin-right: 10px;"> <i class="fas fa-user"></i> Username :</p>
+            <p class="card-text">@if(empty(Auth::user()->name)) {{ '' }} @else {{ Auth::user()->name }} @endif</p>
+         </div>
+        
+         <div class="column" style="display: flex;">
+            <p class="card-text" style="margin-right: 10px;"> <i class="fas fa-envelope"></i> Email Akun :</p>
+            <p class="card-text">{{Auth::user()->email}}</p>
+         </div>
+
+         <div class="column" style="display: flex;">
+            <p class="card-text" style="margin-right: 10px;"> <i class="fas fa-clock"></i> Waktu login :</p>
+
+            <?php
+               date_default_timezone_set('Asia/Jakarta'); // Set timezone ke Waktu Indonesia Barat (WIB)
+               $now = new DateTime();
+            ?>
+            <p class="card-text"> <?php echo $now->format('l, d F Y H:i:s'); ?> WIB</p>
+
+         </div>
     </div>
 </div>
 @endif

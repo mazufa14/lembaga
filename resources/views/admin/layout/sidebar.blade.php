@@ -58,6 +58,7 @@
                 @if (Auth::user()->role == 'siswa')
                 <li class='sidebar-title'>Data Siswa</li>
 
+                <hr class="sidebar-divider">
                 <li class="sidebar-item ">
                     <a href="{{url('/dashboard')}}" class='sidebar-link'>
                         <i data-feather="home" width="20"></i> 
@@ -72,13 +73,16 @@
                     </a>
                 </li>
 
+                <hr class="sidebar-divider">
+
                 @endif
 
                 <!--  admin akses side bar-->
             
                 @if (Auth::user()->role == 'admin')
-
+               
                 <li class='sidebar-title'>hikari chart</li>
+                
                 
                 <li class="sidebar-item ">
                     <a href="{{url('/dashboard')}}" class='sidebar-link'>
@@ -87,8 +91,10 @@
                     </a>
                 </li>
                 
+                <hr class="sidebar-divider">
                 <li class='sidebar-title'>Data Lembaga</li>
-               
+                
+                
                 <li class="sidebar-item ">
                     <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
                         <i data-feather="user" width="20"></i> 
@@ -109,6 +115,7 @@
                     <span>Proses Dokumen Siswa</span>
                 </a>
                 </li>
+                <hr class="sidebar-divider">
                 
                 <li class='sidebar-title'>Kelola data Halaman</li>
                 <a href="{{url('/info')}}" class='sidebar-link'>
