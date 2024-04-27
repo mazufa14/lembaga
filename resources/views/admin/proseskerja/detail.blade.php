@@ -4,6 +4,7 @@
 
 @foreach ($proses_kerja as $proker)
 
+@if (Auth::user()->role == 'admin')
 <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
@@ -21,7 +22,7 @@
         </div>
     </div>
 
-<div class="col-md-12">
+    <div class="col-md-12">
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title text-center mb-3">Informasi siswa</h4>
@@ -74,11 +75,231 @@
             </div>
         </div>
     </div>
+@endif
+
+<!-- /* ubah ukuran teks sesuai kebutuhan */ -->
+<!-- <style>
+    
+    .card-text {
+    font-size: 15px; 
+}
+
+.centered-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+</style> -->
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">  <i class="fas fa-circle fa-lg" style="color: #50ff05;"></i> Halaman proses siswa </h5>
+        <p class="card-text"> Semua proses data siswa di atur oleh pihak lembaga mulai dari pendaftaran sampai keberangkatan</p>
+        <hr>
+        <p class="card-text text-center">Di sini, Anda akan melihat semua proses, mulai dari pendaftaran dan seleksi awal pada lembaga,proses sertifikasi kebahasaan, seleksi pengguna, wawancara, pemeriksaan medis, penandatanganan kontrak, hingga persiapan keberangkatan.</p>
+    </div>
+</div>
+<hr>
+
+
+<!--  PROSES 1 -->
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title"> Proses 1 - Persyaratan awal </h5>
+        <p class="card-text"> Semua proses data siswa di atur oleh pihak lembaga mulai dari pendaftaran sampai keberangkatan</p>
+        <hr>    
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Laki-laki / Perempuan </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Lulusan SMU sederajat </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Usia minimal 17 tahun </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Sehat Jasmani & Rohani </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Tidak bertato </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Tidak bertindik (laki-laki) </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Tinggi Min. 153 (perempuan) </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Tinggi Min. 160 (laki-laki) </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Berat proporsional </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Tidak buta warna/ mata normal </p>
+        
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <table class='table table-striped'>
+        <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Proses 1 </h5>
+        <hr>
+            <thead>
+                <tr>
+                    <th>Program siswa</th>
+                    <th>Lembaga melakukan cek persyaratan awal</th>
+                    <th>Status proses lembaga</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>{{$proker->namaprogram}}</td>
+                    <td>{{$proker->namapekerja}}</td>
+                    <td>
+                    <span class="badge {{$proker->kebahasaan == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
+                        {{$proker->kebahasaan}}
+                    </span>    
+                   </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+
+<!-- proses 2 -->
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title"> Proses 2 - Tes Akademik dasar </h5>
+        <p class="card-text">Mengerjakan tes potensi akademik dasar</p>
+        <hr>    
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Mengerjakan test </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Terdiri dari beberapa soal </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Nilai minimal yag didapat >70 </p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <table class='table table-striped'>
+        <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Proses 2 </h5>
+        <hr>
+            <thead>
+                <tr>
+                    <th>Program siswa</th>
+                    <th>Nilai</th>
+                    <th>Status proses lembaga</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>{{$proker->namaprogram}}</td>
+                    <td>70 nanti sesuaikan dengan field</td>
+                    <td>
+                    <span class="badge {{$proker->kebahasaan == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
+                        {{$proker->kebahasaan}}
+                    </span>    
+                   </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+
+<!--  PROSES 3 -->
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title"> Proses 3 - Daftar Ulang </h5>
+        <p class="card-text">Dokumen yang diserahkan saat daftar ulang</p>
+        <hr>    
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Fotokopy KTP </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Fotokopy KK </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Akte kelahiran  </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Ijazah terakhir  </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Foto ukuran 3x4 tiga lembar background warna bebas  </p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <table class='table table-striped'>
+        <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Proses 3 </h5>
+        <hr>
+            <thead>
+                <tr>
+                    <th>Program siswa</th>
+                    <th>Lembaga melakukan cek data daftar ulang siswa</th>
+                    <th>Status proses lembaga</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>{{$proker->namaprogram}}</td>
+                    <td>{{$proker->namapekerja}}</td>
+                    <td>
+                    <span class="badge {{$proker->kebahasaan == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
+                        {{$proker->kebahasaan}}
+                    </span>    
+                   </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+
+<!-- PROSES 3 -->
+
+<div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title text-center mb-3">Informasi siswa</h4>
+
+            <div class="card-body">
+            <p>Siswa dapat melihat tahapan <code> proses </code> data yang sudah dilalui </p>
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="disabledInput">Nama siswa</label>
+                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
+                                value="{{$proker->namapekerja}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="disabledInput">Program kerja yang diambil</label>
+                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
+                                value="{{$proker->namaprogram}}">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                    <div class="form-group">
+                            <label for="disabledInput">Sertifikasi Kebahasaan </label>
+                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
+                                value="{{$proker->kebahasaan}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="disabledInput">Sertfikasi Pekerjaan</label>
+                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
+                                value="{{$proker->sertifikasi}}">
+                        </div>
+
+                        <!-- <div class="form-group">
+                            <label for="disabledInput">Deskripsi</label>
+                            <textarea class="form-control" id="readonlyInput" readonly="readonly" rows="4">{{$proker->deskripsi}}</textarea>
+                        </div>                         -->
+
+                    </div>
+
+                    <div class="justify-content-center text-center">
+                        <label for="disabledInput">Deskripsi</label>
+                        <textarea class="form-control" id="readonlyInput" readonly="readonly" rows="5">{{$proker->deskripsi}}</textarea>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+
 
 
 
 @endforeach  
-
-
-
 @endsection

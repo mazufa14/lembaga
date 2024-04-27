@@ -101,8 +101,8 @@ class ProseskerjaController extends Controller
     public function update(Request $request, string $id)
     {
         $this->validate($request,[
-            // 'nama' => 'required',
-            'user_id' => 'required|unique:proses_kerja,user_id',
+            // 'nama' => 'required'|unique:proses_kerja,user_id',
+            'user_id' => 'required',
             'program_kerja' => 'required',
             'sertifikasi_kebahasaan' => 'required',
             'sertifikasi_pekerjaan' => 'required',
@@ -110,7 +110,7 @@ class ProseskerjaController extends Controller
         ],
         [
             'user_id.required' => 'Akun siswa belum ada',
-            'user_id.unique' => 'Akun siswa sudah digunakan',
+            // 'user_id.unique' => 'Akun siswa sudah digunakan',
             'program_kerja.required' => 'Program kerja wajib diisi',
             'sertifikasi_pekerjaan.required' => 'Sertfikasi pekerjaan wajib diisi',
             'sertifikasi_kebahasaan.required' => 'Sertifkasi wajib diisi', 

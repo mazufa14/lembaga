@@ -147,9 +147,9 @@
                                                 <label for="kebahasaan">Sertikasi Kebahasaan <code>*JLPT *JFT *MIN N4</code></label>
                                                 <select id="kebahasaan" name="kebahasaan" class="form-control @error('kebahasaan') is-invalid @enderror">
                                                 <option value="" disabled selected>Pilih Sertifikasi</option>
-                                                    <option value="Sudah">Sudah</option>
+                                                    <option value="Memenuhi">Memenuhi</option>
                                                     <option value="Belum">Belum</option>
-                                                    <option value="Belum">Tidak diperlukan</option>
+                                                    <!-- <option value="Belum">Tidak diperlukan</option> -->
                                                 </select>
                                                 @error('kebahasaan')
                                                     <div class="invalid-feedback">
@@ -164,9 +164,9 @@
                                                 <label for="pekerjaan">Sertikasi Pekerjaan <code>*SSW</code> </label>
                                                 <select id="pekerjaan" name="pekerjaan" class="form-control @error('pekerjaan') is-invalid @enderror">
                                                 <option value="" disabled selected>Pilih Sertifikasi</option>
-                                                    <option value="Sudah">Sudah</option>
+                                                    <option value="Memenuhi">Memenuhi</option>
                                                     <option value="Belum">Belum</option>
-                                                    <option value="Belum">Tidak diperlukan</option>
+                                                    <!-- <option value="Belum">Tidak diperlukan</option> -->
                                                 </select>
                                                 @error('pekerjaan')
                                                     <div class="invalid-feedback">

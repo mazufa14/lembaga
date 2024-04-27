@@ -89,9 +89,9 @@
                                             <label for="sertifikasi_kebahasaan">Sertifikasi Kebahasaan </label>
                                             <select id="sertifikasi_kebahasaan" name="sertifikasi_kebahasaan" class="form-control @error('sertifikasi_kebahasaan') is-invalid @enderror">
                                                 <option value="" disabled>Pilih Jenis Kelamin</option>
-                                                <option value="Sudah" {{ $proker->kebahasaan == 'Sudah' ? 'selected' : '' }}>Sudah</option>
+                                                <option value="Memenuhi" {{ $proker->kebahasaan == 'Memenuhi' ? 'selected' : '' }}>Memenuhi</option>
                                                 <option value="Belum" {{ $proker->kebahasaan == 'Belum' ? 'selected' : '' }}>Belum</option>
-                                                <option value="Tidak diperlukan" {{ $proker->kebahasaan == 'Tidak diperlukan' ? 'selected' : '' }}>Tidak diperlukan</option>
+                                                <!-- <option value="Tidak diperlukan" {{ $proker->kebahasaan == 'Tidak diperlukan' ? 'selected' : '' }}>Tidak diperlukan</option> -->
                                             </select>
                                             @error('sertifikasi_kebahasaan')
                                                 <div class="invalid-feedback">
@@ -104,9 +104,9 @@
                                             <label for="sertfikasi">Sertifikasi Pekerjaan </label>
                                             <select id="sertfikasi" name="sertifikasi_pekerjaan" class="form-control @error('sertifikasi') is-invalid @enderror">
                                                 <option value="" disabled>Pilih Jenis Kelamin</option>
-                                                <option value="Sudah" {{ $proker->sertifikasi == 'Sudah' ? 'selected' : '' }}>Sudah</option>
+                                                <option value="Memenuhi" {{ $proker->sertifikasi == 'Memenuhi' ? 'selected' : '' }}>Memenuhi</option>
                                                 <option value="Belum" {{ $proker->sertifikasi == 'Belum' ? 'selected' : '' }}>Belum</option>
-                                                <option value="Tidak diperlukan" {{ $proker->sertifikasi == 'Tidak diperlukan' ? 'selected' : '' }}>Tidak diperlukan</option>
+                                                <!-- <option value="Tidak diperlukan" {{ $proker->sertifikasi == 'Tidak diperlukan' ? 'selected' : '' }}>Tidak diperlukan</option> -->
                                             </select>
                                             @error('sertifikasi')
                                                 <div class="invalid-feedback">
