@@ -39,6 +39,26 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="disabledInput">Proses 1 - Persyaratan awal</label>
+                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
+                                value="{{$proker->proses1}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="disabledInput">Proses 2 - Nilai Test</label>
+                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
+                                value="{{$proker->nilai}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="disabledInput">Proses 4 - Pembelajaran</label>
+                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
+                                value="{{$proker->proses4}}">
+                        </div>
+
+                        
+                        
+                        <div class="form-group">
                             <label for="disabledInput">Program kerja yang diambil</label>
                             <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
                                 value="{{$proker->namaprogram}}">
@@ -46,11 +66,31 @@
                     </div>
                     
                     <div class="col-md-6">
-                    <div class="form-group">
+
+                        <div class="form-group">
                             <label for="disabledInput">Sertifikasi Kebahasaan </label>
                             <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
                                 value="{{$proker->kebahasaan}}">
                         </div>
+
+                        <div class="form-group">
+                            <label for="disabledInput">Proses 2 - Test akademik dasar</label>
+                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
+                                value="{{$proker->proses2}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="disabledInput">Proses 3 - Daftar Ulang</label>
+                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
+                                value="{{$proker->proses3}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="disabledInput">Proses 4 - Pembelajaran Selama</label>
+                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly"
+                                value="{{$proker->bulan}}">
+                        </div>
+
 
                         <div class="form-group">
                             <label for="disabledInput">Sertfikasi Pekerjaan</label>
@@ -107,7 +147,7 @@
 
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title"> Proses 1 - Persyaratan awal </h5>
+        <h5 class="card-title"> Proses 1 - Persyaratan awal dan Pendaftaran </h5>
         <p class="card-text"> Semua proses data siswa di atur oleh pihak lembaga mulai dari pendaftaran sampai keberangkatan</p>
         <hr>    
         <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Laki-laki / Perempuan </p>
@@ -132,7 +172,7 @@
             <thead>
                 <tr>
                     <th>Program siswa</th>
-                    <th>Lembaga melakukan cek persyaratan awal</th>
+                    <th>Lembaga melakukan cek data</th>
                     <th>Status proses lembaga</th>
                 </tr>
             </thead>
@@ -142,8 +182,8 @@
                     <td>{{$proker->namaprogram}}</td>
                     <td>{{$proker->namapekerja}}</td>
                     <td>
-                    <span class="badge {{$proker->kebahasaan == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
-                        {{$proker->kebahasaan}}
+                    <span class="badge {{$proker->proses1 == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
+                        {{$proker->proses1}}
                     </span>    
                    </td>
                 </tr>
@@ -182,10 +222,10 @@
             <tbody>
                 <tr>
                     <td>{{$proker->namaprogram}}</td>
-                    <td>70 nanti sesuaikan dengan field</td>
+                    <td>{{$proker->nilai}}</td>
                     <td>
-                    <span class="badge {{$proker->kebahasaan == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
-                        {{$proker->kebahasaan}}
+                    <span class="badge {{$proker->proses2 == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
+                        {{$proker->proses2}}
                     </span>    
                    </td>
                 </tr>
@@ -228,8 +268,8 @@
                     <td>{{$proker->namaprogram}}</td>
                     <td>{{$proker->namapekerja}}</td>
                     <td>
-                    <span class="badge {{$proker->kebahasaan == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
-                        {{$proker->kebahasaan}}
+                    <span class="badge {{$proker->proses3 == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
+                        {{$proker->proses3}}
                     </span>    
                    </td>
                 </tr>
@@ -239,7 +279,84 @@
 </div>
 <hr>
 
-<!-- PROSES 3 -->
+<!-- PROSES 4 -->
+
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title"> Proses 4 - Program belajar </h5>
+        <hr>    
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Siswa mengambil program belajar yang disediakan lembaga </p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <table class='table table-striped'>
+        <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Proses 4 </h5>
+        <hr>
+            <thead>
+                <tr>
+                    <th>Program siswa</th>
+                    <th>Lama bulan belajar</th>
+                    <th>Status proses lembaga</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>{{$proker->namaprogram}}</td>
+                    <td>{{$proker->bulan}}</td>
+                    <td>
+                    <span class="badge {{$proker->proses4 == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
+                        {{$proker->proses4}}
+                    </span>    
+                   </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title"> Proses 5 - Sertifikasi Kebahasaan </h5>
+        <hr>    
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Siswa mengikuti test sertfikasi kebahasaan <code>* diatur oleh lembaga</code></p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Mengambil sertifikasi sesuai dengan program kerja yang diikuti </p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <table class='table table-striped'>
+        <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Proses 5 </h5>
+        <hr>
+            <thead>
+                <tr>
+                    <th>Program siswa</th>
+                    <th>Tingkat Sertifikasi kebahasaan</th>
+                    <th>Status proses lembaga</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>{{$proker->namaprogram}}</td>
+                    <td>{{$proker->kebahasaan}}</td>
+                    <td>
+                    <span class="badge {{$proker->proses5 == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
+                        {{$proker->proses5}}
+                    </span>    
+                   </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br><br>
 
 <div class="col-md-12">
         <div class="card">

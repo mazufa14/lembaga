@@ -103,6 +103,7 @@ class ProseskerjaController extends Controller
         $this->validate($request,[
             // 'nama' => 'required'|unique:proses_kerja,user_id',
             'user_id' => 'required',
+            'nilai' => 'max:3',
             'program_kerja' => 'required',
             'sertifikasi_kebahasaan' => 'required',
             'sertifikasi_pekerjaan' => 'required',
@@ -111,6 +112,7 @@ class ProseskerjaController extends Controller
         [
             'user_id.required' => 'Akun siswa belum ada',
             // 'user_id.unique' => 'Akun siswa sudah digunakan',
+            'nilai.max' => 'Nilai maksimal 3 karakter',
             'program_kerja.required' => 'Program kerja wajib diisi',
             'sertifikasi_pekerjaan.required' => 'Sertfikasi pekerjaan wajib diisi',
             'sertifikasi_kebahasaan.required' => 'Sertifkasi wajib diisi', 
@@ -121,6 +123,10 @@ class ProseskerjaController extends Controller
         DB::table('proses_kerja')->where('id', $request->id)->update([
             // 'nama_pekerja' => $request->nama,
             'user_id' => $request->user_id,
+            'proses1' => $request->proses1,
+            'proses2' => $request->proses2,
+            'nilai' => $request->nilai,
+            'proses3'=>$request->proses3,
             'program_proses_kerja' =>$request->program_kerja,
             'deskripsi' => $request->deskripsi,
             'sertifikasi' => $request->sertifikasi_pekerjaan,
@@ -137,20 +143,22 @@ class ProseskerjaController extends Controller
         $this->validate($request,[
             'nama' => 'required|unique:proses_kerja,nama_pekerja',
             'user_id' => 'required|unique:proses_kerja,user_id',
+            'nilai' => 'required',
             'program_kerja' => 'required',
             'kebahasaan' => 'required',
-            'pekerjaan' => 'required',
+            // 'sertifikasi' => 'required',
             'deskripsi' => 'nullable|max:225',
         ],
         [
             'nama.required' => 'Nama siswa wajib diisi',
-            'nama.unique' => 'Nama yang diinput sudah ada', 
+            'nama.unique' => 'Nama yang diinput sudah ada',
+            'nilai.required'  => 'Nilai test siswa belum diisi',
             'user_id.required' => 'Akun siswa Belum diisi',
             'user_id.unique' => 'Akun siswa sudah digunakan',
             'program_kerja.required' => 'Program kerja wajib diisi',
             // 'deskripsi.required' => 'Deskripsi siswa wajib diisi',
             'deskripsi.max' => 'Maksimal deskripsi 225 karakter',
-            'pekerjaan.required' => 'Sertfikasi pekerjaan wajib diisi',
+            // 'sertifikasi.required' => 'Sertfikasi pekerjaan wajib diisi',
             'kebahasaan.required' => 'Sertifkasi wajib diisi',
             
            
@@ -160,10 +168,28 @@ class ProseskerjaController extends Controller
         DB::table('proses_kerja')->insert([
             'nama_pekerja' => $request->nama,
             'user_id' => $request->user_id,
+            'proses1' => $request->proses1,
+            'proses2' => $request->proses2,
+            'nilai' => $request->nilai,
+            'proses3' => $request->proses3,
+            'proses4' => $request->proses4,
+            'bulan' => $request->bulan,
+            'proses5' => $request->proses5,
+            'kebahasaan' => $request->kebahasaan,
+            'proses6' => $request->proses6,
+            'sertifikasi' => $request->sertifikasi,
+            'proses7' => $request->proses7,
+            'perusahaan' => $request->perusahaan,
+            'proses8' => $request->proses8,
+            'proses9' => $request->proses9,
+            'proses10' => $request->proses10,
+            'proses11' => $request->proses11,
+            'proses12' => $request->proses12,
+
             'program_proses_kerja' =>$request->program_kerja,
             'deskripsi' => $request->deskripsi,
-            'sertifikasi' => $request->pekerjaan,
-            'kebahasaan' => $request->kebahasaan,
+            
+            
         ]);
         return redirect('/proseskerja')->with('success','Data berhasil tersimpan');
 

@@ -51,18 +51,35 @@
                                             </select>
                                         </div>
 
+                                        
+
                                         <div class="form-group">
-                                            <label for="user_id">Akun</label>
-                                            <select id="user_id"  name="user_id" class="form-control @error('user_id') is-invalid @enderror">
-                                                <option value="" disabled selected>Pilih Akun</option>   
-
-                                                @foreach ($user as $p)
-                                                @php $sel = ($p->id == $proker->user_id) ? 'selected' : ''; @endphp                                                     
-                                                <option value="{{$p->id}}" {{$sel}}>{{$p->name}}</option>
-                                                @endforeach
-
+                                            <label for="proses1">Proses 1 - Persyaratan awal</label>
+                                            <select id="proses1" name="proses1" class="form-control @error('proses1') is-invalid @enderror">
+                                                <option value="" disabled>Keputusan</option>
+                                                <option value="Memenuhi" {{ $proker->proses1 == 'Memenuhi' ? 'selected' : '' }}>Memenuhi</option>
+                                                <option value="Belum" {{ $proker->proses1 == 'Belum' ? 'selected' : '' }}>Belum</option>
+                                                <!-- <option value="Tidak diperlukan" {{ $proker->kebahasaan == 'Tidak diperlukan' ? 'selected' : '' }}>Tidak diperlukan</option> -->
                                             </select>
+                                            @error('proses1')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
+
+                                       
+                                        <div class="form-group">
+                                                <label for="first-name-column">Nilai </label>
+                                            <input type="number" value="{{$proker->nilai}}" name="nilai" id="first-name-column" class="form-control @error('nilai') is-invalid @enderror">
+                                                @error('nilai')
+                                                <div class="invalid-feedback">
+                                                {{ $message }}
+                                                </div>
+                                              @enderror
+                                        </div>
+                                        
+
 
                                         
                                         <div class="form-group">
@@ -85,6 +102,50 @@
                                     </div>
 
                                     <div class="col-md-6 ">
+
+                                        <div class="form-group">
+                                            <label for="user_id">Akun</label>
+                                            <select id="user_id"  name="user_id" class="form-control @error('user_id') is-invalid @enderror">
+                                                <option value="" disabled selected>Pilih Akun</option>   
+
+                                                @foreach ($user as $p)
+                                                @php $sel = ($p->id == $proker->user_id) ? 'selected' : ''; @endphp                                                     
+                                                <option value="{{$p->id}}" {{$sel}}>{{$p->name}}</option>
+                                                @endforeach
+
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="proses2">Proses 2 - Tes akademik dasar</label>
+                                            <select id="proses2" name="proses2" class="form-control @error('proses2') is-invalid @enderror">
+                                                <option value="" disabled>Keputusan</option>
+                                                <option value="Memenuhi" {{ $proker->proses2 == 'Memenuhi' ? 'selected' : '' }}>Memenuhi</option>
+                                                <option value="Belum" {{ $proker->proses2 == 'Belum' ? 'selected' : '' }}>Belum</option>
+                                                <!-- <option value="Tidak diperlukan" {{ $proker->kebahasaan == 'Tidak diperlukan' ? 'selected' : '' }}>Tidak diperlukan</option> -->
+                                            </select>
+                                            @error('proses2')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="proses3">Proses 3 - Daftar ulang</label>
+                                            <select id="proses3" name="proses3" class="form-control @error('proses3') is-invalid @enderror">
+                                                <option value="" disabled>Keputusan</option>
+                                                <option value="Memenuhi" {{ $proker->proses3 == 'Memenuhi' ? 'selected' : '' }}>Memenuhi</option>
+                                                <option value="Belum" {{ $proker->proses3 == 'Belum' ? 'selected' : '' }}>Belum</option>
+                                                <!-- <option value="Tidak diperlukan" {{ $proker->kebahasaan == 'Tidak diperlukan' ? 'selected' : '' }}>Tidak diperlukan</option> -->
+                                            </select>
+                                            @error('proses3')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+
                                         <div class="form-group">
                                             <label for="sertifikasi_kebahasaan">Sertifikasi Kebahasaan </label>
                                             <select id="sertifikasi_kebahasaan" name="sertifikasi_kebahasaan" class="form-control @error('sertifikasi_kebahasaan') is-invalid @enderror">

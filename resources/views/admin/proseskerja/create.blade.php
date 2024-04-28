@@ -87,25 +87,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                            <label for="user_id">Akun Siswa</label>
-                                            <select id="user_id" name="user_id" class="form-control @error('user_id') is-invalid @enderror">
-                                                <option value="" disabled selected>Pilih Akun</option>   
-                                                @foreach ($user as $p)                                                       
-                                                <option value="{{$p->id}}"  >{{$p->name}}</option>
-                                                @endforeach
-                                            </select>
-                                                @error('user_id')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div> -->
-
-
-                                        <div class="col-md-6 col-12">
+                                    <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="program_kerja">Program yang dipilih sebelumnya</label>
                                                 <select id="program_kerja" name="program_kerja" class="form-control @error('program_kerja') is-invalid @enderror">
@@ -121,7 +103,272 @@
                                                 @enderror
                                             </div>
                                         </div>
+                                    <!-- proses 1 -->
+                                    <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="proses1">Proses 1 - Persyaratan awal </label>
+                                                <select id="proses1" name="proses1" class="form-control @error('proses1') is-invalid @enderror">
+                                                    <option value="Belum">Belum</option>
+                                                    <option value="Memenuhi">Memenuhi</option>
+                                                </select>
+                                                @error('proses1')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
 
+                                        
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="proses2">Proses 2 - Tes akademik dasar </label>
+                                                <select id="proses2" name="proses2" class="form-control @error('proses2') is-invalid @enderror">
+                                                    <option value="Belum">Belum</option>
+                                                    <option value="Memenuhi">Memenuhi</option>
+                                                </select>
+                                                @error('proses2')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="first-name-column">Nilai test </label>
+                                            <input type="number" value="{{ old('nilai')}}" name="nilai" id="first-name-column" class="form-control @error('nilai') is-invalid @enderror">
+                                            @error('nilai')
+                                            <div class="invalid-feedback">
+                                            {{ $message }}
+                                            </div>
+                                            @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="proses3">Proses 3 - Daftar ulang</label>
+                                                <select id="proses3" name="proses3" class="form-control @error('proses3') is-invalid @enderror">
+                                                    <option value="Belum">Belum</option>
+                                                    <option value="Memenuhi">Memenuhi</option>
+                                                </select>
+                                                @error('proses3')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="proses4">Proses 4 - Pembelajaran</label>
+                                                <select id="proses4" name="proses4" class="form-control @error('proses4') is-invalid @enderror">
+                                                    <option value="Belum">Belum</option>
+                                                    <option value="Memenuhi">Memenuhi</option>
+                                                </select>
+                                                @error('proses4')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="first-name-column">Selama <code>*Bulan</code> </label>
+                                            <input type="number" value="{{ old('bulan')}}" name="bulan" id="first-name-column" class="form-control @error('bulan') is-invalid @enderror">
+                                            @error('bulan')
+                                            <div class="invalid-feedback">
+                                            {{ $message }}
+                                            </div>
+                                            @enderror
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="proses5">Proses 5 - Sertifikasi Kebahasaan</label>
+                                                <select id="proses5" name="proses5" class="form-control @error('proses5') is-invalid @enderror">
+                                                    <option value="Belum">Belum</option>
+                                                    <option value="Memenuhi">Memenuhi</option>
+                                                </select>
+                                                @error('proses5')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="kebahasaan">Proses 5 - Sertikasi Kebahasaan <code>SESUAIKAN DENGAN PROGRAM SISWA</code></label>
+                                                <select id="kebahasaan" name="kebahasaan" class="form-control @error('kebahasaan') is-invalid @enderror">
+                                                <!-- <option value="" disabled selected>Pilih Sertifikasi</option> -->
+                                                    <option value="belum">Belum</option>
+                                                    <option value="n1">N1</option>
+                                                    <option value="n2">N2</option>
+                                                    <option value="n3">N3</option>
+                                                    <option value="n4">N4</option>
+                                                    <option value="n1">N5</option>
+                                                </select>
+                                                @error('kebahasaan')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="proses6">Proses 6 - Sertikasi Pekerjaan  </label>
+                                                <select id="proses6" name="proses6" class="form-control @error('proses6') is-invalid @enderror">
+                                                    <option value="Belum">Belum</option>
+                                                    <option value="Memenuhi">Memenuhi</option>
+                                                    <!-- <option value="Belum">Tidak diperlukan</option> -->
+                                                </select>
+                                                @error('proses6')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="first-name-column">Bidang Sertifikasi <code>*Pertanian *kontruksi dll</code></label>
+                                            <input type="text" value="{{ old('sertifikasi')}}" name="sertifikasi" id="first-name-column" class="form-control @error('sertifikasi') is-invalid @enderror">
+                                            @error('sertifikasi')
+                                            <div class="invalid-feedback">
+                                            {{ $message }}
+                                            </div>
+                                            @enderror
+                                            </div>
+                                        </div>
+
+                                        
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="proses7">Proses 7 - Wawancara / Seleksi user</label>
+                                                <select id="proses7" name="proses7" class="form-control @error('proses7') is-invalid @enderror">
+                                                    <option value="Belum">Belum</option>
+                                                    <option value="Memenuhi">Memenuhi</option>
+                                                    <!-- <option value="Belum">Tidak diperlukan</option> -->
+                                                </select>
+                                                @error('proses7')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                   
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="first-name-column">Nama perusahaan</label>
+                                            <input type="text" value="{{ old('perusahaan')}}" name="perusahaan" id="first-name-column" class="form-control @error('perusahaan') is-invalid @enderror">
+                                            @error('perusahaan')
+                                            <div class="invalid-feedback">
+                                            {{ $message }}
+                                            </div>
+                                            @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="proses8">Proses 8 - Medikal checkup</label>
+                                                <select id="proses8" name="proses8" class="form-control @error('proses8') is-invalid @enderror">
+                                                    <option value="Belum">Belum</option>
+                                                    <option value="Memenuhi">Memenuhi</option>
+                                                    <!-- <option value="Belum">Tidak diperlukan</option> -->
+                                                </select>
+                                                @error('proses8')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="proses9">Proses 9 - Tanda tangan kontrak</label>
+                                                <select id="proses9" name="proses9" class="form-control @error('proses9') is-invalid @enderror">
+                                                    <option value="Belum">Belum</option>
+                                                    <option value="Memenuhi">Memenuhi</option>
+                                                    <!-- <option value="Belum">Tidak diperlukan</option> -->
+                                                </select>
+                                                @error('proses9')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="proses10">Proses 10 - Visa</label>
+                                                <select id="proses10" name="proses10" class="form-control @error('proses10') is-invalid @enderror">
+                                                    <option value="Belum">Belum</option>
+                                                    <option value="Memenuhi">Memenuhi</option>
+                                                    <!-- <option value="Belum">Tidak diperlukan</option> -->
+                                                </select>
+                                                @error('proses10')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="proses11">Proses 11 - Passport</label>
+                                                <select id="proses11" name="proses11" class="form-control @error('proses11') is-invalid @enderror">
+                                                    <option value="Belum">Belum</option>
+                                                    <option value="Memenuhi">Memenuhi</option>
+                                                    <!-- <option value="Belum">Tidak diperlukan</option> -->
+                                                </select>
+                                                @error('proses11')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="proses12">Proses 12 - Keputusan Lembaga</label>
+                                                <select id="proses12" name="proses12" class="form-control @error('proses12') is-invalid @enderror">
+                                                    <option value="Menunggu keputusan">Menunggu keputusan</option>
+                                                    <option value="Layak dan Siap diberangkatkan">Layak dan siap diberangkatkan</option>
+                                                    <!-- <option value="Belum">Tidak diperlukan</option> -->
+                                                </select>
+                                                @error('proses12')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
 
                                         <!-- <div class="col-md-6 col-12">
                                             <div class="form-group">
@@ -139,42 +386,6 @@
                                                     @enderror
                                             </div>
                                         </div> -->
-
-                                       
-                                    
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="kebahasaan">Sertikasi Kebahasaan <code>*JLPT *JFT *MIN N4</code></label>
-                                                <select id="kebahasaan" name="kebahasaan" class="form-control @error('kebahasaan') is-invalid @enderror">
-                                                <option value="" disabled selected>Pilih Sertifikasi</option>
-                                                    <option value="Memenuhi">Memenuhi</option>
-                                                    <option value="Belum">Belum</option>
-                                                    <!-- <option value="Belum">Tidak diperlukan</option> -->
-                                                </select>
-                                                @error('kebahasaan')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="pekerjaan">Sertikasi Pekerjaan <code>*SSW</code> </label>
-                                                <select id="pekerjaan" name="pekerjaan" class="form-control @error('pekerjaan') is-invalid @enderror">
-                                                <option value="" disabled selected>Pilih Sertifikasi</option>
-                                                    <option value="Memenuhi">Memenuhi</option>
-                                                    <option value="Belum">Belum</option>
-                                                    <!-- <option value="Belum">Tidak diperlukan</option> -->
-                                                </select>
-                                                @error('pekerjaan')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
