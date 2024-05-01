@@ -105,8 +105,8 @@ class ProseskerjaController extends Controller
             'user_id' => 'required',
             'nilai' => 'max:3',
             'program_kerja' => 'required',
-            'sertifikasi_kebahasaan' => 'required',
-            'sertifikasi_pekerjaan' => 'required',
+            // 'sertifikasi_kebahasaan' => 'required',
+            // 'sertifikasi_pekerjaan' => 'required',
             'deskripsi' => 'nullable|max:225',
         ],
         [
@@ -114,8 +114,8 @@ class ProseskerjaController extends Controller
             // 'user_id.unique' => 'Akun siswa sudah digunakan',
             'nilai.max' => 'Nilai maksimal 3 karakter',
             'program_kerja.required' => 'Program kerja wajib diisi',
-            'sertifikasi_pekerjaan.required' => 'Sertfikasi pekerjaan wajib diisi',
-            'sertifikasi_kebahasaan.required' => 'Sertifkasi wajib diisi', 
+            // 'sertifikasi_pekerjaan.required' => 'Sertfikasi pekerjaan wajib diisi',
+            // 'sertifikasi_kebahasaan.required' => 'Sertifkasi wajib diisi', 
             // 'deskripsi.required' => 'Deskripsi siswa wajib diisi',
             'deskripsi.max' => 'Maksimal deskripsi 225 karakter',
         ]);
@@ -127,10 +127,23 @@ class ProseskerjaController extends Controller
             'proses2' => $request->proses2,
             'nilai' => $request->nilai,
             'proses3'=>$request->proses3,
+
+            'proses4' => $request->proses4,
+            'bulan' => $request->bulan,
+            'proses5' => $request->proses5,
+            'kebahasaan' => $request->kebahasaan,
+            'proses6' => $request->proses6,
+            'sertifikasi' => $request->sertifikasi,
+            'proses7' => $request->proses7,
+            'perusahaan' => $request->perusahaan,
+            'proses8' => $request->proses8,
+            'proses9' => $request->proses9,
+            'proses10' => $request->proses10,
+            'proses11' => $request->proses11,
+            'proses12' => $request->proses12,
+
             'program_proses_kerja' =>$request->program_kerja,
             'deskripsi' => $request->deskripsi,
-            'sertifikasi' => $request->sertifikasi_pekerjaan,
-            'kebahasaan' => $request->sertifikasi_kebahasaan,
         ]);
 
         return redirect('/proseskerja')->with('success','Data berhasil diupdate!');
@@ -159,7 +172,7 @@ class ProseskerjaController extends Controller
             // 'deskripsi.required' => 'Deskripsi siswa wajib diisi',
             'deskripsi.max' => 'Maksimal deskripsi 225 karakter',
             // 'sertifikasi.required' => 'Sertfikasi pekerjaan wajib diisi',
-            'kebahasaan.required' => 'Sertifkasi wajib diisi',
+            'kebahasaan.required' => 'Sertifikasi wajib diisi',
             
            
         ]);

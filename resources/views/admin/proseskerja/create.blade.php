@@ -30,12 +30,12 @@
                             <h4 class="card-title">Tambah Pendaftar Kerja</h4>
                         </div>
                         
-                             <div class="card-body">
+                        <div class="card-body">
                                 <p>Admin dapat melakukan <code> Kelola Data </code> data dengan <code> Operasi </code> yang diberikan</p>
                                    
                                     <div class="row">
 
-                                    <div class="col-md-6 col-12">
+                                        <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="nama">Nama Siswa</label>
                                             <select id="nama" name="nama" class="form-control @error('nama') is-invalid @enderror">
@@ -50,10 +50,10 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                    </div>
+                                        </div>
 
 
-                                    <!-- <div class="col-md-6 col-12">
+                                        <!-- <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="nama">Nama Siswa</label>
                                             <select id="nama" name="nama" class="form-control @error('nama') is-invalid @enderror">
@@ -68,9 +68,9 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                    </div> -->
+                                        </div> -->
 
-                                    <div class="col-md-6 col-12">
+                                        <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="user_id">Akun Siswa</label>
                                             <select id="user_id" name="user_id" class="form-control @error('user_id') is-invalid @enderror">
@@ -85,9 +85,9 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                    </div>
+                                        </div>
 
-                                    <div class="col-md-6 col-12">
+                                        <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="program_kerja">Program yang dipilih sebelumnya</label>
                                                 <select id="program_kerja" name="program_kerja" class="form-control @error('program_kerja') is-invalid @enderror">
@@ -103,8 +103,8 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                    <!-- proses 1 -->
-                                    <div class="col-md-6 col-12">
+                                        <!-- proses 1 -->
+                                        <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="proses1">Proses 1 - Persyaratan awal </label>
                                                 <select id="proses1" name="proses1" class="form-control @error('proses1') is-invalid @enderror">
@@ -212,12 +212,12 @@
                                                 <label for="kebahasaan">Proses 5 - Sertikasi Kebahasaan <code>SESUAIKAN DENGAN PROGRAM SISWA</code></label>
                                                 <select id="kebahasaan" name="kebahasaan" class="form-control @error('kebahasaan') is-invalid @enderror">
                                                 <!-- <option value="" disabled selected>Pilih Sertifikasi</option> -->
-                                                    <option value="belum">Belum</option>
-                                                    <option value="n1">N1</option>
-                                                    <option value="n2">N2</option>
-                                                    <option value="n3">N3</option>
-                                                    <option value="n4">N4</option>
-                                                    <option value="n1">N5</option>
+                                                <option value="N5">N5</option>
+                                                <option value="N4">N4</option>
+                                                <option value="N3">N3</option>
+                                                <option value="N2">N2</option>
+                                                <option value="N1">N1</option>    
+                                        
                                                 </select>
                                                 @error('kebahasaan')
                                                     <div class="invalid-feedback">
