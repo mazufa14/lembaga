@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lembaga tiga</title>
+    <title>Hikkari Gakkai </title>
     
     <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('admin/vendors/simple-datatables/style.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendors/chartjs/Chart.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/css/app.css')}}">
-    <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.svg')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('admin/assets/images/hikkari.png')}}" type="image/x-icon">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
 
@@ -49,7 +50,7 @@
         <div id="sidebar" class='active'>
             <div class="sidebar-wrapper active">
     <div class="sidebar-header">
-        <img src="{{asset('admin/assets/images/logo.svg')}}" alt="" srcset="">
+        <img src="{{asset('admin/assets/images/hikkari.png')}}" height="100" alt="" srcset="">
     </div>
     <div class="sidebar-menu">
         <ul class="menu">
@@ -132,7 +133,7 @@
                             <a href="{{url('/info')}}" class='sidebar-link'>
                             <i data-feather="info" width="20"></i> 
                             <span>Info</span>
-                        </li>
+                    </li>
 
                     </a>
                         
