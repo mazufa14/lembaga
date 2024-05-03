@@ -30,8 +30,8 @@
                         <th>Nama Pendaftar</th>
                         <th>Tempat Lahir</th>
                         <th>Tanggal Lahir</th>
-                        <th>Berat Badan</th>
                         <th>Jenis Kelamin</th>
+                        <th>Akun</th>
 
                         <!-- <th>nikah</th>
                         <th>alamat email</th>
@@ -55,8 +55,8 @@
                             <td>{{$proker->pendaftar_pekerja}}</td>
                             <td>{{$proker->tempat_lahir}}</td>
                             <td>{{$proker->tanggal_lahir}}</td>
-                            <td>{{$proker->berat_badan}}</td>
                             <td>{{$proker->jenis_kelamin}}</td>
+                            <td>{{$proker->namaakun}}</td>
 
                             <!-- <td>{{ $proker->nikah}}</td>
                             <td>{{ $proker->alamat_email}}</td>
@@ -72,9 +72,9 @@
                             <a href="{{url('pendaftarkerja/show/'.$proker->id)}}" class="btn btn-sm btn-success mb-2"><i class="fas fa-eye"></i> Lihat data</a>
                             <a href="{{url('pendaftarkerja/edit/'.$proker->id)}}" class="btn btn-sm btn-warning mb-2"><i class="fas fa-edit"></i> Edit data </a>
 
-                                            
+                                                @if (Auth::user()->role == 'admin')
                                                 <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal{{$proker->id}}"><i class="fas fa-trash"></i> Hapus data </button>
-
+                                                @endif
 
                                                     <div class="modal fade" id="exampleModal{{$proker->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">

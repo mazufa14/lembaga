@@ -57,6 +57,24 @@
                                             </div>
                                         </div>
 
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="user_id">Akun Siswa</label>
+                                                <select id="user_id" name="user_id" class="form-control @error('user_id') is-invalid @enderror">
+                                                    <option value="" disabled {{ old('user_id') == null ? 'selected' : '' }}>Pilih Akun</option>
+                                                    @foreach ($users as $p)                                                       
+                                                        <option value="{{ $p->id }}" {{ old('user_id') == $p->id ? 'selected' : '' }}>{{ $p->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                @error('user_id')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">Tempat Lahir </label>
@@ -108,6 +126,8 @@
                                                 @enderror
                                             </div>
                                         </div>
+
+                                        
 
 
                                         <div class="col-md-6 col-12">

@@ -3,30 +3,87 @@
 namespace App\Http\Controllers;
 
 use App\Models\pendaftar_kerja;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 
 class PendaftarkerjaController extends Controller
 {
-    //
+    
+    // public function index(){
+
+    //     $pendaftar_kerja = pendaftar_kerja::join('program_kerja','program', '=', 'program_kerja.id')
+    //     ->join('users','user_id', '=' , 'users.id')
+    //     ->select('pendaftar_kerja.*','program_kerja.nama_program as namaprogram', 'users.name as namaakun')
+    //     ->get();
+    //     return view ('admin.pendaftarkerja.index', compact('pendaftar_kerja'));
+
+    //     // $pendaftar_kerja = pendaftar_kerja::all();
+    //     // return view ('admin.pendaftarkerja.index', compact('pendaftar_kerja'));
+
+
+    // }
+
+
     public function index(){
-
-        $pendaftar_kerja = pendaftar_kerja::join('program_kerja','program', '=', 'program_kerja.id')
-        ->select('pendaftar_kerja.*','program_kerja.nama_program as namaprogram')
-        ->get();
-        return view ('admin.pendaftarkerja.index', compact('pendaftar_kerja'));
-
-        // $pendaftar_kerja = pendaftar_kerja::all();
-        // return view ('admin.pendaftarkerja.index', compact('pendaftar_kerja'));
-
-
+        // Mendapatkan role pengguna yang sedang login
+        $role = Auth::user()->role;
+    
+        // Inisialisasi query untuk mengambil data pendaftar kerja
+        $query = pendaftar_kerja::join('program_kerja', 'program', '=', 'program_kerja.id')
+            ->join('users', 'user_id', '=', 'users.id')
+            ->select('pendaftar_kerja.*', 'program_kerja.nama_program as namaprogram', 'users.name as namaakun');
+    
+        // Jika pengguna adalah admin, ambil semua data
+        if($role === 'admin') {
+            $pendaftar_kerja = $query->paginate(10);
+        } else {
+            // Jika pengguna bukan admin, ambil data sesuai dengan user_id yang sedang login
+            $user_id = Auth::id();
+            $pendaftar_kerja = $query->where('users.id', $user_id)->paginate(10);
+        }
+    
+        return view('admin.pendaftarkerja.index', compact('pendaftar_kerja'));
     }
 
     public function create()
     {
+        // 1
+        // $program_kerja = DB::table('program_kerja')->get();
+        // $user = DB::table('users')
+        // ->whereNotIn('role', ['admin', 'owner'])
+        // ->get();
+        // return view ('admin.pendaftarkerja.create', compact('program_kerja','user'));
+
+        // 2
+        // if (Auth::user()->role === 'siswa') {
+        //     $userId = Auth::id();
+        //     $users = collect([User::findOrFail($userId)]);
+        // } else {
+        //     $users = DB::table('users')
+        //         ->whereNotIn('role', ['admin', 'owner'])
+        //         ->get();
+        // }
+        // return view ('admin.pendaftarkerja.create', compact('program_kerja','users'));
+
+
         $program_kerja = DB::table('program_kerja')->get();
-        return view ('admin.pendaftarkerja.create', compact('program_kerja'));
+
+        if (Auth::user()->role === 'admin') {
+            $users = DB::table('users')
+                ->whereNotIn('role', ['admin', 'owner'])
+                ->get();
+        } else {
+            $userId = Auth::id();
+            $users = collect([User::findOrFail($userId)]);
+        }
+       
+    
+        return view('admin.pendaftarkerja.create', compact('program_kerja', 'users'));
+
+        
 
     }
 
@@ -34,6 +91,7 @@ class PendaftarkerjaController extends Controller
     {
         $this->validate($request,[
             'nama' => 'required|max:50',
+            'user_id' => 'required|unique:pendaftar_kerja,user_id',
             'tempat_lahir' => 'required|max:20',
             'tanggal_lahir' => 'required|before_or_equal: -17 years',
             'berat_badan' => 'required|max:3',
@@ -50,6 +108,8 @@ class PendaftarkerjaController extends Controller
         ],[
             'nama.required' => 'Nama pendaftar wajib diisi',
             'nama.max' => 'Maksimal 50 karakter untuk nama.',
+            'user_id.required' => 'Akun siswa Belum diisi',
+            'user_id.unique' => 'Akun sudah input data',
             'tempat_lahir.required' => 'Tempat lahir wajib diisi.',
             'tempat_lahir.max' => 'Maksimal 50 karakter untuk tempat lahir.',
             'tanggal_lahir.required' => 'Tanggal lahir wajib diisi.',
@@ -90,6 +150,7 @@ class PendaftarkerjaController extends Controller
         // dengan query builder
         DB::table('pendaftar_kerja')->insert([
             'pendaftar_pekerja' =>$request->nama,
+            'user_id' => $request->user_id,
             'tempat_lahir' =>$request-> tempat_lahir,
             'tanggal_lahir'=>$request-> tanggal_lahir,
             'berat_badan' =>$request-> berat_badan,

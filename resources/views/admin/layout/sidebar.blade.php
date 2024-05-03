@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hikkari Gakkai </title>
+    <title>Lembaga empat </title>
     
     <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('admin/vendors/simple-datatables/style.css')}}">
@@ -14,8 +14,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
-
-
+    <!-- ALTER TABLE pendaftar_kerja ADD FOREIGN KEY (user_id) REFERENCES users(id); -->
+<!-- diatas untuk membuat foreign key -->
     <style>
         .dataTables_filter {
             float: right;
