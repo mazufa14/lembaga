@@ -59,11 +59,29 @@
                 @if (Auth::user()->role == 'siswa')
                 <li class='sidebar-title'>Data Siswa</li>
 
-                <hr class="sidebar-divider">
+               
                 <li class="sidebar-item ">
                     <a href="{{url('/dashboard')}}" class='sidebar-link'>
                         <i data-feather="home" width="20"></i> 
                         <span>Dashboard</span>
+                    </a>
+                </li>
+
+                
+
+                <li class='sidebar-title'>Seleksi siswa</li>
+
+                <li class="sidebar-item  ">
+                    <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
+                        <i data-feather="user-plus" width="20"></i> 
+                        <span>Daftar</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="{{url('/proseskerja')}}" class='sidebar-link'>
+                        <i data-feather="git-branch" width="20"></i> 
+                        <span>Seleksi Lembaga</span>
                     </a>
                 </li>
 
@@ -74,7 +92,7 @@
                     </a>
                 </li>
 
-                <hr class="sidebar-divider">
+                <!-- <hr class="sidebar-divider"> -->
 
                 @endif
 
@@ -115,6 +133,7 @@
                             </a>
                         </li>
 
+
                         <li class="sidebar-item  ">
                             <a href="{{url('/programkerja')}}" class='sidebar-link'>
                                 <i data-feather="list" width="20"></i> 
@@ -130,10 +149,12 @@
                         </li>
 
                         <li class="sidebar-item  ">
-                            <a href="{{url('/info')}}" class='sidebar-link'>
-                            <i data-feather="info" width="20"></i> 
-                            <span>Info</span>
-                    </li>
+                            <a href="{{url('/seleksilembaga')}}" class='sidebar-link'>
+                            <i data-feather="git-branch" width="20"></i> 
+                            <span>Seleksi Lembaga</span>
+                        </li>
+
+                       
 
                     </a>
                         
