@@ -18,7 +18,13 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
+                        @if (Auth::user()->role == 'admin')
                         <a href="{{url('pendaftarkerja/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a>
+                        @endif
+
+                        @if (Auth::user()->role == 'siswa')
+                        <a href="{{url('pendaftarkerja/create')}}" class="btn btn-primary" ><i class="fas fa-user-plus"></i> Pendaftaran</a>
+                        @endif
                     </div>
             <div class="card-body">
 

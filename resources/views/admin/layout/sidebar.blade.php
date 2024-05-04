@@ -113,7 +113,7 @@
                     </a>
                 </li>
 
-                <hr class="sidebar-divider">
+               
 
 
                 <li class='sidebar-title'>Data Lembaga</li>
@@ -186,7 +186,7 @@
                     <span>Proses Dokumen Siswa</span>
                 </a>
                 </li> -->
-                <hr class="sidebar-divider">
+             
 
                 <li class='sidebar-title'>Akun</li>
                     <a href="{{url('/akun')}}" class='sidebar-link'>
