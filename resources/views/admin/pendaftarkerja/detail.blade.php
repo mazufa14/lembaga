@@ -25,7 +25,7 @@
 
     
    
-<div class="col-md-12">
+    <!-- <div class="col-md-12">
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title text-center mb-3">Informasi siswa</h4>
@@ -122,12 +122,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
    
 
 
-    @if (Auth::user()->role == 'admin')
-    <!-- <i class="fas fa-circle fa-lg" style="color: #50ff05;"></i>  -->
+   
     <div class="card border">
         <div class="card-body">
             <h5 class="card-title text-center mb-3">
@@ -267,7 +266,7 @@
 
         </div>
     </div>
-    @endif
+    
    
              
 
