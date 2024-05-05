@@ -271,6 +271,7 @@ class PendaftarkerjaController extends Controller
             'pendidikan_terakhir' => $request-> pendidikan,
             'program' => $request->programkerja,
             'foto' => $fileName,
+            'status' =>$request->status,
         ]);
         return redirect('/pendaftarkerja')->with('success', 'Data  berhasil di Update!');
 

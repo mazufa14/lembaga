@@ -9,7 +9,7 @@ class pendaftar_kerja extends Model
 {
     use HasFactory;
     protected $table = 'pendaftar_kerja';
-    protected $fillable = ['pendaftar_pekerja','tempat_lahir','tanggal_lahir','berat_badan','jenis_kelamin','nikah','alamat_email','no_hp','alamat_rumah','sakit_berat','pendidikan_terakhir','program','foto'];
+    protected $fillable = ['pendaftar_pekerja','tempat_lahir','tanggal_lahir','berat_badan','jenis_kelamin','nikah','alamat_email','no_hp','alamat_rumah','sakit_berat','pendidikan_terakhir','program','foto','user_id','status'];
     public $timestamps = false;
 
 

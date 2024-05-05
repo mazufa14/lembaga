@@ -205,6 +205,23 @@
                                             </div>
                                         </div>
 
+                                        @if (Auth::user()->role == 'admin')
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="status">Status verifikasi data</label>
+                                                <select id="status" name="status" class="form-control @error('status') is-invalid @enderror">
+                                                    <option value="unverified" {{ $proker->status == 'unverified' ? 'selected' : '' }}>Unverified</option>
+                                                    <option value="verified" {{ $proker->status == 'verified' ? 'selected' : '' }}>Verified</option>
+                                                </select>
+                                                @error('status')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        @endif
+
 
                                         <div class="col-md-6 col-12 mb-3">
                                             <div class="form-group">

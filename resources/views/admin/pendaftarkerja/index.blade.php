@@ -23,7 +23,7 @@
                         @endif
 
                         @if (Auth::user()->role == 'siswa')
-                        <a href="{{url('pendaftarkerja/create')}}" class="btn btn-primary" ><i class="fas fa-user-plus"></i> Pendaftaran</a>
+                        <a href="{{url('pendaftarkerja/create')}}" class="btn btn-primary" ><i class="fas fa-user-plus"></i> Isi data diri</a>
                         @endif
                     </div>
             <div class="card-body">
@@ -34,20 +34,13 @@
                         <tr>
                         <th>No</th>
                         <th>Nama Pendaftar</th>
-                        <th>Tempat Lahir</th>
-                        <th>Tanggal Lahir</th>
+                        <th>Asal</th>
                         <th>Jenis Kelamin</th>
-                        <th>Akun</th>
-
-                        <!-- <th>nikah</th>
-                        <th>alamat email</th>
-                        <th>no hp</th>
-                        <th>alamat rumah</th>
-                        <th>sakit berat</th>
-                        <th>pendidikan </th> -->
-                        
                         <th>Program </th> 
+                        <th>Status</th>
+                        <th>User</th>
                         <th>Action</th>
+                        
                         </tr>
                     </thead>
 
@@ -60,19 +53,18 @@
                             <td>{{$no++}}</td>
                             <td>{{$proker->pendaftar_pekerja}}</td>
                             <td>{{$proker->tempat_lahir}}</td>
-                            <td>{{$proker->tanggal_lahir}}</td>
                             <td>{{$proker->jenis_kelamin}}</td>
+                            <td>{{$proker->namaprogram}}</td>
+
+                            <td>
+                                <span class="badge {{$proker->status == 'verified' ? 'bg-success' : 'bg-danger'}}">
+                                {{$proker->status}}
+                                </span>
+                            </td>
+                            <!-- <td>{{$proker->status}}</td> -->
                             <td>{{$proker->namaakun}}</td>
 
-                            <!-- <td>{{ $proker->nikah}}</td>
-                            <td>{{ $proker->alamat_email}}</td>
-                            <td>{{ $proker->no_hp}}</td>
-                            <td>{{ $proker->alamat_rumah}}</td>
-                            <td>{{ $proker->sakit_berat}}</td>
-                            <td>{{ $proker->pendidikan_terakhir}}</td> -->
                             
-
-                            <td>{{$proker->namaprogram}}</td>
                             <td>
 
                             <a href="{{url('pendaftarkerja/show/'.$proker->id)}}" class="btn btn-sm btn-success mb-2"><i class="fas fa-eye"></i> Lihat data</a>

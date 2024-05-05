@@ -499,7 +499,7 @@
         <h5 class="card-title"> Catatan Tambahan Siswa</h5>
         <hr>    
         <p class="card-text">Deskripsi siswa:</p>
-        <textarea class="form-control" rows="4" placeholder="Masukkan deskripsi siswa di sini..."> {{$proker->deskripsi}}</textarea>
+        <textarea readonly class="form-control" rows="4" placeholder="Masukkan deskripsi siswa di sini..."> {{$proker->deskripsi}}</textarea>
     </div>
 </div>
 

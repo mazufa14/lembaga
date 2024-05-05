@@ -74,7 +74,7 @@
                 <li class="sidebar-item  ">
                     <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
                         <i data-feather="user-plus" width="20"></i> 
-                        <span>Daftar</span>
+                        <span>Pendaftaran / Seleksi awal</span>
                     </a>
                 </li>
 
@@ -148,11 +148,11 @@
                             </a>
                         </li>
 
-                        <li class="sidebar-item  ">
+                        <!-- <li class="sidebar-item  ">
                             <a href="{{url('/seleksilembaga')}}" class='sidebar-link'>
                             <i data-feather="git-branch" width="20"></i> 
                             <span>Seleksi Lembaga</span>
-                        </li>
+                        </li> -->
 
                        
 
