@@ -6,7 +6,7 @@
 
 
 
-<div class="page-title">
+<!-- <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h3>Datatable</h3>
@@ -21,9 +21,10 @@
                 </nav>
             </div>
         </div>
-    </div>
+    </div> -->
 
-
+    
+   
 <div class="col-md-12">
         <div class="card">
             <div class="card-header">
@@ -33,13 +34,12 @@
                         @empty($proker->foto)
                         <img class="card-img p-2 border" src="{{ url('admin/img/nophoto.png') }}" alt="No Photo">
                         @else
-                        <img class="card-img p-2 border" src="{{ url('admin/img') }}/{{ $proker->foto }}" alt="{{ $proker->pendaftar_pekerja }}" style="width: 200px; height: 200px ; object-fit: contain;">
+                        <img class="card-img " src="{{ url('admin/img') }}/{{ $proker->foto }}" alt="{{ $proker->pendaftar_pekerja }}" style="width: 200px; height: 200px ; object-fit: contain;">
                         @endempty
                     </div>
                 </div>
             
             <div class="card-body">
-            <p>Admin dapat melakukan <code> Kelola Data </code> data dengan <code> Operasi </code> yang diberikan</p>
                 <div class="row">
                     <div class="col-md-6">
 
@@ -123,18 +123,153 @@
             </div>
         </div>
     </div>
+   
 
 
+    @if (Auth::user()->role == 'admin')
+    <!-- <i class="fas fa-circle fa-lg" style="color: #50ff05;"></i>  -->
+    <div class="card border">
+        <div class="card-body">
+            <h5 class="card-title text-center mb-3">
+                Data Siswa - {{$proker->pendaftar_pekerja}}
+            </h5>
+            <div class="text-center">
+                @empty($proker->foto)
+                <img class="card-img p-2 rounded-circle img-thumbnail" src="{{ url('admin/img/nophoto.png') }}" alt="No Photo">
+                @else
+                <img class="card-img rounded-circle img-thumbnail" src="{{ url('admin/img') }}/{{ $proker->foto }}" alt="{{ $proker->pendaftar_pekerja }}" style="width: 160px; height: 160px; object-fit: cover;">
+                @endempty
+            </div>
+            <hr>
+
+            <div class="row">
+
+                    <div class="col-md-6">
+
+                    <div class="mb-3">
+                        <div class="p-3 border rounded">
+                            <h5 class="mb-2"><i class="fas fa-user"></i> Nama Pendaftar</h5>
+                            <p class="mb-0">{{$proker->pendaftar_pekerja}}</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                            <h5 class="mb-2">Tempat Lahir</h5>
+                            <p class="mb-0">{{$proker->tempat_lahir}}</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                            <h5 class="mb-2">Tanggal Lahir</h5>
+                            <p class="mb-0">{{$proker->tanggal_lahir}}</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                            <h5 class="mb-2">Berat Badan <code>*kg</code></h5>
+                            <p class="mb-0">{{$proker->berat_badan}}</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                            <h5 class="mb-2">Jenis Kelamin</h5>
+                            <p class="mb-0">{{$proker->jenis_kelamin}}</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                            <h5 class="mb-2">Status Pernikahan</h5>
+                            <p class="mb-0">{{$proker->nikah}}</p>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                        <h5 class="mb-2">Fotokopi KK</h5>
+                        @empty($proker->fotokk)
+                            <p>No PDF</p>
+                        @else
+                            <a href="{{ url('admin/pdfkartukeluarga') }}/{{ $proker->fotokk }}" target="_blank"> <i class="fas fa-file-pdf"></i> Download PDF</a>
+                        @endempty
+                        </div>
+                    </div>
+
+                    
+
+                        
+                    </div>
+
+                    <div class="col-md-6">
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                            <h5 class="mb-2">No hp</h5>
+                            <p class="mb-0">{{$proker->no_hp}}</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                            <h5 class="mb-2">Alamat Email</h5>
+                            <p class="mb-0">{{$proker->alamat_email}}</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                            <h5 class="mb-2">Riwayat Penyakit</h5>
+                            <p class="mb-0">{{$proker->sakit_berat}}</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                            <h5 class="mb-2">Pendidikan Terakhir</h5>
+                            <p class="mb-0">{{$proker->pendidikan_terakhir}}</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                            <h5 class="mb-2">Program yang diambil</h5>
+                            <p class="mb-0">{{$proker->namaprogram}}</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                            <h5 class="mb-2">Alamat Rumah</h5>
+                            <p class="mb-0">{{$proker->alamat_rumah}}</p>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                        <h5 class="mb-2">Fotokopi Akte</h5>
+                        @empty($proker->fotoakte)
+                            <p>No PDF</p>
+                        @else
+                            <a href="{{ url('admin/akte') }}/{{ $proker->fotoakte }}" target="_blank"> <i class="fas fa-file-pdf"></i> Download PDF</a>
+                        @endempty
+                        </div>
+                    </div>
+                    
 
 
+                    </div>
 
-
-
-
-
-
-
-
+        </div>
+    </div>
+    @endif
+   
+             
 
 @endforeach  
 @endsection

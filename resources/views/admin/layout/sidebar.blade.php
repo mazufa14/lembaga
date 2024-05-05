@@ -69,21 +69,23 @@
 
                 
 
-                <li class='sidebar-title'>Seleksi siswa</li>
+                <li class='sidebar-title'>Seleksi Awal</li>
 
                 <li class="sidebar-item  ">
                     <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
                         <i data-feather="user-plus" width="20"></i> 
-                        <span>Pendaftaran / Seleksi awal</span>
+                        <span>Daftar & Seleksi Berkas</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item  ">
-                    <a href="{{url('/proseskerja')}}" class='sidebar-link'>
+                    <a href="{{url('/akademik')}}" class='sidebar-link'>
                         <i data-feather="git-branch" width="20"></i> 
-                        <span>Seleksi Lembaga</span>
+                        <span>Tes Potensi Akademik</span>
                     </a>
                 </li>
+
+                <li class='sidebar-title'>Seleksi Lembaga</li>
 
                 <li class="sidebar-item  ">
                     <a href="{{url('/proseskerja')}}" class='sidebar-link'>

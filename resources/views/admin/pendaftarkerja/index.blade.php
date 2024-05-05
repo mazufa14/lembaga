@@ -33,9 +33,9 @@
                     <thead>
                         <tr>
                         <th>No</th>
-                        <th>Nama Pendaftar</th>
+                        <th>Nama </th>
                         <th>Asal</th>
-                        <th>Jenis Kelamin</th>
+                        <th>Kelamin</th>
                         <th>Program </th> 
                         <th>Status</th>
                         <th>User</th>

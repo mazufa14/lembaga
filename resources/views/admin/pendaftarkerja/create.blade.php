@@ -237,9 +237,33 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="foto">Foto 3*4 <code> *Pastikan foto sudah benar </code></label>
+                                                <label for="foto">Foto 3*4 </label>
                                             <input type="file" value="{{ old('foto')}}" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
                                             @error('foto')
+                                            <div class="invalid-feedback">
+                                            {{ $message }}
+                                            </div>
+                                            @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="kk">Fotokopi Kartu Keluarga *kk </label>
+                                            <input type="file" value="{{ old('kk')}}" name="kk" id="kk" class="form-control @error('kk') is-invalid @enderror">
+                                            @error('kk')
+                                            <div class="invalid-feedback">
+                                            {{ $message }}
+                                            </div>
+                                            @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="akte">Fotokopi Akte Kelahiran </label>
+                                            <input type="file" value="{{ old('akte')}}" name="akte" id="akte" class="form-control @error('akte') is-invalid @enderror">
+                                            @error('akte')
                                             <div class="invalid-feedback">
                                             {{ $message }}
                                             </div>

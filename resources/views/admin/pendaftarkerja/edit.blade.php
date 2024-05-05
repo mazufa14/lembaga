@@ -220,6 +220,13 @@
                                                 @enderror
                                             </div>
                                         </div>
+                                        @elseif (Auth::user()->role == 'siswa')
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="status">Status verifikasi data</label>
+                                                    <input type="text" id="status" name="status" class="form-control" value="{{ $proker->status }}" readonly>
+                                                </div>
+                                            </div>
                                         @endif
 
 
@@ -227,20 +234,62 @@
                                             <div class="form-group">
                                                 <label for="foto">Foto 3*4 <code> *Pastikan foto sudah benar </code></label>
 
-                                                <input type="file" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
+                                                <input type="file" value="{{ old('foto') }}" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
                                                 @if(!empty($proker->foto))                       
-                                                <img src="{{url('admin/img')}}/{{$proker->foto}}" alt="" class="mt-3 border p-3">
+                                                <img src="{{url('admin/img')}}/{{$proker->foto}}" alt="" class="mt-3 p-3" width="150px" height="150px">
                                                 @endif   
-
 
                                                 @error('foto')
                                                 <div class="invalid-feedback">
                                                 {{ $message }}
                                                 </div>
                                                 @enderror
-                                                </div>
+                                            </div> 
 
+                                        </div>
+
+
+                                        <div class="col-md-6 col-12 mb-3">
+                                            <div class="form-group">
+                                                <label for="kk">Kartu Keluarga (PDF) <code>*Pastikan file sudah benar</code></label>
+                                                <input type="file" name="kk" id="kk" class="form-control @error('kk') is-invalid @enderror mb-3">
+
+                                                @if(!empty($proker->fotokk))                       
+                                                <a href="{{ url('admin/pdfkartukeluarga') }}/{{ $proker->fotokk }}" target="_blank"> <i class="fas fa-file-pdf"></i> Download PDF</a>
+                                                @else
+                                                    File PDF belum ada
+                                                @endif
+
+                                                @error('kk')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 col-12 mb-3">
+                                            <div class="form-group">
+                                                <label for="akte">Akte Kelahiran (PDF) <code>*Pastikan file sudah benar</code></label>
+                                                <input type="file" name="akte" id="akte" class="form-control @error('akte') is-invalid @enderror mb-3">
+                                                
+                                                @if(!empty($proker->fotoakte))                       
+                                                <a href="{{ url('admin/akte') }}/{{ $proker->fotoakte }}" target="_blank"> <i class="fas fa-file-pdf"></i> Download PDF</a>
+                                                @else
+                                                    File PDF belum ada
+                                                @endif
+
+                                                @error('akte')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+
+
 
                                             <div class="col-12 ">
                                                 <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>

@@ -103,6 +103,8 @@ class PendaftarkerjaController extends Controller
             'sakit' => 'required|max:50',
             'pendidikan' => 'required|in:SMA,SMK,D3,S1',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:1024', // sesuaikan dengan kebutuhan
+            'kk'   => 'required|mimes:pdf|max:1000',
+            'akte'   => 'required|mimes:pdf|max:1000',
             'programkerja' => 'required|exists:program_kerja,id',
 
         ],[
@@ -132,20 +134,49 @@ class PendaftarkerjaController extends Controller
             'sakit.max' => 'Maksimal 100 karakter untuk kondisi kesehatan.',
             'pendidikan.required' => 'Pendidikan terakhir wajib diisi.',
             'pendidikan.in' => 'Pendidikan terakhir harus SMA, SMK, D3, atau S1.',
+
             'foto.required' => 'Foto pendaftar wajib diunggah.',
             'foto.image' => 'File harus berupa gambar.',
             'foto.mimes' => 'Format file harus jpeg, png, jpg, atau gif.',
             'foto.max' => 'Maksimal 1 MB untuk ukuran file.',
+
+            'kk.required' => 'Dokumen wajib diunggah.',
+            'kk.mimes' => 'Format file harus pdf.',
+            'kk.max' => 'Maksimal 1 MB untuk ukuran file.',
+
+            'akte.required' => 'Dokumen wajib diunggah.',
+            'akte.mimes' => 'Format file harus pdf.',
+            'akte.max' => 'Maksimal 1 MB untuk ukuran file.',
+
             'programkerja.required' => 'Program kerja wajib dipilih.',
             'programkerja.exists' => 'Program kerja yang dipilih tidak valid.',
         ]);
         
+        // INPUT FOTO
         if(!empty($request->foto)){
             $fileName = 'foto-' . uniqid() . '.' . $request->foto->extension();
             $request->foto->move(public_path('admin/img'), $fileName);
         } else {
             $fileName = '';
         }
+
+        // INPUT FOTO KK
+        if (!empty($request->kk)) {
+            $kkFileName = 'kk-' . uniqid() . '.' . $request->kk->extension();
+            $request->kk->move(public_path('admin/pdfkartukeluarga'), $kkFileName);
+        } else {
+            $kkFileName = '';
+        }
+
+       // INPUT FOTO AKTE
+        if (!empty($request->akte)) {
+            $akteFileName = 'akte-' . uniqid() . '.' . $request->akte->extension();
+            $request->akte->move(public_path('admin/akte'), $akteFileName);
+        } else {
+            $akteFileName = '';
+        }
+
+
 
         // dengan query builder
         DB::table('pendaftar_kerja')->insert([
@@ -163,6 +194,8 @@ class PendaftarkerjaController extends Controller
             'pendidikan_terakhir' => $request-> pendidikan,
             'program' => $request->programkerja,
             'foto' => $fileName,
+            'fotokk' => $kkFileName,
+            'fotoakte' => $akteFileName,
         ]);
 
         return redirect('/pendaftarkerja')->with('success','Data Berhasil Tersimpan');
@@ -201,6 +234,7 @@ class PendaftarkerjaController extends Controller
             'sakit' => 'required|max:50',
             'pendidikan' => 'required|in:SMA,SMK,D3,S1',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1024', // sesuaikan dengan kebutuhan
+            // 'kk'   => 'required|mimes:pdf|max:1000',
             'programkerja' => 'required|exists:program_kerja,id',
         ],
         [
@@ -236,13 +270,33 @@ class PendaftarkerjaController extends Controller
         ]
       );
 
-      // update foto
-      $foto = DB::table('pendaftar_kerja')->select('foto')->where('id', $request->id)->get();
-      foreach($foto as $f){
-        $namaFileFotoLama = $f->foto;
-      }
 
-       
+    //   //update foto
+    //   $foto = DB::table('pendaftar_kerja')->select('foto')->where('id', $request->id)->get();
+    //   foreach($foto as $f){
+    //       $namaFileFotoLama = $f->foto;
+    //   }
+
+    //   if(!empty($request->foto)){
+
+    //   //jika ada foto lama maka hapus fotonya 
+    //   if(!empty($namaFileFotoLama->foto)) unlink('admin/img'.$namaFileFotoLama->foto);
+  
+    //   //proses ganti foto
+    //   $fileName = 'foto-'.$request->id . '.' . $request->foto->extension();
+    //   $request->foto->move(public_path('admin/img'), $fileName);
+    //   } 
+      
+    //   else {
+    //       $fileName = '';
+    //   }
+
+        //update FOTO SISWA
+        $foto = DB::table('pendaftar_kerja')->select('foto')->where('id', $request->id)->get();
+        foreach($foto as $f){
+            $namaFileFotoLama = $f->foto;
+        }
+
         if (!empty($request->foto)) {
             // Hapus foto lama hanya jika ada foto baru yang diunggah
             if (!empty($namaFileFotoLama)) {
@@ -255,6 +309,47 @@ class PendaftarkerjaController extends Controller
             // Jika tidak ada foto baru yang diunggah, gunakan foto lama
             $fileName = $namaFileFotoLama;
         }
+
+
+        // UPDATE PDF KARTU KELUARGA
+        $kk = DB::table('pendaftar_kerja')->select('fotokk')->where('id', $request->id)->get();
+        foreach($kk as $k){
+            $namaFileKKlama = $k->fotokk;
+        }
+
+        if (!empty($request->kk)) {
+            // Hapus file PDF lama hanya jika ada file PDF baru yang diunggah
+            if (!empty($namaFileKKlama)) {
+                unlink('admin/pdfkartukeluarga/'.$namaFileKKlama);
+            }
+            
+            $kkFileName = 'kk-' .$request->id . '.' . $request->kk->extension();
+            $request->kk->move(public_path('admin/pdfkartukeluarga'), $kkFileName);
+        } else {
+            // Jika tidak ada file PDF baru yang diunggah, gunakan file PDF lama
+            $kkFileName = $namaFileKKlama;
+        }
+
+
+        // UPDATE FOTO AKTE
+        $akte = DB::table('pendaftar_kerja')->select('fotoakte')->where('id', $request->id)->get();
+        foreach ($akte as $a) {
+            $namaFileAkteLama = $a->fotoakte;
+        }
+
+        if (!empty($request->akte)) {
+            // Hapus foto akte lama hanya jika ada foto akte baru yang diunggah
+            if (!empty($namaFileAkteLama)) {
+                unlink('admin/akte/' . $namaFileAkteLama);
+            }
+            
+            $akteFileName = 'akte-' . $request->id . '.' . $request->akte->extension();
+            $request->akte->move(public_path('admin/akte'), $akteFileName);
+        } else {
+            // Jika tidak ada foto akte baru yang diunggah, gunakan foto akte lama
+            $akteFileName = $namaFileAkteLama;
+        }
+
 
     
         DB::table('pendaftar_kerja')->where('id', $request->id)->update([
@@ -272,6 +367,8 @@ class PendaftarkerjaController extends Controller
             'program' => $request->programkerja,
             'foto' => $fileName,
             'status' =>$request->status,
+            'fotokk' => $kkFileName,
+            'fotoakte' =>  $akteFileName,
         ]);
         return redirect('/pendaftarkerja')->with('success', 'Data  berhasil di Update!');
 

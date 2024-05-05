@@ -485,9 +485,9 @@
                         <!-- <td>{{$proker->perusahaan}}</td> -->
                         <td>
                         <span class="badge {{$proker->proses12 == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
-                            {{$proker->proses12}}
+                            {{$proker->proses12}} 
                         </span>    
-                    </td>
+                        </td>
                     </tr>
                 </tbody>
             </table>
