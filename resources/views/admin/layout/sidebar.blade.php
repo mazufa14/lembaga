@@ -85,6 +85,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item  ">
+                    <a href="{{url('/proseskerja')}}" class='sidebar-link'>
+                        <i data-feather="dollar-sign" width="20"></i> 
+                        <span>Pembayaran</span>
+                    </a>
+                </li>
+
                 <li class='sidebar-title'>Seleksi Lembaga</li>
 
                 <li class="sidebar-item  ">
@@ -93,18 +100,6 @@
                         <span>Proses Dokumen Siswa</span>
                     </a>
                 </li>
-
-                <li class='sidebar-title'>Pembayaran</li>
-
-                <li class="sidebar-item  ">
-                    <a href="{{url('/proseskerja')}}" class='sidebar-link'>
-                        <i data-feather="check-circle" width="20"></i> 
-                        <span>Pembayaran</span>
-                    </a>
-                </li>
-
-                <!-- <hr class="sidebar-divider"> -->
-
                 @endif
 
 
