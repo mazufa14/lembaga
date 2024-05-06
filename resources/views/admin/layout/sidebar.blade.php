@@ -94,6 +94,15 @@
                     </a>
                 </li>
 
+                <li class='sidebar-title'>Pembayaran</li>
+
+                <li class="sidebar-item  ">
+                    <a href="{{url('/proseskerja')}}" class='sidebar-link'>
+                        <i data-feather="check-circle" width="20"></i> 
+                        <span>Pembayaran</span>
+                    </a>
+                </li>
+
                 <!-- <hr class="sidebar-divider"> -->
 
                 @endif
@@ -135,6 +144,13 @@
                             </a>
                         </li>
 
+                        <li class="sidebar-item  ">
+                            <a href="{{url('/akademik')}}" class='sidebar-link'>
+                                <i data-feather="git-branch" width="20"></i> 
+                                <span>Tes Potensi Akademik</span>
+                            </a>
+                        </li>
+
 
                         <li class="sidebar-item  ">
                             <a href="{{url('/programkerja')}}" class='sidebar-link'>
@@ -150,11 +166,14 @@
                             </a>
                         </li>
 
-                        <!-- <li class="sidebar-item  ">
-                            <a href="{{url('/seleksilembaga')}}" class='sidebar-link'>
-                            <i data-feather="git-branch" width="20"></i> 
-                            <span>Seleksi Lembaga</span>
-                        </li> -->
+
+
+                        <li class="sidebar-item  ">
+                            <a href="{{url('/pembayaran')}}" class='sidebar-link'>
+                                <i data-feather="dollar-sign" width="20"></i> 
+                                <span>Pembayaran</span>
+                            </a>
+                        </li>
 
                        
 
@@ -164,31 +183,6 @@
 
                     </li>  
 
-
-                <!-- <li class='sidebar-title'>Data Lembaga</li>
-                
-                
-                <li class="sidebar-item ">
-                    <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
-                        <i data-feather="user" width="20"></i> 
-                        <span>Data Pendaftaran Awal </span>
-                    </a>
-                </li>
-              
-                <li class="sidebar-item  ">
-                    <a href="{{url('/programkerja')}}" class='sidebar-link'>
-                        <i data-feather="list" width="20"></i> 
-                        <span>Program Kerja Lembaga</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item  ">
-                <a href="{{url('/proseskerja')}}" class='sidebar-link'>
-                    <i data-feather="check-circle" width="20"></i> 
-                    <span>Proses Dokumen Siswa</span>
-                </a>
-                </li> -->
-             
 
                 <li class='sidebar-title'>Akun</li>
                     <a href="{{url('/akun')}}" class='sidebar-link'>
