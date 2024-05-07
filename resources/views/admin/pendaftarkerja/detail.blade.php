@@ -199,6 +199,17 @@
                         </div>
                     </div>
 
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                        <h5 class="mb-2">Fotokopi ijazah</h5>
+                        @empty($proker->fotoijazah)
+                            <p>No PDF</p>
+                        @else
+                            <a href="{{ url('admin/ijazah') }}/{{ $proker->fotoijazah }}" target="_blank"> <i class="fas fa-file-pdf"></i> Download PDF</a>
+                        @endempty
+                        </div>
+                    </div>
+
                     
 
                         
@@ -256,6 +267,17 @@
                             <p>No PDF</p>
                         @else
                             <a href="{{ url('admin/akte') }}/{{ $proker->fotoakte }}" target="_blank"> <i class="fas fa-file-pdf"></i> Download PDF</a>
+                        @endempty
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="border p-3 rounded">
+                        <h5 class="mb-2">Fotokopi Ktp</h5>
+                        @empty($proker->fotoktp)
+                            <p>No PDF</p>
+                        @else
+                            <a href="{{ url('admin/ktp') }}/{{ $proker->fotoktp }}" target="_blank"> <i class="fas fa-file-pdf"></i> Download PDF</a>
                         @endempty
                         </div>
                     </div>

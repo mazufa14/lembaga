@@ -102,9 +102,13 @@ class PendaftarkerjaController extends Controller
             'alamat_rumah' => 'required|max:50',
             'sakit' => 'required|max:50',
             'pendidikan' => 'required|in:SMA,SMK,D3,S1',
+
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:1024', // sesuaikan dengan kebutuhan
             'kk'   => 'required|mimes:pdf|max:1000',
             'akte'   => 'required|mimes:pdf|max:1000',
+            'ijazah'   => 'required|mimes:pdf|max:1000',
+            'ktp'   => 'required|mimes:pdf|max:1000',
+            
             'programkerja' => 'required|exists:program_kerja,id',
 
         ],[
@@ -148,6 +152,14 @@ class PendaftarkerjaController extends Controller
             'akte.mimes' => 'Format file harus pdf.',
             'akte.max' => 'Maksimal 1 MB untuk ukuran file.',
 
+            'ijazah.required' => 'Dokumen wajib diunggah.',
+            'ijazah.mimes' => 'Format file harus pdf.',
+            'ijazah.max' => 'Maksimal 1 MB untuk ukuran file.',
+
+            'ktp.required' => 'Dokumen wajib diunggah.',
+            'ktp.mimes' => 'Format file harus pdf.',
+            'ktp.max' => 'Maksimal 1 MB untuk ukuran file.',
+
             'programkerja.required' => 'Program kerja wajib dipilih.',
             'programkerja.exists' => 'Program kerja yang dipilih tidak valid.',
         ]);
@@ -176,6 +188,32 @@ class PendaftarkerjaController extends Controller
             $akteFileName = '';
         }
 
+          // INPUT FOTO KTP
+        if (!empty($request->ktp)) {
+            $akteFileName = 'akte-' . uniqid() . '.' . $request->akte->extension();
+            $request->akte->move(public_path('admin/akte'), $akteFileName);
+        } else {
+            $akteFileName = '';
+        }
+
+        // INPUT FOTO ijazah
+        if (!empty($request->ijazah)) {
+            $ijazahFileName = 'ijazah-' . uniqid() . '.' . $request->ijazah->extension();
+            $request->ijazah->move(public_path('admin/ijazah'), $ijazahFileName);
+        } else {
+            $ijazahFileName = '';
+        }
+
+
+        // INPUT FOTO KTP
+        if (!empty($request->ktp)) {
+            $ktpFileName = 'ktp-' . uniqid() . '.' . $request->ktp->extension();
+            $request->ktp->move(public_path('admin/ktp'), $ktpFileName);
+        } else {
+            $ktpFileName = '';
+        }
+
+
 
 
         // dengan query builder
@@ -196,6 +234,8 @@ class PendaftarkerjaController extends Controller
             'foto' => $fileName,
             'fotokk' => $kkFileName,
             'fotoakte' => $akteFileName,
+            'fotoijazah' => $ijazahFileName,
+            'fotoktp' =>  $ktpFileName,
         ]);
 
         return redirect('/pendaftarkerja')->with('success','Data Berhasil Tersimpan');
@@ -350,6 +390,46 @@ class PendaftarkerjaController extends Controller
             $akteFileName = $namaFileAkteLama;
         }
 
+         // UPDATE FOTO IJAZAH
+         $ijazah = DB::table('pendaftar_kerja')->select('fotoijazah')->where('id', $request->id)->get();
+         foreach ($ijazah as $a) {
+             $namaFileIjazahLama = $a->fotoijazah;
+         }
+ 
+         if (!empty($request->ijazah)) {
+             // Hapus foto akte lama hanya jika ada foto akte baru yang diunggah
+             if (!empty($namaFileIjazahLama)) {
+                 unlink('admin/ijazah/' . $namaFileIjazahLama);
+             }
+             
+             $ijazahFileName = 'ijazah-' . $request->id . '.' . $request->ijazah->extension();
+             $request->ijazah->move(public_path('admin/ijazah'), $ijazahFileName);
+         } else {
+             // Jika tidak ada foto akte baru yang diunggah, gunakan foto akte lama
+             $ijazahFileName = $namaFileIjazahLama;
+         }
+
+
+
+         // UPDATE FOTO KTP
+        $ktp = DB::table('pendaftar_kerja')->select('fotoktp')->where('id', $request->id)->get();
+        foreach ($ktp as $k) {
+            $namaFileKTPLama = $k->fotoktp;
+        }
+
+        if (!empty($request->ktp)) {
+            // Hapus foto KTP lama hanya jika ada foto KTP baru yang diunggah
+            if (!empty($namaFileKTPLama)) {
+                unlink(public_path('admin/ktp/' . $namaFileKTPLama));
+            }
+            
+            $ktpFileName = 'ktp-' . $request->id . '.' . $request->ktp->extension();
+            $request->ktp->move(public_path('admin/ktp'), $ktpFileName);
+        } else {
+            // Jika tidak ada foto KTP baru yang diunggah, gunakan foto KTP lama
+            $ktpFileName = $namaFileKTPLama;
+        }
+
 
     
         DB::table('pendaftar_kerja')->where('id', $request->id)->update([
@@ -369,6 +449,8 @@ class PendaftarkerjaController extends Controller
             'status' =>$request->status,
             'fotokk' => $kkFileName,
             'fotoakte' =>  $akteFileName,
+            'fotoijazah' =>  $ijazahFileName,
+            'fotoktp' =>  $ktpFileName,
         ]);
         return redirect('/pendaftarkerja')->with('success', 'Data  berhasil di Update!');
 

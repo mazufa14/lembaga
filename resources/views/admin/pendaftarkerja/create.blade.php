@@ -271,6 +271,30 @@
                                             </div>
                                         </div>
 
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="ijazah">Fotokopi Ijazah </label>
+                                            <input type="file" value="{{ old('ijazah')}}" name="ijazah" id="ijazah" class="form-control @error('ijazah') is-invalid @enderror">
+                                            @error('ijazah')
+                                            <div class="invalid-feedback">
+                                            {{ $message }}
+                                            </div>
+                                            @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="ktp">Fotokopi ktp </label>
+                                            <input type="file" value="{{ old('ktp')}}" name="ktp" id="ktp" class="form-control @error('ktp') is-invalid @enderror">
+                                            @error('ktp')
+                                            <div class="invalid-feedback">
+                                            {{ $message }}
+                                            </div>
+                                            @enderror
+                                            </div>
+                                        </div>
+
                                         <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
                                             <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>

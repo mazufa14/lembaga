@@ -289,6 +289,46 @@
                                         </div>
 
 
+                                        <div class="col-md-6 col-12 mb-3">
+                                            <div class="form-group">
+                                                <label for="ijazah">Fotokopi Ijazah (PDF) <code>*Pastikan file sudah benar</code></label>
+                                                <input type="file" name="ijazah" id="ijazah" class="form-control @error('ijazah') is-invalid @enderror mb-3">
+                                                
+                                                @if(!empty($proker->fotoijazah))                       
+                                                <a href="{{ url('admin/ijazah') }}/{{ $proker->fotoijazah }}" target="_blank"> <i class="fas fa-file-pdf"></i> Download PDF</a>
+                                                @else
+                                                    File PDF belum ada
+                                                @endif
+
+                                                @error('ijazah')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 col-12 mb-3">
+                                            <div class="form-group">
+                                                <label for="ktp">Fotokopi Ktp (PDF) <code>*Pastikan file sudah benar</code></label>
+                                                <input type="file" name="ktp" id="ktp" class="form-control @error('ktp') is-invalid @enderror mb-3">
+                                                
+                                                @if(!empty($proker->fotoktp))                       
+                                                <a href="{{ url('admin/ktp') }}/{{ $proker->fotoktp }}" target="_blank"> <i class="fas fa-file-pdf"></i> Download PDF</a>
+                                                @else
+                                                    File PDF belum ada
+                                                @endif
+
+                                                @error('ktp')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+
 
 
                                             <div class="col-12 ">
