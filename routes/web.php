@@ -51,7 +51,7 @@ Route::middleware(['guest'])->group(function() {
 });
 
 
-Route::group(['middleware' => ['auth', 'peran:admin-siswa-owner']], function(){
+Route::group(['middleware' => ['auth', 'peran:admin-siswa-penguji']], function(){
     Route::get('/logout',[SesiController::class,'logout']);
     Route::get('/dashboard',[DashboardController::class,'index']);
 
@@ -99,6 +99,7 @@ Route::group(['middleware' => ['auth', 'peran:admin-siswa-owner']], function(){
     Route::get('/akademik/edit/{id}', [AkademikController::class, 'edit']);
 
     // Akun controller
+    // Route::get('/sidebar',[AkunController::class,'sidebar']);
     Route::get('/akun',[AkunController::class,'index']);
     Route::get('/akun/create',[AkunController::class,'create']);
     Route::post('/akun/store',[AkunController::class,'store']);

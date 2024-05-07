@@ -24,7 +24,7 @@ class AkademikController extends Controller
             ->select('akademik.*', 'users.name as namaakun');
     
         // Jika pengguna adalah admin, ambil semua data pembayaran
-        if($role === 'admin') {
+        if($role === 'admin' || 'penguji') {
             $akademik = $query->paginate(10);
         } else {
             // Jika pengguna bukan admin, ambil data pembayaran sesuai dengan user_id yang sedang login
@@ -38,9 +38,9 @@ class AkademikController extends Controller
     public function create()
     {
         
-        if (Auth::user()->role === 'admin') {
+        if (Auth::user()->role === 'admin' || 'penguji' ) {
             $users = DB::table('users')
-                ->whereNotIn('role', ['admin', 'owner'])
+                ->whereNotIn('role', ['admin', 'penguji'])
                 ->get();
         } else {
             $userId = Auth::id();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\akademik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException; 
@@ -12,7 +13,24 @@ use Illuminate\Database\QueryException;
 
 class AkunController extends Controller
 {
-    //
+
+
+    // public function sidebar()
+    // {
+    // // Mengambil semua nilai status dari tabel akademik
+    // $statuses = akademik::pluck('status');
+
+    // // Mengirimkan data menggunakan with
+    // return view('admin.layout.sidebar')->with('statuses', $statuses);
+    // }
+
+    // public function sidebar()
+    // {
+    //     //sintax dengan eloquent
+    //     $akademik = akademik::all();
+    //     return view ('admin.layout.sidebar', compact('akademik'));
+    // }
+
     public function index()
     {
         //sintax dengan eloquent

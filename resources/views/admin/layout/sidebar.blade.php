@@ -91,6 +91,7 @@
                         <span>Pembayaran</span>
                     </a>
                 </li>
+        
 
                 <li class='sidebar-title'>Seleksi Lembaga</li>
 
@@ -184,6 +185,31 @@
                         <i data-feather="user-check" width="20"></i> 
                         <span>Management akun</span>
                     </a>
+                @endif
+                
+
+                @if (Auth::user()->role == 'penguji')
+               
+                <li class='sidebar-title'>hikari chart</li>
+                
+                
+                <li class="sidebar-item ">
+                    <a href="{{url('/dashboard')}}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i> 
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+               
+                <li class='sidebar-title'>Penguji</li>
+
+                    <li class="sidebar-item  ">
+                        <a href="{{url('/akademik')}}" class='sidebar-link'>
+                            <i data-feather="git-branch" width="20"></i> 
+                            <span>Tes Potensi Akademik</span>
+                        </a>
+                    </li>
+
                 @endif
                 
             

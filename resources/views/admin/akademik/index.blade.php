@@ -1,10 +1,25 @@
 @extends('admin.layout.appadmin')
 @section('content')
 
+        @if (Auth::user()->role == 'siswa')
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Test Akademik Siswa</h5>
+                <p class="card-text">Penting!</p>
+                <hr>    
+                <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Setelah siswa dinyatakan lulus segera melakukan pembayaran daftar ulang</p>
+                <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Jika siswa dinyatakan lulus akan silahkan menuju halaman pembayaran</p>
+                <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Admin akan segera verifikasi data siswa yang masuk </p>
+                <hr>
+            </div>
+        </div>    
+        <hr>
+        @endif
+
     <section class="section">
         <div class="card">
             <div class="card-header">
-                        @if (Auth::user()->role == 'admin')
+                        @if (Auth::user()->role == 'admin' || 'penguji')
                         <a href="{{url('akademik/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a>
                          @endif
                     </div>
@@ -51,7 +66,7 @@
                             </td> -->
 
                             <td>
-                            @if (Auth::user()->role == 'admin')
+                            @if (Auth::user()->role == 'admin' || 'penguji')
                                 <a href="{{url('akademik/edit/'.$proker->id)}}" class="btn btn-sm btn-warning mb-2"><i class="fas fa-edit"></i> Edit data </a>
                             
                                 <button type="button" class="btn btn-sm btn-danger mb-2" data-toggle="modal" data-target="#hapusModal{{$proker->id}}">
@@ -103,6 +118,28 @@
 
                     <!-- <tbody> -->
                 </table>
+
+                <!-- @if (Auth::user()->role == 'siswa')
+                <div class="card-body">
+                    <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Pembayaran</h5>
+                    <p class="card-text">Penting!</p>
+                    <hr>    
+                    <p>Status: {{$proker->status}}</p> 
+                    @if ($proker->status === 'Belum lulus')
+                        <p>Anda belum lulus TPA</p>
+                    @else
+                        <a href="{{ url('/pembayaran') }}" class='sidebar-link'>
+                            <i data-feather="dollar-sign" width="20"></i> 
+                            <span>Silahkan lakukan pembayaran daftar ulang</span>
+                        </a>
+                    @endif
+                </div>
+                @endif -->
+
+               
+
+                
+
             </div>
         </div>
 

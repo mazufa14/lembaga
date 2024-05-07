@@ -78,7 +78,7 @@
                                                 <!-- <option value="" disabled selected>Pilih Role Akun</option> -->
                                                     <option value="siswa">Siswa</option>
                                                     <option value="admin">Admin</option>
-                                                    <option value="owner">Owner</option>
+                                                    <option value="penguji">Penguji</option>
                                                 </select>
                                                 @error('role')
                                                     <div class="invalid-feedback">
