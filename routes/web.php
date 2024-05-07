@@ -13,6 +13,7 @@ use App\Http\Controllers\PendaftarbelajarController;
 use App\Http\Controllers\ProseskerjaController;
 use App\Http\Controllers\ProsesbelajarController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\AkademikController;
 
 
 
@@ -88,6 +89,14 @@ Route::group(['middleware' => ['auth', 'peran:admin-siswa-owner']], function(){
     Route::get('/pembayaran/delete/{id}',[PembayaranController::class,'destroy']);
     Route::post('/pembayaran/update/{id}', [PembayaranController::class, 'update']);
     Route::get('/pembayaran/edit/{id}', [PembayaranController::class, 'edit']);
+
+    // tabel test akademik 
+    Route::get('/akademik',[AkademikController::class,'index']);
+    Route::get('/akademik/create',[AkademikController::class,'create']);
+    Route::post('/akademik/store',[AkademikController::class,'store']);
+    Route::get('/akademik/delete/{id}',[AkademikController::class,'destroy']);
+    Route::post('/akademik/update/{id}', [AkademikController::class, 'update']);
+    Route::get('/akademik/edit/{id}', [AkademikController::class, 'edit']);
 
     // Akun controller
     Route::get('/akun',[AkunController::class,'index']);
