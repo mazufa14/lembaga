@@ -59,3 +59,6 @@
                     </ul>
                 </div>
             </nav>
+
+
+            <!-- ALTER TABLE pembayaran ADD FOREIGN KEY (user_id) REFERENCES users(id); -->

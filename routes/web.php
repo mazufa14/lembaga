@@ -12,6 +12,7 @@ use App\Http\Controllers\PendaftarkerjaController;
 use App\Http\Controllers\PendaftarbelajarController;
 use App\Http\Controllers\ProseskerjaController;
 use App\Http\Controllers\ProsesbelajarController;
+use App\Http\Controllers\PembayaranController;
 
 
 
@@ -80,11 +81,20 @@ Route::group(['middleware' => ['auth', 'peran:admin-siswa-owner']], function(){
     Route::post('/proseskerja/update/{id}', [ProseskerjaController::class, 'update']);
     Route::get('/proseskerja/edit/{id}', [ProseskerjaController::class, 'edit']);
 
+    // tabel pembayaran
+    Route::get('/pembayaran',[PembayaranController::class,'index']);
+    Route::get('/pembayaran/create',[PembayaranController::class,'create']);
+    Route::post('/pembayaran/store',[PembayaranController::class,'store']);
+    Route::get('/pembayaran/delete/{id}',[PembayaranController::class,'destroy']);
+    Route::post('/pembayaran/update/{id}', [PembayaranController::class, 'update']);
+    Route::get('/pembayaran/edit/{id}', [PembayaranController::class, 'edit']);
+
     // Akun controller
     Route::get('/akun',[AkunController::class,'index']);
     Route::get('/akun/create',[AkunController::class,'create']);
     Route::post('/akun/store',[AkunController::class,'store']);
     Route::get('/akun/delete/{id}',[AkunController::class,'destroy']);
+    
 
 });
 
