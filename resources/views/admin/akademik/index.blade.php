@@ -19,7 +19,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                        @if (Auth::user()->role == 'admin' || 'penguji')
+                        @if (Auth::user()->role == 'admin' || Auth::user()->role == 'penguji')
                         <a href="{{url('akademik/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a>
                          @endif
                     </div>
@@ -66,7 +66,7 @@
                             </td> -->
 
                             <td>
-                            @if (Auth::user()->role == 'admin' || 'penguji')
+                            @if (Auth::user()->role == 'admin' || Auth::user()->role == 'penguji')
                                 <a href="{{url('akademik/edit/'.$proker->id)}}" class="btn btn-sm btn-warning mb-2"><i class="fas fa-edit"></i> Edit data </a>
                             
                                 <button type="button" class="btn btn-sm btn-danger mb-2" data-toggle="modal" data-target="#hapusModal{{$proker->id}}">
