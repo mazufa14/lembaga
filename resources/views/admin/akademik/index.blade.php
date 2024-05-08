@@ -10,6 +10,7 @@
                 <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Setelah siswa dinyatakan lulus segera melakukan pembayaran daftar ulang</p>
                 <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Jika siswa dinyatakan lulus akan silahkan menuju halaman pembayaran</p>
                 <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Admin akan segera verifikasi data siswa yang masuk </p>
+                <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Minimal Nilai TPA 300 </p>
                 <hr>
             </div>
         </div>    
