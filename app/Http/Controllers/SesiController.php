@@ -54,38 +54,7 @@ class SesiController extends Controller
         return redirect('/login')->with('success', 'Registrasi Berhasil!');
     }
 
-    // public function store(Request $request)
-    // {
-    //     $this->validate($request, [
-    //         'username' => 'required|max:20|unique:users,name',
-    //         'password' => 'required|max:50|min:5',
-    //         'email' => 'required|email|max:50|unique:users,email',
-    //         // 'role' => 'nullable'
-    //     ],
-    //     [
-    //         'username.required' => 'Username belum diisi',
-    //         'username.max' => 'Username maksimal 20',
-    //         'username.unique' => 'Username sudah digunakan',
-    //         'password.required' => 'Password belum diisi',
-    //         'password.max' => 'Password maksimal 50 karakter',
-    //         'password.min' => 'Password minimal 5 karakter',
-    //         'email.required' => 'Email belum diisi',
-    //         'email.email' => 'Email tidak valid',
-    //         'email.max' => 'Maksimal 50 karakter',
-    //         'email.unique' => 'Email sudah digunakan',
-    //         // 'role' => 'Role belum diisi'
-    //     ]);
-
-    //     // tambah data ke tabel user
-    //     DB::table('users')->insert([
-    //         'name'=>$request->username,
-    //         'email' =>$request->email,
-    //         'password' =>bcrypt($request->password), 
-    //     ]);
-    //     return redirect('/login')->with('success','Registrasi Berhasil!');
-
-    // }
-
+    
 
    
 

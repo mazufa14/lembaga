@@ -172,7 +172,7 @@ class PendaftarkerjaController extends Controller
             $fileName = '';
         }
 
-        // INPUT FOTO KK
+        // INPUT FOTO KARTU KELUARAG
         if (!empty($request->kk)) {
             $kkFileName = 'kk-' . uniqid() . '.' . $request->kk->extension();
             $request->kk->move(public_path('admin/pdfkartukeluarga'), $kkFileName);
@@ -188,12 +188,12 @@ class PendaftarkerjaController extends Controller
             $akteFileName = '';
         }
 
-          // INPUT FOTO KTP
+          // INPUT FOTO KTP BERUPA PDF 
         if (!empty($request->ktp)) {
-            $akteFileName = 'akte-' . uniqid() . '.' . $request->akte->extension();
-            $request->akte->move(public_path('admin/akte'), $akteFileName);
+            $ktpFileName = 'ktp-' . uniqid() . '.' . $request->ktp->extension();
+            $request->ktp->move(public_path('admin/ktp'), $ktpFileName);
         } else {
-            $akteFileName = '';
+            $ktpFileName = '';
         }
 
         // INPUT FOTO ijazah
@@ -203,16 +203,6 @@ class PendaftarkerjaController extends Controller
         } else {
             $ijazahFileName = '';
         }
-
-
-        // INPUT FOTO KTP
-        if (!empty($request->ktp)) {
-            $ktpFileName = 'ktp-' . uniqid() . '.' . $request->ktp->extension();
-            $request->ktp->move(public_path('admin/ktp'), $ktpFileName);
-        } else {
-            $ktpFileName = '';
-        }
-
 
 
 

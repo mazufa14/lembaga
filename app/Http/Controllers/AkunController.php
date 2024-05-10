@@ -46,14 +46,14 @@ class AkunController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required|max:20|unique:users,name',
+            'username' => 'required|max:50|unique:users,name',
             'password' => 'required|max:50|min:5',
             'email' => 'required|email|max:50|unique:users,email',
             // 'role' => 'nullable'
         ],
         [
             'username.required' => 'Username belum diisi',
-            'username.max' => 'Username maksimal 20',
+            'username.max' => 'Username maksimal 50',
             'username.unique' => 'Username sudah digunakan',
             'password.required' => 'Password belum diisi',
             'password.max' => 'Password maksimal 50 karakter',

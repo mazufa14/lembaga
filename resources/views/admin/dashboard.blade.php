@@ -338,13 +338,13 @@
                   <h5 class="text-center">LOLOS SELEKSI BERKAS</h5>
                   <div class="text-center border-radius"> <img src="{{asset('admin/lulus/checklist.png')}}" class="card-img rounded-circle img-thumbnail mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Checklist"></div>
                   <div class="text-center mb-5">
-                     <h6 class='text-green'> Selamat anda lolos seleksi berkas,Setelah lolos berkas, siswa diharapkan melakukan tes TPA</h6>
+                     <h6 class='text-green'> Selamat anda lolos seleksi berkas,Setelah lolos berkas, siswa diharapkan melakukan tes Tulis</h6>
                   </div>
                @else
                   <h5 class="text-center">PROSES PENILAIAN</h5>
                   <div class="text-center "> <img src="{{asset('admin/lulus/loading.png')}}" class="card-img rounded-circle img-thumbnail mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Proses"></div>
                   <div class="text-center mb-5">
-                     <h6 class='text-green'>Terimakasih sudah melakukan pendaftaran,Data anda sedang diverifikasi</h6>
+                     <h6 class='text-green'>Silahkan lakukan isi data diri anda dan lengkapi berkas-berkas</h6>
                   </div>
                @endif
          </div>
@@ -368,7 +368,7 @@
                   <h5 class="text-center">PROSES PENILAIAN </h5>
                   <div class="text-center "> <img src="{{asset('admin/lulus/loading.png')}}" class="card-img  mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Proses"></div>
                   <div class="text-center mb-5">
-                     <h6 class='text-green'>Anda Belum Lulus,Silahkan melakukan tes potensi akademik ulang </h6>
+                     <h6 class='text-green'>Anda Belum Melakukan tes Tulis</h6>
                   </div>
                @endif
          </div>

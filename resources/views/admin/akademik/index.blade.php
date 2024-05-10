@@ -120,25 +120,7 @@
                     <!-- <tbody> -->
                 </table>
 
-                <!-- @if (Auth::user()->role == 'siswa')
-                <div class="card-body">
-                    <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Pembayaran</h5>
-                    <p class="card-text">Penting!</p>
-                    <hr>    
-                    <p>Status: {{$proker->status}}</p> 
-                    @if ($proker->status === 'Belum lulus')
-                        <p>Anda belum lulus TPA</p>
-                    @else
-                        <a href="{{ url('/pembayaran') }}" class='sidebar-link'>
-                            <i data-feather="dollar-sign" width="20"></i> 
-                            <span>Silahkan lakukan pembayaran daftar ulang</span>
-                        </a>
-                    @endif
-                </div>
-                @endif -->
-
                
-
                 
 
             </div>

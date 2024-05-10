@@ -51,7 +51,7 @@
                     @csrf
 
                     <div class="form-group position-relative ">
-                            <label for="username" class="form-label">Username</label>
+                            <label for="username" class="form-label">Nama Lengkap</label>
                             <div class="position-relative">
                                 <input type="text" value="{{ old('username')}}" name="username" class="form-control" id="email">
                                 <div class="form-control-icon">
