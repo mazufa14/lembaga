@@ -96,10 +96,7 @@
             <p class="card-text">@if(empty(Auth::user()->name)) {{ '' }} @else {{ Auth::user()->name }} @endif</p>
          </div>
         
-         <div class="column" style="display: flex;">
-            <p class="card-text" style="margin-right: 10px;"> <i class="fas fa-envelope"></i> Email Akun :</p>
-            <p class="card-text">{{Auth::user()->email}}</p>
-         </div>
+         
 
          <div class="column" style="display: flex;">
             <p class="card-text" style="margin-right: 10px;"> <i class="fas fa-clock"></i> Waktu login :</p>
@@ -130,10 +127,10 @@
             <p class="card-text">@if(empty(Auth::user()->name)) {{ '' }} @else {{ Auth::user()->name }} @endif</p>
          </div>
         
-         <div class="column" style="display: flex;">
+         <!-- <div class="column" style="display: flex;">
             <p class="card-text" style="margin-right: 10px;"> <i class="fas fa-envelope"></i> Email Akun :</p>
             <p class="card-text">{{Auth::user()->email}}</p>
-         </div>
+         </div> -->
 
          <div class="column" style="display: flex;">
             <p class="card-text" style="margin-right: 10px;"> <i class="fas fa-clock"></i> Waktu login :</p>
@@ -266,10 +263,7 @@
             <p class="card-text">@if(empty(Auth::user()->name)) {{ '' }} @else {{ Auth::user()->name }} @endif</p>
          </div>
         
-         <div class="column" style="display: flex;">
-            <p class="card-text" style="margin-right: 10px;"> <i class="fas fa-envelope"></i> Email Akun :</p>
-            <p class="card-text">{{Auth::user()->email}}</p>
-         </div>
+         
 
          <div class="column" style="display: flex;">
             <p class="card-text" style="margin-right: 10px;"> <i class="fas fa-clock"></i> Waktu login :</p>

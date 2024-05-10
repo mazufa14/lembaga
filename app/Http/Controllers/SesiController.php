@@ -27,7 +27,7 @@ class SesiController extends Controller
         $this->validate($request, [
             'username' => 'required|min:8',
             'password' => 'required|max:20|min:5|confirmed', // Menggunakan 'confirmed' untuk memeriksa konfirmasi password
-            'email' => 'required|email|max:50',
+            // 'email' => 'required|email|max:50',
             // 'role' => 'nullable'
         ],
         [
@@ -38,17 +38,17 @@ class SesiController extends Controller
             'password.max' => 'Password maksimal 20 karakter',
             'password.min' => 'Password minimal 5 karakter',
             'password.confirmed' => 'Konfirmasi password tidak cocok', // Pesan untuk konfirmasi password
-            'email.required' => 'Email belum diisi',
-            'email.email' => 'Email tidak valid',
-            'email.max' => 'Maksimal 50 karakter',
-            'email.unique' => 'Email sudah digunakan',
+            // 'email.required' => 'Email belum diisi',
+            // 'email.email' => 'Email tidak valid',
+            // 'email.max' => 'Maksimal 50 karakter',
+            // 'email.unique' => 'Email sudah digunakan',
             // 'role' => 'Role belum diisi'
         ]);
     
         // tambah data ke tabel user
         DB::table('users')->insert([
             'name' => $request->username,
-            'email' => $request->email,
+            // 'email' => $request->email,
             'password' => bcrypt($request->password), 
         ]);
         return redirect('/login')->with('success', 'Registrasi Berhasil!');

@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group position-relative ">
+                        <!-- <div class="form-group position-relative ">
                             <label for="email" class="form-label">Email</label>
                             <div class="position-relative">
                                 <input type="text" value="{{ old('email')}}" name="email" class="form-control" id="email">
@@ -67,7 +67,7 @@
                                     <i data-feather="user"></i>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
 
                         <div class="form-group position-relative ">
@@ -96,7 +96,7 @@
 
                         <div class='form-check clearfix my-4'>
                             <div class="float-end">
-                                <a href="auth-register.html">Already have an account?</a>
+                                <a href="{{url('/login')}}">Already have an account?</a>
                             </div>
                         </div>
                         <div class="clearfix">

@@ -86,7 +86,7 @@
                                 <label for="checkbox1">Remember me</label>
                             </div>
                             <div class="float-end">
-                                <a href="auth-register.html">Don't have an account?</a>
+                                <a href="{{url('/register')}}">Don't have an account?</a>
                             </div>
                         </div>
                         <div class="clearfix">
