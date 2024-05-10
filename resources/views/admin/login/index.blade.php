@@ -14,7 +14,7 @@
     <title>Login Akun - lembaga empat </title>
     <style>
         body {
-            background-image:  url('{{ asset('admin/lulus/jepang3.jpg') }}');
+            background-image:  url('{{ asset('depan/images/banner-bg.png') }}');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
