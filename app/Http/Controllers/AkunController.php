@@ -48,7 +48,7 @@ class AkunController extends Controller
         $this->validate($request, [
             'username' => 'required|max:50|unique:users,name',
             'password' => 'required|max:50|min:5',
-            'email' => 'required|email|max:50|unique:users,email',
+            // 'email' => 'required|email|max:50|unique:users,email',
             // 'role' => 'nullable'
         ],
         [
@@ -58,17 +58,18 @@ class AkunController extends Controller
             'password.required' => 'Password belum diisi',
             'password.max' => 'Password maksimal 50 karakter',
             'password.min' => 'Password minimal 5 karakter',
-            'email.required' => 'Email belum diisi',
-            'email.email' => 'Email tidak valid',
-            'email.max' => 'Maksimal 50 karakter',
-            'email.unique' => 'Email sudah digunakan',
+
+            // 'email.required' => 'Email belum diisi',
+            // 'email.email' => 'Email tidak valid',
+            // 'email.max' => 'Maksimal 50 karakter',
+            // 'email.unique' => 'Email sudah digunakan',
             // 'role' => 'Role belum diisi'
         ]);
 
         // tambah data ke tabel user
         DB::table('users')->insert([
             'name'=>$request->username,
-            'email' =>$request->email,
+            // 'email' =>$request->email,
             'password' =>bcrypt($request->password), 
             'role' =>$request->role,
         ]);

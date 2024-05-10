@@ -30,7 +30,6 @@
                         <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Email </th>
                         <th>Role</th>
                         <th>Id </th>
                         <th>Action</th>
@@ -45,7 +44,6 @@
                         <tr>
                             <td>{{$no++}}</td>
                             <td>{{$proker->name}}</td>
-                            <td>{{$proker->email}}</td>
                             <td>{{$proker->role}}</td> 
                             <td>{{$proker->id}}</td>
                             <td>

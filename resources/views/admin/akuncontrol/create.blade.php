@@ -47,17 +47,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="first-name-column">Email </label>
-                                        <input type="email" name="email" value="{{ old('email')}}" id="first-name-column" class="form-control @error('email') is-invalid @enderror">
-                                        @error('email')
-                                        <div class="invalid-feedback">
-                                        {{ $message }}
-                                        </div>
-                                        @enderror
-                                        </div>
-                                    </div>
 
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
