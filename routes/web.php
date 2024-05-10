@@ -48,6 +48,8 @@ Route::get('/home',function () {
 Route::middleware(['guest'])->group(function() {
     Route::get('/login',[SesiController::class,'index'])->name('login');
     Route::post('/login',[SesiController::class,'login']);
+    Route::get('/register',[SesiController::class,'register']);
+    Route::post('/register',[SesiController::class,'store']);
 });
 
 

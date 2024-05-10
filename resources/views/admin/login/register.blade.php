@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="{{asset('admin/assets/images/hikkari.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('admin/assets/css/app.css')}}">
     
-    <title>Login Akun - lembaga empat </title>
+    <title>Regitrasi Akun - lembaga empat </title>
     <style>
         body {
             background-image:  url('{{ asset('admin/lulus/jepang3.jpg') }}');
@@ -23,44 +23,7 @@
 </head>
 <body>
 
-        <!-- <div class="container py-5">
-            <div class="w-50 center border rounded px-3 py-3 mx-auto">
-            <h1>Login</h1>
-            @if($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach($errors->all() as $item)
-                    <li>{{ $item }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-
-
-            <form action="" method="POST">
-                @csrf
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" value="{{ old('email')}}" name="email" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control">
-                </div>
-                <div class="mb-3 d-grid">
-                    <button name="submit" type="submit" class="btn btn-primary">Login</button>
-                </div>
-            </form>
-            </div> 
-        </div> -->
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-        @endif
-
+       
 <div class="container py-5">
     <div class="row">
         <div class="col-md-5 col-sm-12 mx-auto">
@@ -71,7 +34,7 @@
                     <img src="{{asset('admin/assets/images/hikkari.png')}}" height="130" class="mb-4 rounded-circle">
 
                        
-                        <h3>Sign In</h3>
+                        <h3>Registrasi</h3>
                         <p>Lembaga Hikkari Gakkai</p>
                         @if($errors->any())
                             <div class="alert alert-danger">
@@ -86,6 +49,16 @@
 
                     <form action="" method="POST">
                     @csrf
+
+                    <div class="form-group position-relative ">
+                            <label for="username" class="form-label">Username</label>
+                            <div class="position-relative">
+                                <input type="text" value="{{ old('username')}}" name="username" class="form-control" id="email">
+                                <div class="form-control-icon">
+                                    <i data-feather="user"></i>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group position-relative ">
                             <label for="email" class="form-label">Email</label>
                             <div class="position-relative">
@@ -109,17 +82,25 @@
                             </div>
                         </div>
 
-                        <div class='form-check clearfix my-4'>
-                            <div class="checkbox float-start">
-                                <input type="checkbox" id="checkbox1" class='form-check-input' >
-                                <label for="checkbox1">Remember me</label>
+                        <div class="form-group position-relative ">
+                            <div class="clearfix">
+                                <label for="password_confirmation" class="form-label">Confirm Password</label>
                             </div>
+                            <div class="position-relative">
+                                <input type="password" name="password_confirmation"class="form-control" id="password_confirmation">
+                                <div class="form-control-icon">
+                                    <i data-feather="lock"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='form-check clearfix my-4'>
                             <div class="float-end">
-                                <a href="auth-register.html">Don't have an account?</a>
+                                <a href="auth-register.html">Already have an account?</a>
                             </div>
                         </div>
                         <div class="clearfix">
-                            <button class="btn btn-primary float-end" type="submit">Login</button>
+                            <button class="btn btn-primary float-end" type="submit">Register</button>
                         </div>
                     </form>
 
