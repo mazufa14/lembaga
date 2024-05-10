@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\DepanController;
 
 use App\Http\Controllers\ProgramkerjaController;
 use App\Http\Controllers\ProgrambelajarController;
@@ -29,7 +30,7 @@ use App\Http\Controllers\AkademikController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('depan.home');
 });
 
 
@@ -44,6 +45,9 @@ Route::get('/notfound',[DashboardController::class,'page']);
 Route::get('/home',function () {
     return redirect('/dashboard');
 });
+
+
+Route::get('/rumah',[DepanController::class, 'rumah']);
 
 Route::middleware(['guest'])->group(function() {
     Route::get('/login',[SesiController::class,'index'])->name('login');
