@@ -58,9 +58,9 @@
                     <form action="" method="POST">
                     @csrf
                         <div class="form-group position-relative ">
-                            <label for="email" class="form-label">Email</label>
+                            <label for="username" class="form-label">Username</label>
                             <div class="position-relative">
-                                <input type="text" value="{{ old('email')}}" name="email" class="form-control" id="email">
+                                <input type="text" value="{{ old('username')}}" name="username" class="form-control" id="username">
                                 <div class="form-control-icon">
                                     <i data-feather="user"></i>
                                 </div>
