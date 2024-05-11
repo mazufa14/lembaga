@@ -51,7 +51,7 @@
                                 <div class="d-none d-md-block d-lg-inline-block">{{Auth::user()->name}}</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Profil</a>
+                                <a class="dropdown-item" href="{{url('/profil')}}"><i data-feather="password"></i> Change Password</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{url('/logout')}}"><i data-feather="log-out"></i> Logout</a>
                             </div>

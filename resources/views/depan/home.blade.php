@@ -6,7 +6,7 @@
          <div class="container-fluid">
             <div class="row">
                <div class="col-sm-12">
-                  <h1 class="services_taital">Fasilitas</h1>
+                  <h1 class="services_taital">Layanan Kami</h1>
                   <p class="services_text_1">Yang terdapat pada LPK Hikkari Gakkai</p>
                </div>
             </div>

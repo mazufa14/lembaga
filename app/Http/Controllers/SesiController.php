@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException; 
+use Illuminate\Support\Facades\Hash;
+
 
 class SesiController extends Controller
 {
@@ -55,6 +57,34 @@ class SesiController extends Controller
     }
 
     
+    function password(){
+        return view ('admin.akuncontrol.profil');
+    }
+
+    
+    public function update(Request $request)
+    {
+        // Validasi input
+        $this->validate($request, [
+            'current_password' => 'required',
+            'new_password' => 'required|min:5|different:current_password',
+            'confirm_password' => 'required|same:new_password',
+        ]);
+
+        // Ambil user yang sedang login
+        $user = Auth::user();
+
+        // Periksa apakah password saat ini cocok dengan yang dimasukkan oleh pengguna
+        if (!Hash::check($request->current_password, $user->password)) {
+            return redirect()->back()->with('error', 'Password saat ini salah.');
+        }
+
+        // Perbarui password user
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return redirect()->back()->with('success', 'Password berhasil diperbarui.');
+    }
 
    
 

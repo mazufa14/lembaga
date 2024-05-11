@@ -75,7 +75,7 @@
                            <li><a href="#"></a></li>
                         </ul>
                      </div>
-                     <div class="quote_btn"><a href="{{url('/login')}}"><i class="fa fa-user" aria-hidden="true"></i> Login</a></div>
+                     <div class="quote_btn"><a href="{{url('/login')}}"><i class="fa fa-user" aria-hidden="true"></i> Login / Regist</a></div>
                   </form>
                </div>
             </nav>

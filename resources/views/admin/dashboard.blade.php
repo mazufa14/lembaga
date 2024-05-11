@@ -320,6 +320,7 @@
          </div>
    </div>
 
+  
 
    <div class="col-md-4">
       <div class="card ">
@@ -332,8 +333,23 @@
                   <h5 class="text-center">LOLOS SELEKSI BERKAS</h5>
                   <div class="text-center border-radius"> <img src="{{asset('admin/lulus/checklist.png')}}" class="card-img rounded-circle img-thumbnail mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Checklist"></div>
                   <div class="text-center mb-5">
-                     <h6 class='text-green'> Selamat anda lolos seleksi berkas,Setelah lolos berkas, siswa diharapkan melakukan tes Tulis</h6>
+                     <h6 class='text-green'> Selamat anda lolos seleksi berkas,Setelah lolos berkas, siswa diharapkan melakukan tes Tulis pada tanggal dibawah ini</h6>
                   </div>
+                  <div class="card p-4">
+                     <h5 class='text-danger text-center'>Lakukan Tes Tulis Pada Tanggal</h5>
+                     <h5 class='text-danger text-center' id="tanggal"> </h5>                
+                     <script>
+                        // Mendapatkan tanggal saat ini
+                        var currentDate = new Date();
+
+                        // Menambahkan 3 hari ke tanggal saat ini
+                        currentDate.setDate(currentDate.getDate() + 3);
+
+                        // Menampilkan tanggal dalam format yang diinginkan
+                        document.getElementById("tanggal").innerHTML = currentDate.toLocaleDateString();
+                        </script>
+                  </div>
+
                @else
                   <h5 class="text-center">PROSES PENILAIAN</h5>
                   <div class="text-center "> <img src="{{asset('admin/lulus/loading.png')}}" class="card-img rounded-circle img-thumbnail mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Proses"></div>
@@ -348,7 +364,7 @@
    <div class="col-md-4">
       <div class="card ">
          <div class="card-header">
-               <h4>  <i class="fas fa-check-circle"></i>  Tes Potensi akademik</h4>
+               <h4>  <i class="fas fa-check-circle"></i>  Tes Tulis / Daftar Ulang</h4>
                <hr>
          </div>
          <div class="card-body">

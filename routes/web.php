@@ -65,6 +65,13 @@ Route::group(['middleware' => ['auth', 'peran:admin-siswa-penguji']], function()
     Route::get('/logout',[SesiController::class,'logout']);
     Route::get('/dashboard',[DashboardController::class,'index']);
 
+
+    // ganti password
+    Route::get('/profil',[SesiController::class, 'password']);
+    Route::post('/password/update', [SesiController::class, 'update']);
+
+
+
     // PROGRAM KERJA
     // tabel program kerja
     Route::get('/programkerja',[ProgramkerjaController::class,'index']);
