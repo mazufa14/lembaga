@@ -25,7 +25,7 @@
                      </form>
                   </div>
                   <div class="col-md-6 padding_left_15">
-                     <div class="contact_img"><img src="{{asset('depan/images/contact-img.png')}}"></div>
+                     <div class="contact_img"><img src="{{asset('depan/images/contact.jpeg')}}"></div>
                   </div>
                </div>
             </div>
