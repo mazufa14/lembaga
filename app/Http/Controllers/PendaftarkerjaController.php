@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
+use PDF;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 class PendaftarkerjaController extends Controller
 {
@@ -248,6 +250,20 @@ class PendaftarkerjaController extends Controller
         $pendaftar_kerja = DB::table('pendaftar_kerja')->where('id',$id)->get();
         return view ('admin.pendaftarkerja.edit', compact('program_kerja','pendaftar_kerja'));
     }
+
+
+
+    public function generatePDF(){
+    
+        $pendaftar_kerja = pendaftar_kerja::all();
+    
+        $pdf = FacadePdf::loadview('admin.pendaftarkerja.pdf', compact('pendaftar_kerja'));
+    
+        return $pdf->stream('Laporan Pendaftaran.pdf');
+    
+    
+        }
+
 
     public function update(Request $request, string $id)
     {

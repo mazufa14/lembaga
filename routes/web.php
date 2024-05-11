@@ -90,6 +90,8 @@ Route::group(['middleware' => ['auth', 'peran:admin-siswa-penguji']], function()
     Route::post('/pendaftarkerja/update/{id}', [PendaftarkerjaController::class, 'update']);
     Route::get('/pendaftarkerja/edit/{id}', [PendaftarkerjaController::class, 'edit']);
 
+    Route::get('/pendaftarkerja/pdf',[PendaftarkerjaController::class,'generatePDF']);
+
     // tabel proses kerja
     Route::get('/proseskerja',[ProseskerjaController::class,'index']);
     Route::get('/proseskerja/create',[ProseskerjaController::class,'create']);
