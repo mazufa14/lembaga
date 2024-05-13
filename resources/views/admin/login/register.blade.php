@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="{{asset('admin/assets/images/hikkari.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('admin/assets/css/app.css')}}">
     
-    <title>Regitrasi Akun - lembaga empat </title>
+    <title>Regitrasi Akun - lembaga lima revisi </title>
     <style>
         body {
             background-image:  url('{{ asset('depan/images/banner-bg.png') }}');
