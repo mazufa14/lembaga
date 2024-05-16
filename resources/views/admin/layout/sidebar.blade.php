@@ -55,7 +55,7 @@
     <div class="sidebar-menu">
         <ul class="menu">
 
-                 <!--  siswa akses side bar-->
+                 <!--  SIDEBAR SISWAS -->
                 @if (Auth::user()->role == 'siswa')
                 <li class='sidebar-title'>Data Siswa</li>
 
@@ -67,23 +67,22 @@
                     </a>
                 </li>
 
-                
+
 
                 <li class='sidebar-title'>Seleksi Awal</li>
+                    <li class="sidebar-item  ">
+                        <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
+                            <i data-feather="user-plus" width="20"></i> 
+                            <span>Daftar & Seleksi Berkas</span>
+                        </a>
+                    </li>
 
-                <li class="sidebar-item  ">
-                    <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
-                        <i data-feather="user-plus" width="20"></i> 
-                        <span>Daftar & Seleksi Berkas</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item  ">
-                    <a href="{{url('/akademik')}}" class='sidebar-link'>
-                        <i data-feather="git-branch" width="20"></i> 
-                        <span>Tes Potensi Akademik</span>
-                    </a>
-                </li>
+                    <li class="sidebar-item  ">
+                        <a href="{{url('/akademik')}}" class='sidebar-link'>
+                            <i data-feather="git-branch" width="20"></i> 
+                            <span>Tes Potensi Akademik</span>
+                        </a>
+                    </li>
 
                 <li class="sidebar-item  ">
                     <a href="{{url('/pembayaran')}}" class='sidebar-link'>
@@ -91,7 +90,8 @@
                         <span>Pembayaran</span>
                     </a>
                 </li>
-        
+                
+              
 
                 <li class='sidebar-title'>Seleksi Lembaga</li>
 
@@ -106,7 +106,7 @@
 
                 
 
-                <!--  admin akses side bar-->
+                <!--  SIDEBAR ADMIN -->
             
                 @if (Auth::user()->role == 'admin')
                
@@ -188,6 +188,7 @@
                 @endif
                 
 
+                <!-- SIDEBAR PENGUJI -->
                 @if (Auth::user()->role == 'penguji')
                
                 <li class='sidebar-title'>hikari chart</li>

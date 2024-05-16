@@ -5,7 +5,7 @@
     @if (Auth::user()->role == 'siswa')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Halaman Pendaftaran Siswa</h5>
+            <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Halaman Pembayaran Siswa</h5>
             <p class="card-text">Penting!</p>
             <hr>    
             <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Pastikan data yang input valid</p>

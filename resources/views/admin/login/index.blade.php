@@ -14,7 +14,7 @@
     <title>lembaga lima revisi</title>
     <style>
         body {
-            background-image:  url('{{ asset('depan/images/banner-bg.png') }}');
+            background-image:  url('{{ asset('depan/images/depanbaru.jpg') }}');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;

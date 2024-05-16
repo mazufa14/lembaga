@@ -1,6 +1,10 @@
 @extends('admin.layout.appadmin')
 @section('content')
 
+
+
+
+<!-- DASHBOARD ADMIN -->
 @if (Auth::user()->role == 'admin')
 <div class="row">
       <div class="col-xl-3 col-md-6 mb-4">
@@ -85,7 +89,7 @@
 
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title"> <i class="fas fa-circle fa-lg" style="color: #50ff05;"></i> Selamat Datang , {{Auth::user()->role}} !</h5>
+        <h5 class="card-title"> <i class="fas fa-check-circle fa-lg" style="color: #50ff05;"></i> Selamat Datang , {{Auth::user()->role}} !</h5>
         <p class="card-text">Ini adalah area kelola data admin lembaga hikari gakkai</p>
 
          <hr>
@@ -112,11 +116,11 @@
 </div>
 @endif
 
-
+<!-- DASHBOARD PENGUJI -->
 @if (Auth::user()->role == 'penguji')
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title"> <i class="fas fa-circle fa-lg" style="color: #50ff05;"></i> Selamat Datang , {{Auth::user()->role}} !</h5>
+        <h5 class="card-title"> <i class="fas fa-check-circle fa-lg" style="color: #50ff05;"></i> Selamat Datang , {{Auth::user()->role}} !</h5>
         <p class="card-text">Ini adalah area kelola data admin lembaga hikari gakkai</p>
 
          <hr>
@@ -147,100 +151,10 @@
 @endif
 
 
+
+<!-- DASHBOARD SISWA -->
 @if (Auth::user()->role == 'siswa')
 
-<!-- <style>
-
-.stepwizard-step p {
-    margin-top: 10px;    
-}
-
-.stepwizard-row {
-    display: table-row;
-}
-
-.stepwizard {
-    display: table;     
-    width: 100%;
-    position: relative;
-}
-
-.stepwizard-step button[disabled] {
-    opacity: 1 !important;
-    filter: alpha(opacity=100) !important;
-}
-
-.stepwizard-row:before {
-    top: 14px;
-    bottom: 0;
-    position: absolute;
-    content: " ";
-    width: 100%;
-    height: 1px;
-    background-color: #ccc;
-    z-order: 0;
-    
-}
-
-.stepwizard-step {    
-    display: table-cell;
-    text-align: center;
-    position: relative;
-}
-
-.btn-circle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.428571429;
-  border-radius: 15px;
-}
-</style> -->
-
-
-
-<!-- <div class="card">
-   <div class="card-body">
-   <h5>Proses anda saat ini</h5>
-      <div class="stepwizard">
-         <div class="stepwizard-row">
-            <div class="stepwizard-step">
-                  <button type="button" class="btn btn-default btn-circle">1</button>
-                  <p>Persyaratan awal</p>
-            </div>
-            <div class="stepwizard-step">
-                  <button type="button" class="btn btn-primary btn-circle">2</button>
-                  <p>Tes Potensi Akademik</p>
-            </div>
-            <div class="stepwizard-step">
-                  <button type="button" class="btn btn-default btn-circle" disabled="disabled">3</button>
-                  <p>Daftar Ulang</p>
-            </div> 
-            <div class="stepwizard-step">
-                  <button type="button" class="btn btn-default btn-circle" disabled="disabled">4</button>
-                  <p>Sertifikasi Kebahasaan</p>
-            </div> 
-            <div class="stepwizard-step">
-                  <button type="button" class="btn btn-default btn-circle" disabled="disabled">5</button>
-                  <p>Wawanacara user</p>
-            </div> 
-            <div class="stepwizard-step">
-                  <button type="button" class="btn btn-default btn-circle" disabled="disabled">6</button>
-                  <p>Medikal check up</p>
-            </div> 
-
-            <div class="stepwizard-step">
-                  <button type="button" class="btn btn-default btn-circle" disabled="disabled">6</button>
-                  <p>Ttd Kontrak
-                     
-                  </p>
-            </div> 
-         </div>
-      </div>
-   </div>
-</div> -->
 
 <style>
     .card-title .fas {
@@ -251,7 +165,7 @@
 
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">  <i class="fas fa-circle fa-lg" style="color: #50ff05;"></i> Selamat Datang , {{Auth::user()->role}} !</h5>
+        <h5 class="card-title">  <i class="fas fa-check-circle fa-lg" style="color: #50ff05;"></i> Selamat Datang , {{Auth::user()->role}} !</h5>
         <p class="card-text"> Selamat datang di area data proses siswa lembaga hikari gakkai</p>
         <hr>
         <p class="card-text text-center">Di sini, Anda akan melihat semua proses, mulai dari pendaftaran dan seleksi awal pada lembaga,proses sertifikasi kebahasaan, seleksi pengguna, wawancara, pemeriksaan medis, penandatanganan kontrak, hingga persiapan keberangkatan.</p>
@@ -264,7 +178,6 @@
          </div>
         
          
-
          <div class="column" style="display: flex;">
             <p class="card-text" style="margin-right: 10px;"> <i class="fas fa-clock"></i> Waktu login :</p>
 
@@ -278,6 +191,38 @@
 
       </div>
 </div>
+
+
+<!-- ALUR PENDAFTARAB -->
+<div class="card ">
+  <div class="card-body">
+    <h5 class="card-title">
+      <i class="fas fa-check-circle fa-lg" style="color: #50ff05;"></i> Alur Pendaftaran
+    </h5>
+    <hr>
+    <ol class="list-group list-group-numbered">
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Isi Data Diri</div>
+          Lengkapi formulir pendaftaran dengan informasi pribadi Anda.
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Tes Tulis</div>
+          Ikuti tes tulis yang dijadwalkan untuk penilaian.
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Pembayaran Awal / Daftar Ulang</div>
+          Selesaikan pembayaran awal dan lakukan daftar ulang .
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+
 
 <div class="row">
    <div class="col-md-4">
@@ -352,7 +297,7 @@
 
                @else
                   <h5 class="text-center">PROSES PENILAIAN</h5>
-                  <div class="text-center "> <img src="{{asset('admin/lulus/loading.png')}}" class="card-img rounded-circle img-thumbnail mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Proses"></div>
+                  <div class="text-center "> <img src="{{asset('admin/lulus/loading.png')}}" class="card-img  mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Proses"></div>
                   <div class="text-center mb-5">
                      <h6 class='text-green'>Silahkan lakukan isi data diri anda dan lengkapi berkas-berkas</h6>
                   </div>
@@ -372,7 +317,7 @@
                   <h5 class="text-center">ANDA LOLOS </h5>
                   <div class="text-center border-radius"> <img src="{{asset('admin/lulus/checklist.png')}}" class="card-img rounded-circle img-thumbnail mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Checklist"></div>
                   <div class="text-center mb-5">
-                     <h6 class='text-green'>Selamat anda lolos seleksi di lembaga hikkari gakkai sebagai siswa</h6>
+                     <h6 class='text-green'>Selamat anda lolos seleksi di lembaga hikkari gakkai sebagai siswa, Segera kumpulkan berkas daftar ulang</h6>
                   </div>
                @else
                   <h5 class="text-center">PROSES PENILAIAN </h5>

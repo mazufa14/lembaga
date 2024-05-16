@@ -2,22 +2,19 @@
 @section('content')
 
 
-<div class="page-title">
-        <div class="row">
-            <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Datatable</h3>
-                <p class="text-subtitle text-muted">We use 'simple-datatables' made by @fiduswriter. You can check the full documentation <a href="https://github.com/fiduswriter/Simple-DataTables/wiki">here</a>.</p>
-            </div>
-            <div class="col-12 col-md-6 order-md-1 order-first">
-                <nav aria-label="breadcrumb" class='breadcrumb-header'>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Datatable</li>
-                    </ol>
-                </nav>
-            </div>
+
+@if (Auth::user()->role == 'siswa')
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Halaman Edit Data</h5>
+            <p class="card-text">Penting!</p>
+            <hr>    
+            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Cek kembali data yang sudah di input</p>
         </div>
-</div>
+    </div>    
+    <hr>
+    @endif
+
 
 @foreach ($pendaftar_kerja as $proker)
 
@@ -29,12 +26,19 @@
                         @csrf
 
                         <div class="card-header">
+                            @if (Auth::user()->role == 'admin')
                             <h4 class="card-title">Edit Pendaftar Kerja</h4>
+                            @endif
+
+                            @if (Auth::user()->role == 'siswa')
+                            <h4 class="card-title"> <i class="fas fa-user fa-1x" ></i> Edit Data Siswa</h4>
+                            @endif
                         </div>
                         
                              <div class="card-body">
+                            @if (Auth::user()->role == 'admin')
                                 <p>Admin dapat melakukan <code> Kelola Data </code> data dengan <code> Operasi </code> yang diberikan</p>
-                                   
+                            @endif   
                                     <div class="row">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
