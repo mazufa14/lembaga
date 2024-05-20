@@ -30,7 +30,8 @@
 <body>
 
 <h2>Data Laporan Siswa</h2>
-<img src="depan/images/hikkari.jpg" class="center" width="200px" alt="">
+<img src="depan/images/hikka.jpg" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; display: block; margin-left: auto; margin-right: auto;" alt="Gambar Lingkaran">
+
 <h5> Rekap data pada Tanggal {{ date('d-M-Y') }}</h5>
 <hr>
 <table>
