@@ -1,20 +1,16 @@
 @extends('admin.layout.appadmin')
 @section('content')
 
-    @if($errors->any())
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong style="margin-bottom: 0.5em;">Warning!</strong> There were some problems with your input.
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
-            @endforeach
-        </ul>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+
+@if (Auth::user()->role == 'siswa' &&  is_null($statuspendaftaran) &&  is_null($statusakademik) && is_null($statuspembayaran))
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-exclamation-circle"></i> Status Proses</h5>
+            <p class="card-text">Terbuka setelah menyelesaikan pengisian data diri, Tes tulis dan Pembayaran daftar ulang</p>
         </div>
-    @endif
-    
+    </div>
+@else
+
     <section class="section">
         <div class="card">
             <div class="card-header">
@@ -94,7 +90,7 @@
         </div>
 
     </section>
-
+@endif
 @endsection
 
 

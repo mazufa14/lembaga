@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.css')}}">
     <link rel="shortcut icon" href="{{asset('admin/assets/images/hikkari.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('admin/assets/css/app.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
     <title>Regitrasi Akun - lembaga lima revisi </title>
     <style>
         body {
-            background-image:  url('{{ asset('depan/images/banner-bg.png') }}');
+            background-image:  url('{{ asset('depan/images/depanbaru.jpg') }}');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -29,6 +30,11 @@
         <div class="col-md-5 col-sm-12 mx-auto">
             <div class="card pt-4">
                 <div class="card-body">
+
+                    <div>
+                        <a href="{{ url('/') }}"><i class="fas fa-arrow-left fa-sm" style="color: #19191a;"></i></a>
+                    </div>
+
                     <div class="text-center mb-5">
                    
                     <img src="{{asset('admin/assets/images/hikkari.png')}}" height="130" class="mb-4 rounded-circle">
@@ -87,6 +93,10 @@
                         </div>
 
                         <div class='form-check clearfix my-4'>
+                            <div class="checkbox float-start">
+                                <input type="checkbox" id="checkbox1" class='form-check-input' >
+                                <label for="checkbox1">Remember me</label>
+                            </div>
                             <div class="float-end">
                                 <a href="{{url('/login')}}">Already have an account?</a>
                             </div>

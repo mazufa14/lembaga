@@ -73,21 +73,21 @@
                     <li class="sidebar-item  ">
                         <a href="{{url('/pendaftarkerja')}}" class='sidebar-link'>
                             <i data-feather="user-plus" width="20"></i> 
-                            <span>Daftar & Seleksi Berkas</span>
+                            <span>1. Daftar & Seleksi Berkas</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item  ">
                         <a href="{{url('/akademik')}}" class='sidebar-link'>
                             <i data-feather="git-branch" width="20"></i> 
-                            <span>Tes Potensi Akademik</span>
+                            <span>2. Tes Potensi Akademik</span>
                         </a>
                     </li>
 
                 <li class="sidebar-item  ">
                     <a href="{{url('/pembayaran')}}" class='sidebar-link'>
                         <i data-feather="dollar-sign" width="20"></i> 
-                        <span>Pembayaran</span>
+                        <span>3. Pembayaran</span>
                     </a>
                 </li>
                 

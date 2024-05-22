@@ -72,40 +72,45 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav  ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="service.html">Layanan</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html"> Tentang Kami</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html"> Kunjungan</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html"> Kerja Sama</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html"> Keberangkatan</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Hubungi Kami</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Daftar</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{url('/login')}}"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
-                </li>
-                <form class="form-inline">
-                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </button>
-                </form>
+             
+              <ul class="navbar-nav">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link" href="about.html">Tentang Kami</a>
+                  </li>
+
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Layanan
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="about.html">Cara Pendaftaran</a>
+                          <a class="dropdown-item" href="about.html">Program Tersedia</a>
+                          <a class="dropdown-item" href="about.html">Hubungi Kami</a>
+                      </div>
+                  </li>
+
+                 
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Program
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="about.html">Kunjungan</a>
+                          <a class="dropdown-item" href="about.html">Kerja Sama</a>
+                          <a class="dropdown-item" href="about.html">Keberangkatan</a>
+                      </div>
+                  </li>
+
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url('/login') }}"> <i class="fa fa-user" aria-hidden="true"></i> Daftar</a>
+                  </li>
               </ul>
+
+
             </div>
           </nav>
         </div>

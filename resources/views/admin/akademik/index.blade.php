@@ -1,6 +1,23 @@
 @extends('admin.layout.appadmin')
 @section('content')
 
+
+@if (Auth::user()->role == 'siswa' && is_null($statuspendaftar))
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-exclamation-circle"></i> Status Akademik</h5>
+            <p class="card-text">Silahkan Lengkapi data pendaftaran. Admin akan verifikasi data pendaftaran anda</p>
+        </div>
+    </div>
+@elseif (Auth::user()->role == 'siswa' && $statuspendaftar == 'unverified')
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-exclamation-circle"></i> Status Akademik</h5>
+            <p class="card-text">Data anda akan segera diverifikasi oleh admin.</p>
+        </div>
+    </div>
+@else
+
         @if (Auth::user()->role == 'siswa')
         <div class="card">
             <div class="card-body">
@@ -8,7 +25,6 @@
                 <p class="card-text">Penting!</p>
                 <hr>    
                 <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Setelah siswa dinyatakan lulus segera melakukan pembayaran daftar ulang</p>
-                <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Jika siswa dinyatakan lulus akan silahkan menuju halaman pembayaran</p>
                 <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Admin akan segera verifikasi data siswa yang masuk </p>
                 <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Minimal Nilai TPA 300 </p>
                 <hr>
@@ -127,7 +143,7 @@
         </div>
 
     </section>
-
+@endif
 @endsection
 
 

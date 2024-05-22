@@ -163,37 +163,7 @@
 </style>
 
 
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">  <i class="fas fa-check-circle fa-lg" style="color: #50ff05;"></i> Selamat Datang , {{Auth::user()->role}} !</h5>
-        <p class="card-text"> Selamat datang di area data proses siswa lembaga hikari gakkai</p>
-        <hr>
-        <p class="card-text text-center">Di sini, Anda akan melihat semua proses, mulai dari pendaftaran dan seleksi awal pada lembaga,proses sertifikasi kebahasaan, seleksi pengguna, wawancara, pemeriksaan medis, penandatanganan kontrak, hingga persiapan keberangkatan.</p>
-        <hr>
-
-        <h5>Akun anda</h5>
-         <div class="column" style="display: flex;">
-            <p class="card-text" style="margin-right: 10px;"> <i class="fas fa-user"></i> Username :</p>
-            <p class="card-text">@if(empty(Auth::user()->name)) {{ '' }} @else {{ Auth::user()->name }} @endif</p>
-         </div>
-        
-         
-         <div class="column" style="display: flex;">
-            <p class="card-text" style="margin-right: 10px;"> <i class="fas fa-clock"></i> Waktu login :</p>
-
-            <?php
-               date_default_timezone_set('Asia/Jakarta'); // Set timezone ke Waktu Indonesia Barat (WIB)
-               $now = new DateTime();
-            ?>
-            <p class="card-text"> <?php echo $now->format('l, d F Y H:i:s'); ?> WIB</p>
-
-         </div>
-
-      </div>
-</div>
-
-
-<!-- ALUR PENDAFTARAB -->
+<!-- ALUR PENDAFTARAn -->
 <div class="card ">
   <div class="card-body">
     <h5 class="card-title">
@@ -213,60 +183,36 @@
           Ikuti tes tulis yang dijadwalkan untuk penilaian.
         </div>
       </li>
+
       <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
           <div class="fw-bold">Pembayaran Awal / Daftar Ulang</div>
           Selesaikan pembayaran awal dan lakukan daftar ulang .
         </div>
       </li>
+
     </ol>
   </div>
+
+  <div class="card-body">
+   <h5 class="card-title">
+      <i class="fas fa-check-circle fa-lg" style="color: #50ff05;"></i> Pembayaran Daftar Ulang
+    </h5>
+   <hr>
+
+   <div>
+      <p> <code>*</code> Lakukan pembayaran daftar ulang sesuai dengan program yang anda pilih</p>
+   </div>
+
+   
+  </div>
+
+
 </div>
 
 
 <div class="row">
-   <div class="col-md-4">
-         <div class="card widget-todo">
-            <div class="card-header border-bottom mb-3 d-flex justify-content-between align-items-center">
-               <h5 class="card-title d-flex">
-               <i class="fas fa-check-circle"></i> Persyaratan Daftar Ulang 
-               </h5>
-            </div>
-            <div class="card-body">
-               <p> <code>*</code> Dokumen yang wajib dibawa saat daftar ulang</p>
-            </div>
-            
-            
-            <div class="card-body ">
-               <table class='table table-borderless'>
-                     <tr>
-                        <td class='col-3'><i class="far fa-check-square" style="color: #0a76db;"></i></td>
-                        <td class='col-3'>Fotokopi Ijazah</td>
-                        <td class='col-3'>.</td>
-                        
-                     </tr>
-
-                     <tr>
-                        <td class='col-3'><i class="far fa-check-square" style="color: #0a76db;"></i></td>
-                        <td class='col-3'>Fotokopi Akte</td>
-                     </tr>
-
-                     <tr>
-                        <td class='col-3'><i class="far fa-check-square" style="color: #0a76db;"></i></td>
-                        <td class='col-3'>Fotokopi KK</td>
-                     </tr>
-
-                     <tr>
-                        <td class='col-3'><i class="far fa-check-square" style="color: #0a76db;"></i></td>
-                        <td class='col-3'>Fotokopi Ktp </td>
-                     </tr>       
-               </table>
-            </div>
-         </div>
-   </div>
-
   
-
    <div class="col-md-4">
       <div class="card ">
          <div class="card-header">
@@ -309,7 +255,7 @@
    <div class="col-md-4">
       <div class="card ">
          <div class="card-header">
-               <h4>  <i class="fas fa-check-circle"></i>  Tes Tulis / Daftar Ulang</h4>
+               <h4>  <i class="fas fa-check-circle"></i>  Tes Tulis </h4>
                <hr>
          </div>
          <div class="card-body">
@@ -317,7 +263,7 @@
                   <h5 class="text-center">ANDA LOLOS </h5>
                   <div class="text-center border-radius"> <img src="{{asset('admin/lulus/checklist.png')}}" class="card-img rounded-circle img-thumbnail mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Checklist"></div>
                   <div class="text-center mb-5">
-                     <h6 class='text-green'>Selamat anda lolos seleksi di lembaga hikkari gakkai sebagai siswa, Segera kumpulkan berkas daftar ulang</h6>
+                     <h6 class='text-green'>Selamat anda lolos seleksi di lembaga hikkari gakkai sebagai siswa, Segera Lakukan pembayaran daftar ulang</h6>
                   </div>
                @else
                   <h5 class="text-center">PROSES PENILAIAN </h5>
@@ -329,6 +275,33 @@
          </div>
       </div>
    </div>
+
+
+   <div class="col-md-4">
+      <div class="card ">
+         <div class="card-header">
+               <h4>  <i class="fas fa-check-circle"></i> Pembayaran Daftar Ulang</h4>
+               <hr>
+         </div>
+         <div class="card-body">
+               @if($statuspembayaran === 'verified')
+                  <h5 class="text-center">SUDAH MELAKUKAN PEMBAYARAN</h5>
+                  <div class="text-center border-radius"> <img src="{{asset('admin/lulus/checklist.png')}}" class="card-img rounded-circle img-thumbnail mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Checklist"></div>
+                  <div class="text-center mb-5">
+                     <h6 class='text-green'> Terimakasih banyak sudah melakukan pembayaran daftar ulang, Selamat bergabung di lembaga hikari gakkai</h6>
+                  </div>
+                  
+               @else
+                  <h5 class="text-center">PROSES PENILAIAN</h5>
+                  <div class="text-center "> <img src="{{asset('admin/lulus/loading.png')}}" class="card-img  mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Proses"></div>
+                  <div class="text-center mb-5">
+                     <h6 class='text-green'>Segera lakukan pembayaran daftar ulang setelah anda lolos tes tulis</h6>
+                  </div>
+               @endif
+         </div>
+      </div>
+   </div>
+
 
 
 

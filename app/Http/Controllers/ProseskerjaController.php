@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\proses_kerja;
+use App\Models\pembayaran;
+use App\Models\akademik;
+use App\Models\pendaftar_kerja;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -35,9 +38,47 @@ class ProseskerjaController extends Controller
     //     return view('admin.proseskerja.index', compact('proses_kerja'));
     // }
 
+
+   
+    // public function index() {
+    //     // Mendapatkan role pengguna yang sedang login
+    //     // $role = Auth::user()->role;
+    //     $user = Auth::user();
+    //     $role = $user->role;
+    //     $user_id = $user->id;
+
+    //     // Inisialisasi query untuk mengambil data proses kerja
+    //     $query = proses_kerja::join('pendaftar_kerja', 'proses_kerja.nama_pekerja', '=', 'pendaftar_kerja.id')
+    //                          ->join('program_kerja', 'proses_kerja.program_proses_kerja', '=', 'program_kerja.id')
+    //                          ->join('users as u1', 'proses_kerja.user_id', '=', 'u1.id')
+    //                          ->select('proses_kerja.*', 'pendaftar_kerja.pendaftar_pekerja as namapekerja', 'program_kerja.nama_program as namaprogram', 'u1.name as namaakun');
+    
+    //     // Jika pengguna adalah admin, ambil semua data tanpa filter
+    //     if($role === 'admin') {
+    //         $proses_kerja = $query->paginate(10);
+    //     } else {
+    //         // Jika pengguna bukan admin, ambil data sesuai dengan user_id yang sedang login
+    //         // $user_id = Auth::id();
+    //         $proses_kerja = $query->join('users as u2', 'proses_kerja.user_id', '=', 'u2.id')
+    //                              ->where('u2.id', $user_id)
+    //                              ->paginate(10);
+    //     }
+
+    //     // Mendapatkan status pendaftaran,akademik dan pembayaran pengguna yang sedang login
+    //     $statuspendaftaran = pendaftar_kerja::where('user_id', $user_id)->value('status');
+    //     $statusakademik = akademik::where('user_id', $user_id)->value('status');
+    //     $statuspembayaran = pembayaran::where('user_id', $user_id)->value('status');
+                         
+    
+    //     return view('admin.proseskerja.index', compact('proses_kerja','statuspendaftaran','statusakademik','statuspembayaran'));
+    // }
+    
+
     public function index() {
         // Mendapatkan role pengguna yang sedang login
-        $role = Auth::user()->role;
+        $user = Auth::user();
+        $role = $user->role;
+        $user_id = $user->id;
     
         // Inisialisasi query untuk mengambil data proses kerja
         $query = proses_kerja::join('pendaftar_kerja', 'proses_kerja.nama_pekerja', '=', 'pendaftar_kerja.id')
@@ -50,13 +91,32 @@ class ProseskerjaController extends Controller
             $proses_kerja = $query->paginate(10);
         } else {
             // Jika pengguna bukan admin, ambil data sesuai dengan user_id yang sedang login
-            $user_id = Auth::id();
             $proses_kerja = $query->join('users as u2', 'proses_kerja.user_id', '=', 'u2.id')
                                  ->where('u2.id', $user_id)
                                  ->paginate(10);
         }
     
-        return view('admin.proseskerja.index', compact('proses_kerja'));
+        // Mendapatkan status pendaftaran, akademik, dan pembayaran pengguna yang sedang login
+        $status = DB::table('pendaftar_kerja')
+                    ->join('akademik', 'pendaftar_kerja.user_id', '=', 'akademik.user_id')
+                    ->join('pembayaran', 'pendaftar_kerja.user_id', '=', 'pembayaran.user_id')
+                    ->select('pendaftar_kerja.status as statuspendaftaran', 'akademik.status as statusakademik', 'pembayaran.status as statuspembayaran')
+                    ->where('pendaftar_kerja.user_id', $user_id)
+                    ->first();
+    
+                    
+        if ($status) {
+            $statuspendaftaran = $status->statuspendaftaran;
+            $statusakademik = $status->statusakademik;
+            $statuspembayaran = $status->statuspembayaran;
+        } else {
+            // Penanganan ketika tidak ada data ditemukan
+            $statuspendaftaran = null;
+            $statusakademik = null;
+            $statuspembayaran = null;
+        }
+    
+        return view('admin.proseskerja.index', compact('proses_kerja','statuspendaftaran','statusakademik','statuspembayaran'));
     }
     
 

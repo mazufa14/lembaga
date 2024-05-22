@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\pembayaran;
+use App\Models\akademik;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,25 +16,59 @@ class PembayaranController extends Controller
 {
     //
     
-    public function index(){
-        // Mendapatkan role pengguna yang sedang login
-        $role = Auth::user()->role;
+    // public function index(){
+    //     // Mendapatkan role pengguna yang sedang login
+    //     $role = Auth::user()->role;
+    //     $user = Auth::user();
+    //     $role = $user->role;
+    //     $user_id = $user->id;
     
+    //     // Inisialisasi query untuk mengambil data pembayaran
+    //     $query = pembayaran::join('users', 'pembayaran.user_id', '=', 'users.id')
+    //         ->select('pembayaran.*', 'users.name as namaakun');
+    
+    //     // Jika pengguna adalah admin, ambil semua data pembayaran
+    //     if($role === 'admin') {
+    //         $pembayaran = $query->paginate(10);
+    //     } else {
+    //         // Jika pengguna bukan admin, ambil data pembayaran sesuai dengan user_id yang sedang login
+    //         $user_id = Auth::id();
+    //         $pembayaran = $query->where('pembayaran.user_id', $user_id)->paginate(10);
+    //     }
+    
+    //     $statusakademik = akademik::where('user_id', $user_id)->value('status');
+
+    //     return view('admin.pembayaran.index', compact('pembayaran','statusakademik'));
+    // }
+
+
+    public function index()
+    {
+        // Mendapatkan role pengguna yang sedang login
+        $user = Auth::user();
+        $role = $user->role;
+        $user_id = $user->id;
+        
         // Inisialisasi query untuk mengambil data pembayaran
         $query = pembayaran::join('users', 'pembayaran.user_id', '=', 'users.id')
             ->select('pembayaran.*', 'users.name as namaakun');
     
         // Jika pengguna adalah admin, ambil semua data pembayaran
-        if($role === 'admin') {
+        if ($role === 'admin') {
             $pembayaran = $query->paginate(10);
         } else {
             // Jika pengguna bukan admin, ambil data pembayaran sesuai dengan user_id yang sedang login
-            $user_id = Auth::id();
             $pembayaran = $query->where('pembayaran.user_id', $user_id)->paginate(10);
         }
-    
-        return view('admin.pembayaran.index', compact('pembayaran'));
+
+        // Mendapatkan status pembayaran pengguna yang sedang login
+        $statusakademik = akademik::where('user_id', $user_id)->value('status');
+
+        // Kembalikan view dengan data pembayaran dan status pembayaran (jika tidak admin)
+        return view('admin.pembayaran.index', compact('pembayaran', 'statusakademik'));
     }
+    
+
 
     public function create()
     {
@@ -57,12 +92,13 @@ class PembayaranController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'user_id' => 'required',
+            'user_id' => 'required|unique:pembayaran,user_id',
             'keterangan' => 'required|max:100',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:1024', // sesuaikan dengan kebutuhan
 
         ],[
             'user_id.required' => 'Akun siswa Belum diisi',
+            'user_id.unique' => 'Data pembayaran sudah ada',
 
             'keterangan.required' => 'Keterangan belum diisi',
             'keterangan.max' => 'Maksimal 100 karakter',

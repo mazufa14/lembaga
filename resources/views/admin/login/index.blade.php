@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.css')}}">
     <link rel="shortcut icon" href="{{asset('admin/assets/images/hikkari.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('admin/assets/css/app.css')}}">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <title>lembaga lima revisi</title>
     <style>
         body {
@@ -23,18 +24,21 @@
 </head>
 <body>
 
-
-       
-
 <div class="container py-5">
+
+
+
     <div class="row">
         <div class="col-md-5 col-sm-12 mx-auto">
             <div class="card pt-4">
                 <div class="card-body">
-                    <div class="text-center mb-5">
-                   
-                    <img src="{{asset('admin/assets/images/hikkari.png')}}" height="130" class="mb-4 rounded-circle">
 
+                    <div>
+                        <a href="{{ url('/') }}"><i class="fas fa-arrow-left fa-sm" style="color: #19191a;"></i></a>
+                    </div>
+               
+                    <div class="text-center mb-5">
+                    <img src="{{asset('admin/assets/images/hikkari.png')}}" height="130" class="mb-4 rounded-circle">
                        
                         <h3>Sign In</h3>
                         <p>Lembaga Hikkari Gakkai</p>
@@ -86,7 +90,7 @@
                                 <label for="checkbox1">Remember me</label>
                             </div>
                             <div class="float-end">
-                                <a href="{{url('/register')}}">Don't have an account?</a>
+                                <a href="{{url('/register')}}">Don't have an account? Register</a>
                             </div>
                         </div>
                         <div class="clearfix">
@@ -101,6 +105,7 @@
 </div>
 
 <!-- Feather Icons -->
-
 </body>
 </html>
+
+

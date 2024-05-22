@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\akademik;
+use App\Models\pendaftar_kerja;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,25 +16,56 @@ use Illuminate\Database\QueryException;
 class AkademikController extends Controller
 {
     //
-    public function index(){
-        // Mendapatkan role pengguna yang sedang login
-        $role = Auth::user()->role;
+    // public function index(){
+    //     // Mendapatkan role pengguna yang sedang login
+    //     $role = Auth::user()->role;
     
-        // Inisialisasi query untuk mengambil data pembayaran
+    //     // Inisialisasi query untuk mengambil data pembayaran
+    //     $query = akademik::join('users', 'akademik.user_id', '=', 'users.id')
+    //         ->select('akademik.*', 'users.name as namaakun');
+    
+    //     // Jika pengguna adalah admin, ambil semua data pembayaran
+    //     if($role === 'admin' || $role === 'penguji') {
+    //         $akademik = $query->paginate(10);
+    //     } else {
+    //         // Jika pengguna bukan admin, ambil data pembayaran sesuai dengan user_id yang sedang login
+    //         $user_id = Auth::id();
+    //         $akademik = $query->where('akademik.user_id', $user_id)->paginate(10);
+    //     }
+
+
+    //     $user_id = Auth::id();
+    //     $statusakademik = akademik::where('user_id', $user_id)->value('status');
+        
+    //     return view('admin.akademik.index', compact('akademik','statusakademik'));
+
+    // }
+
+    public function index()
+    {
+        // Mendapatkan role pengguna yang sedang login
+        $user = Auth::user();
+        $role = $user->role;
+        $user_id = $user->id;
+
+        // Inisialisasi query untuk mengambil data akademik
         $query = akademik::join('users', 'akademik.user_id', '=', 'users.id')
             ->select('akademik.*', 'users.name as namaakun');
-    
-        // Jika pengguna adalah admin, ambil semua data pembayaran
-        if($role === 'admin' || $role === 'penguji') {
+
+        // Jika pengguna adalah admin atau penguji, ambil semua data akademik
+        if ($role === 'admin' || $role === 'penguji') {
             $akademik = $query->paginate(10);
         } else {
-            // Jika pengguna bukan admin, ambil data pembayaran sesuai dengan user_id yang sedang login
-            $user_id = Auth::id();
+            // Jika pengguna bukan admin atau penguji, ambil data akademik sesuai dengan user_id yang sedang login
             $akademik = $query->where('akademik.user_id', $user_id)->paginate(10);
         }
-    
-        return view('admin.akademik.index', compact('akademik'));
+
+        // Mendapatkan status akademik pengguna yang sedang login
+        $statuspendaftar = pendaftar_kerja::where('user_id', $user_id)->value('status');
+
+        return view('admin.akademik.index', compact('akademik', 'statuspendaftar'));
     }
+
 
     public function create()
     {
