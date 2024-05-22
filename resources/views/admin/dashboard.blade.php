@@ -138,13 +138,7 @@
 
          <div class="column" style="display: flex;">
             <p class="card-text" style="margin-right: 10px;"> <i class="fas fa-clock"></i> Waktu login :</p>
-
-            <?php
-               date_default_timezone_set('Asia/Jakarta'); // Set timezone ke Waktu Indonesia Barat (WIB)
-               $now = new DateTime();
-            ?>
-            <p class="card-text"> <?php echo $now->format('l, d F Y H:i:s'); ?> WIB</p>
-
+            <p class="card-text"> {{ now()->format('l, d F Y H:i:s') }} WIB</p>
          </div>
     </div>
 </div>
