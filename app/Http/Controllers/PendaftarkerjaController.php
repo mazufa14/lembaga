@@ -260,7 +260,7 @@ class PendaftarkerjaController extends Controller
         $pdf = FacadePdf::loadview('admin.pendaftarkerja.pdf', compact('pendaftar_kerja'));
     
         return $pdf->stream('Laporan Pendaftaran.pdf');
-    
+     
     
         }
 

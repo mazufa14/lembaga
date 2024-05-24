@@ -20,6 +20,7 @@
 
 </style> -->
 
+
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">  <i class="fas fa-circle fa-lg" style="color: #50ff05;"></i> Halaman proses siswa </h5>
@@ -119,6 +120,7 @@
     </div>
 </div>
 
+
 <hr>
 
 <!--  PROSES 3 -->
@@ -126,7 +128,6 @@
 <div class="card">
     <div class="card-body">
         <h5 class="card-title"> Proses 3 - Daftar Ulang </h5>
-        <p class="card-text">Dokumen yang diserahkan saat daftar ulang</p>
         <hr>    
         <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Fotokopy KTP </p>
         <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Fotokopy KK </p>
@@ -142,7 +143,6 @@
             <thead>
                 <tr>
                     <th>Program siswa</th>
-                    <!-- <th>Lembaga melakukan cek data daftar ulang siswa</th> -->
                     <th>Status proses lembaga</th>
                 </tr>
             </thead>
@@ -150,7 +150,6 @@
             <tbody>
                 <tr>
                     <td>{{$proker->namaprogram}}</td>
-                    <!-- <td>{{$proker->namapekerja}}</td> -->
                     <td>
                     <span class="badge {{$proker->proses3 == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
                         {{$proker->proses3}}
@@ -225,7 +224,7 @@
                 <thead>
                     <tr>
                         <th>Program siswa</th>
-                        <th>Tingkat Sertifikasi kebahasaan</th>
+                        <th>Sertifikasi kebahasaan</th>
                         <th>Status proses lembaga</th>
                     </tr>
                 </thead>
@@ -233,7 +232,17 @@
                 <tbody>
                     <tr>
                         <td>{{$proker->namaprogram}}</td>
-                        <td>{{$proker->kebahasaan}}</td>
+                       
+                        <td>
+                            <div class="rounded">
+                            @empty($proker->kebahasaan)
+                                <button class="btn btn-success">No PDF</button>
+                            @else
+                                <a href="{{ url('admin/kebahasaan') }}/{{ $proker->kebahasaan }}" class="btn btn-success" target="_blank"> <i class="fas fa-file-pdf"></i> Lihat PDF</a>
+                            @endempty
+                            </div>
+                        </td>
+
                         <td>
                         <span class="badge {{$proker->proses5 == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
                             {{$proker->proses5}}
@@ -271,7 +280,17 @@
                 <tbody>
                     <tr>
                         <td>{{$proker->namaprogram}}</td>
-                        <td>{{$proker->sertifikasi}}</td>
+
+                        <td>
+                            <div class="rounded">
+                            @empty($proker->sertifikasi)
+                                <button class="btn btn-success">No PDF</button>
+                            @else
+                                <a href="{{ url('admin/sertifikasi') }}/{{ $proker->sertifikasi }}" class="btn btn-success" target="_blank"> <i class="fas fa-file-pdf"></i> Lihat PDF</a>
+                            @endempty
+                            </div>   
+                        </td>
+
                         <td>
                         <span class="badge {{$proker->proses6 == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
                             {{$proker->proses6}}
@@ -460,11 +479,11 @@
 </div>
 
 
-<div class="card">
+<!-- <div class="card">
     <div class="card-body">
-        <h5 class="card-title"> Proses 12 - Keputusan Lembaga</h5>
+        <h5 class="card-title"> Proses 12 - Keputusan Lembaga </h5>
         <hr>    
-        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Setelah semua dokumen siswa terpenuhi lembaga akan mengambil keputusan</p>        
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Setelah siswa mendapatkan passport lembaga akan mengajukan visa ke kantor Kedutaan Besar  </p>        
     </div>
 
         <div class="card-body">
@@ -474,7 +493,6 @@
                 <thead>
                     <tr>
                         <th>Program siswa</th>
-                        <!-- <th>Dokumen visa</th> -->
                         <th>Status proses lembaga</th>
                     </tr>
                 </thead>
@@ -482,17 +500,20 @@
                 <tbody>
                     <tr>
                         <td>{{$proker->namaprogram}}</td>
-                        <!-- <td>{{$proker->perusahaan}}</td> -->
                         <td>
-                        <span class="badge {{$proker->proses12 == 'Memenuhi' ? 'bg-success' : 'bg-danger'}}">
-                            {{$proker->proses12}} 
+                        <span class="badge {{$proker->proses12 == 'Layak dan Siap diberangkatkan' ? 'bg-success' : 'bg-danger'}}">
+                            {{$proker->proses12}}
                         </span>    
-                        </td>
+                    </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-</div>
+</div> -->
+
+
+
+
 
 <div class="card">
     <div class="card-body">

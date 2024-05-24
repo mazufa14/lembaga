@@ -228,7 +228,7 @@
                         var currentDate = new Date();
 
                         // Menambahkan 3 hari ke tanggal saat ini
-                        currentDate.setDate(currentDate.getDate() + 3);
+                        currentDate.setDate(currentDate.getDate() + 2);
 
                         // Menampilkan tanggal dalam format yang diinginkan
                         document.getElementById("tanggal").innerHTML = currentDate.toLocaleDateString();

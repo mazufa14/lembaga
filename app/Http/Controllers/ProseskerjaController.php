@@ -167,6 +167,8 @@ class ProseskerjaController extends Controller
             'program_kerja' => 'required',
             // 'sertifikasi_kebahasaan' => 'required',
             // 'sertifikasi_pekerjaan' => 'required',
+            'kebahasaan'   => 'file|mimes:pdf|max:1024',
+            'sertifikasi'   => 'file|mimes:pdf|max:1024',
             'deskripsi' => 'nullable|max:225',
         ],
         [
@@ -178,7 +180,59 @@ class ProseskerjaController extends Controller
             // 'sertifikasi_kebahasaan.required' => 'Sertifkasi wajib diisi', 
             // 'deskripsi.required' => 'Deskripsi siswa wajib diisi',
             'deskripsi.max' => 'Maksimal deskripsi 225 karakter',
+
+            'kebahasaan.file' => 'Kebahasaan harus berupa file',
+            'kebahasaan.mimes' => 'Kebahasaan harus berupa file dengan format: pdf',
+            'kebahasaan.max' => 'Ukuran file kebahasaan maksimal 1MB',
+
+            'sertifikasi.file' => 'sertifikasi harus berupa file',
+            'sertifikasi.mimes' => 'sertifikasi harus berupa file dengan format: pdf',
+            'sertifikasi.max' => 'Ukuran file kebahasaan maksimal 1MB',
         ]);
+
+
+        //UPDATE PDF sertifikasi kebahasaan
+        $kk = DB::table('proses_kerja')->select('kebahasaan')->where('id', $request->id)->get();
+        foreach($kk as $k){
+            $namaFileKebahasaanlama = $k->kebahasaan;
+        }
+
+        if (!empty($request->kebahasaan)) {
+            // Hapus file PDF lama hanya jika ada file PDF baru yang diunggah
+            if (!empty($namaFileKebahasaanlama)) {
+                unlink('admin/kebahasaan/'.$namaFileKebahasaanlama);
+            }
+            
+            $kebahasaanFileName = 'kebahasaan-' .$request->id . '.' . $request->kebahasaan->extension();
+            $request->kebahasaan->move(public_path('admin/kebahasaan'), $kebahasaanFileName);
+        } else {
+            // Jika tidak ada file PDF baru yang diunggah, gunakan file PDF lama
+            $kebahasaanFileName = $namaFileKebahasaanlama;
+        }
+
+
+         //UPDATE PDF SERTIFIKASI PEKERJAAN
+         $kk = DB::table('proses_kerja')->select('sertifikasi')->where('id', $request->id)->get();
+         foreach($kk as $k){
+             $namaFileSertifikasilama = $k->sertifikasi;
+         }
+ 
+         if (!empty($request->sertifikasi)) {
+             // Hapus file PDF lama hanya jika ada file PDF baru yang diunggah
+             if (!empty($namaFileSertifikasilama)) {
+                 unlink('admin/sertifikasi/'.$namaFileSertifikasilama);
+             }
+             
+             $sertifikasiFileName = 'sertifikasi-' .$request->id . '.' . $request->sertifikasi->extension();
+             $request->sertifikasi->move(public_path('admin/sertifikasi'), $sertifikasiFileName);
+         } else {
+             // Jika tidak ada file PDF baru yang diunggah, gunakan file PDF lama
+             $sertifikasiFileName = $namaFileSertifikasilama;
+         }
+ 
+
+       
+
 
         DB::table('proses_kerja')->where('id', $request->id)->update([
             // 'nama_pekerja' => $request->nama,
@@ -191,16 +245,22 @@ class ProseskerjaController extends Controller
             'proses4' => $request->proses4,
             'bulan' => $request->bulan,
             'proses5' => $request->proses5,
-            'kebahasaan' => $request->kebahasaan,
+
+            // 'kebahasaan' => $request->kebahasaan,
+            'kebahasaan' =>  $kebahasaanFileName,
+
             'proses6' => $request->proses6,
-            'sertifikasi' => $request->sertifikasi,
+
+            // 'sertifikasi' => $request->sertifikasi,
+            'sertifikasi' => $sertifikasiFileName,
+
             'proses7' => $request->proses7,
             'perusahaan' => $request->perusahaan,
             'proses8' => $request->proses8,
             'proses9' => $request->proses9,
             'proses10' => $request->proses10,
             'proses11' => $request->proses11,
-            'proses12' => $request->proses12,
+            // 'proses12' => $request->proses12,
 
             'program_proses_kerja' =>$request->program_kerja,
             'deskripsi' => $request->deskripsi,
@@ -218,8 +278,8 @@ class ProseskerjaController extends Controller
             'user_id' => 'required|unique:proses_kerja,user_id',
             'nilai' => 'required',
             'program_kerja' => 'required',
-            'kebahasaan' => 'required',
-            // 'sertifikasi' => 'required',
+            'kebahasaan' => 'file|mimes:pdf|max:1024',
+            'sertifikasi' => 'file|mimes:pdf|max:1024',
             'deskripsi' => 'nullable|max:225',
         ],
         [
@@ -232,10 +292,35 @@ class ProseskerjaController extends Controller
             // 'deskripsi.required' => 'Deskripsi siswa wajib diisi',
             'deskripsi.max' => 'Maksimal deskripsi 225 karakter',
             // 'sertifikasi.required' => 'Sertfikasi pekerjaan wajib diisi',
-            'kebahasaan.required' => 'Sertifikasi wajib diisi',
+    
+            'kebahasaan.file' => 'Kebahasaan harus berupa file',
+            'kebahasaan.mimes' => 'Kebahasaan harus berupa file dengan format: pdf',
+            'kebahasaan.max' => 'Ukuran file kebahasaan maksimal 1MB',
+
+            'sertifikasi.file' => 'Sertifikasi pekerjaan harus berupa file',
+            'sertifikasi.mimes' => 'Sertifikasi pekerjaan berupa file dengan format: pdf',
+            'sertifikasi.max' => 'Ukuran file Sertifikasi pekerjaan maksimal 1MB',
             
            
         ]);
+
+
+        // INPUT Sertifikasi Kebahasaan
+        if (!empty($request->kebahasaan)) {
+            $kebahasaanFileName = 'kebahasaan-' . uniqid() . '.' . $request->kebahasaan->extension();
+            $request->kebahasaan->move(public_path('admin/kebahasaan'), $kebahasaanFileName);
+        } else {
+            $kebahasaanFileName = '';
+        }
+
+
+        // INPUT Sertifikasi pekerjaan
+        if (!empty($request->sertifikasi)) {
+            $sertifikasiFileName = 'sertifikasi-' . uniqid() . '.' . $request->sertifikasi->extension();
+            $request->sertifikasi->move(public_path('admin/sertifikasi'), $sertifikasiFileName);
+        } else {
+            $sertifikasiFileName = '';
+        }
 
         // Tambah data 
         DB::table('proses_kerja')->insert([
@@ -248,16 +333,17 @@ class ProseskerjaController extends Controller
             'proses4' => $request->proses4,
             'bulan' => $request->bulan,
             'proses5' => $request->proses5,
-            'kebahasaan' => $request->kebahasaan,
+            'kebahasaan' => $kebahasaanFileName,
             'proses6' => $request->proses6,
-            'sertifikasi' => $request->sertifikasi,
+            // 'sertifikasi' => $request->sertifikasi,
+            'sertifikasi' =>  $sertifikasiFileName,
             'proses7' => $request->proses7,
             'perusahaan' => $request->perusahaan,
             'proses8' => $request->proses8,
             'proses9' => $request->proses9,
             'proses10' => $request->proses10,
             'proses11' => $request->proses11,
-            'proses12' => $request->proses12,
+            // 'proses12' => $request->proses12,
 
             'program_proses_kerja' =>$request->program_kerja,
             'deskripsi' => $request->deskripsi,

@@ -147,7 +147,7 @@
 
                     <div class="mb-3">
                         <div class="p-3 border rounded">
-                            <h5 class="mb-2"><i class="fas fa-user"></i> Nama Pendaftar</h5>
+                            <h5 class="mb-2"></i> Nama Pendaftar</h5>
                             <p class="mb-0">{{$proker->pendaftar_pekerja}}</p>
                         </div>
                     </div>

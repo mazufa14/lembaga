@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lembaga Empat</title>
+    <title>Hikkari Gakkai</title>
     
     <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('admin/vendors/simple-datatables/style.css')}}">

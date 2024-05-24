@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laporan Pendaftaran Siswa</title>
+    <title>Laporan Pembayaran Siswa</title>
     <style>
         body {
             text-align: center; /* Posisi teks tengah */
@@ -29,7 +29,7 @@
 </head>
 <body>
 
-<h2>Data Laporan Siswa</h2>
+<h2>Data Pembayaran Siswa</h2>
 <img src="depan/images/hikka.jpg" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; display: block; margin-left: auto; margin-right: auto;" alt="Gambar Lingkaran">
 
 
@@ -42,28 +42,26 @@
         <tr>
             <th>No</th>
             <th>Nama</th>
-            <th>Tempat Lahir</th>
-            <th>Tanggal Lahir</th>
-            <th>Status Pernikahan</th>
-            <th>Jenis Kelamin</th>
-            <th>No. HP</th>
-            <th>Status Data</th>
+            <th>Keterangan</th>
+            <th>Jumlah</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($pendaftar_kerja as $key => $pendaftar)
+        @foreach($pembayaran as $key => $bayar)
         <tr>
             <td>{{ $key + 1 }}</td>
-            <td>{{ $pendaftar->pendaftar_pekerja}}</td>
-            <td>{{ $pendaftar->tempat_lahir }}</td>
-            <td>{{ $pendaftar->tanggal_lahir }}</td>
-            <td>{{ $pendaftar->nikah}}</td>
-            <td>{{ $pendaftar->jenis_kelamin }}</td>
-            <td>{{ $pendaftar->no_hp }}</td>
-            <td>{{ $pendaftar->status }}</td>
+            <td>{{ $bayar->nama}}</td>
+            <td>{{ $bayar->keterangan }}</td>
+            <td>Rp. 500.000</td>
         </tr>
         @endforeach
     </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" style="text-align:right;"><strong>Total :</strong></td>
+            <td><strong>Rp. {{ number_format($pembayaran->count() * 500000, 0, ',', '.') }}</strong></td>
+        </tr>
+    </tfoot>
 </table>
 
 </body>

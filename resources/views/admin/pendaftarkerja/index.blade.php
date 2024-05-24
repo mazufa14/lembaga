@@ -20,7 +20,7 @@
             <div class="card-header">
                         @if (Auth::user()->role == 'admin')
                         <a href="{{url('pendaftarkerja/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a>
-                        <a href="{{url('pendaftarkerja/pdf')}}" target="_blank" class="btn btn-danger" ><i class="fas fa-file-pdf"></i> Laporan </a>
+                        <a href="{{url('pendaftarkerja/pdf')}}" target="_blank" class="btn btn-success" ><i class="fas fa-file-pdf"></i> Laporan Data Siswa</a>
                         @endif
 
                         @if (Auth::user()->role == 'siswa')
@@ -68,10 +68,12 @@
                             
                             <td>
 
-                            <a href="{{url('pendaftarkerja/show/'.$proker->id)}}" class="btn btn-sm btn-success mb-2"><i class="fas fa-eye"></i> Lihat data</a>
+                            <a href="{{url('pendaftarkerja/show/'.$proker->id)}}" class="btn btn-sm btn-primary mb-2"><i class="fas fa-eye"></i> Lihat data</a>
+
+                            @if (Auth::user()->role == 'admin')
                             <a href="{{url('pendaftarkerja/edit/'.$proker->id)}}" class="btn btn-sm btn-warning mb-2"><i class="fas fa-edit"></i> Edit data </a>
 
-                                                @if (Auth::user()->role == 'admin')
+                                               
                                                 <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal{{$proker->id}}"><i class="fas fa-trash"></i> Hapus data </button>
                                                 @endif
 

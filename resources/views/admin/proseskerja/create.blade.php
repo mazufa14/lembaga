@@ -209,9 +209,21 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
+                                                <label for="kebahasaan">Proses 5 - Sertikasi Kebahasaan </label>
+                                            <input type="file" name="kebahasaan" id="kebahasaan" class="form-control @error('kebahasaan') is-invalid @enderror">
+                                            @error('kebahasaan')
+                                            <div class="invalid-feedback">
+                                            {{ $message }}
+                                            </div>
+                                            @enderror
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="col-md-6 col-12">
+                                            <div class="form-group">
                                                 <label for="kebahasaan">Proses 5 - Sertikasi Kebahasaan <code>SESUAIKAN DENGAN PROGRAM SISWA</code></label>
                                                 <select id="kebahasaan" name="kebahasaan" class="form-control @error('kebahasaan') is-invalid @enderror">
-                                                <!-- <option value="" disabled selected>Pilih Sertifikasi</option> -->
+                                                <option value="" disabled selected>Pilih Sertifikasi</option> 
                                                 <option value="N5">N5</option>
                                                 <option value="N4">N4</option>
                                                 <option value="N3">N3</option>
@@ -225,7 +237,7 @@
                                                     </div>
                                                 @enderror
                                             </div>
-                                        </div>
+                                        </div> -->
 
 
                                         <div class="col-md-6 col-12">
@@ -245,10 +257,22 @@
                                         </div>
 
 
-                                        <div class="col-md-6 col-12">
+                                        <!-- <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">Bidang Sertifikasi <code>*Pertanian *kontruksi dll</code></label>
                                             <input type="text" value="{{ old('sertifikasi')}}" name="sertifikasi" id="first-name-column" class="form-control @error('sertifikasi') is-invalid @enderror">
+                                            @error('sertifikasi')
+                                            <div class="invalid-feedback">
+                                            {{ $message }}
+                                            </div>
+                                            @enderror
+                                            </div>
+                                        </div> -->
+
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="sertifikasi">Proses 6 - Bidang Sertifikasi Pekerjaan</label>
+                                            <input type="file" name="sertifikasi" id="sertifikasi" class="form-control @error('sertifikasi') is-invalid @enderror">
                                             @error('sertifikasi')
                                             <div class="invalid-feedback">
                                             {{ $message }}
@@ -354,13 +378,12 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6 col-12">
+                                        <!-- <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="proses12">Proses 12 - Keputusan Lembaga</label>
                                                 <select id="proses12" name="proses12" class="form-control @error('proses12') is-invalid @enderror">
                                                     <option value="Menunggu keputusan">Menunggu keputusan</option>
                                                     <option value="Layak dan Siap diberangkatkan">Layak dan siap diberangkatkan</option>
-                                                    <!-- <option value="Belum">Tidak diperlukan</option> -->
                                                 </select>
                                                 @error('proses12')
                                                     <div class="invalid-feedback">
@@ -368,7 +391,7 @@
                                                     </div>
                                                 @enderror
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <!-- <div class="col-md-6 col-12">
                                             <div class="form-group">

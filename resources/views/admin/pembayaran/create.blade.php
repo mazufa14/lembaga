@@ -72,7 +72,7 @@
                                 <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">Keterangan Pembayaran </label>
-                                                <textarea name="keterangan" value="{{ old('keterangan')}}" rows="3" id="first-name-column" class="form-control @error('keterangan') is-invalid @enderror"></textarea>
+                                                <textarea readonly name="keterangan"  rows="3" id="first-name-column" class="form-control @error('keterangan') is-invalid @enderror">{{ old('keterangan', 'Daftar Ulang') }}</textarea>
                                                 @error('keterangan')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}

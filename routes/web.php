@@ -108,6 +108,7 @@ Route::group(['middleware' => ['auth', 'peran:admin-siswa-penguji']], function()
     Route::get('/pembayaran/delete/{id}',[PembayaranController::class,'destroy']);
     Route::post('/pembayaran/update/{id}', [PembayaranController::class, 'update']);
     Route::get('/pembayaran/edit/{id}', [PembayaranController::class, 'edit']);
+    Route::get('/pembayaran/pdf',[PembayaranController::class,'generatePDF']);
 
     // tabel test akademik 
     Route::get('/akademik',[AkademikController::class,'index']);

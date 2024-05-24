@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\pembayaran;
 use App\Models\akademik;
+use App\Models\pendaftar_kerja;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException; 
-
+use PDF;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf; 
 
 
 class PembayaranController extends Controller
@@ -189,6 +191,21 @@ class PembayaranController extends Controller
 
     }
 
+
+    public function generatePDF(){
+    
+        // $pembayaran = pembayaran::all();
+
+        $pembayaran = Pembayaran::join('users', 'pembayaran.user_id', '=', 'users.id')
+        ->select('pembayaran.*', 'users.name as nama')
+        ->get();
+    
+        $pdf = FacadePdf::loadview('admin.pembayaran.pdf', compact('pembayaran'));
+    
+        return $pdf->stream('Laporan Pembayaran.pdf');
+    
+    
+        }
 
 
     public function destroy(string $id)

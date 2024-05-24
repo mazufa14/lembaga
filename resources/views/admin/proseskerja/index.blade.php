@@ -28,7 +28,7 @@
                         <th>Akun</th>
                         <th>Nama Pendaftar</th>
                         <th>Program </th>
-                        <th>Sertfikasi Kebahasaan</th>
+                        <!-- <th>Sertfikasi Kebahasaan</th> -->
                         <th>Action</th>
                         </tr>
                     </thead>
@@ -43,8 +43,9 @@
                             <td>{{$proker->namaakun}}</td>
                             <td>{{$proker->namapekerja}}</td>
                             <td>{{$proker->namaprogram}}</td>
-                            <td>{{$proker->kebahasaan}}<td>
+                            <!-- <td>{{$proker->kebahasaan}}<td> -->
 
+                            <td>
                             <a href="{{url('proseskerja/show/'.$proker->id)}}" class="btn btn-sm btn-success mb-2"><i class="fas fa-eye"></i> Lihat data</a>
                             
                             @if (Auth::user()->role == 'admin')

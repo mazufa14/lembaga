@@ -19,12 +19,16 @@
 
     <section class="section">
         <div class="card">
-            <div class="card-header">
-                        <a href="{{url('pembayaran/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a>
+            <div class="card-header">      
                         @if (Auth::user()->role == 'admin')
-                        <!-- <a href="{{url('pembayaran/create')}}" class="btn btn-danger" ><i class="fas fa-file-pdf"></i> Laporan </a> -->
-                        
+                        <a href="{{url('pembayaran/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a>
+                        <a href="{{url('pembayaran/pdf')}}" target="_blank" class="btn btn-success" ><i class="fas fa-file-pdf"></i> Laporan Pembayaran</a>
                         @endif
+
+                        @if (Auth::user()->role == 'siswa')
+                        <a href="{{url('pembayaran/create')}}" class="btn btn-primary" ><i class="fas fa-dollar-sign"></i> Pembayaran </a>
+                        @endif
+
                     </div>
             <div class="card-body">
 
@@ -86,10 +90,18 @@
                             <td>
                             @if (Auth::user()->role == 'admin')
                                 <a href="{{url('pembayaran/edit/'.$proker->id)}}" class="btn btn-sm btn-warning mb-2"><i class="fas fa-edit"></i> Edit data </a>
-                            @endif
+
                                 <button type="button" class="btn btn-sm btn-danger mb-2" data-toggle="modal" data-target="#hapusModal{{$proker->id}}">
                                     <i class="fas fa-trash"></i> Hapus data
                                 </button>
+                            @endif
+
+
+                            @if (Auth::user()->role == 'siswa')
+                                <button type="button" class="btn btn-sm btn-danger mb-2" data-toggle="modal" data-target="#hapusModal{{$proker->id}}">
+                                    <i class="fas fa-trash"></i> Hapus data
+                                </button>
+                            @endif    
 
                                 <!-- Modal hapus -->
                                 <div class="modal fade" id="hapusModal{{$proker->id}}" tabindex="-1" role="dialog" aria-labelledby="hapusModalLabel{{$proker->id}}" aria-hidden="true">

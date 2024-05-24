@@ -1,22 +1,6 @@
 @extends('admin.layout.appadmin')
 @section('content')
 
-<div class="page-title">
-    <div class="row">
-        <div class="col-12 col-md-6 order-md-1 order-last">
-            <h3>Datatable</h3>
-            <p class="text-subtitle text-muted">We use 'simple-datatables' made by @fiduswriter. You can check the full documentation <a href="https://github.com/fiduswriter/Simple-DataTables/wiki">here</a>.</p>
-        </div>
-        <div class="col-12 col-md-6 order-md-1 order-first">
-            <nav aria-label="breadcrumb" class='breadcrumb-header'>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Datatable</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-</div>
 
 @foreach ($proses_kerja as $proker)
 
@@ -98,6 +82,8 @@
                             @enderror
                         </div>
                     </div>    
+                
+
 
                     <div class="col-md-6 col-12">
                         <div class="form-group">
@@ -192,6 +178,7 @@
                         </div>
                     </div>
 
+<!--                    
                     <div class="col-md-6 col-12">
                         <div class="form-group">
                             <label for="kebahasaan">Proses 5 - Sertifikasi Kebahasaan <code>SESUAIKAN DENGAN PROGRAM SISWA</code> </label>
@@ -201,8 +188,27 @@
                                 <option value="n3" {{ $proker->kebahasaan == 'n3' ? 'selected' : '' }}>N4</option>
                                 <option value="n2" {{ $proker->kebahasaan == 'n2' ? 'selected' : '' }}>N4</option>
                                 <option value="n1" {{ $proker->kebahasaan == 'n1' ? 'selected' : '' }}>N4</option>
-                                <!-- <option value="Tidak diperlukan" {{ $proker->kebahasaan == 'Tidak diperlukan' ? 'selected' : '' }}>Tidak diperlukan</option> -->
+                                <option value="Tidak diperlukan" {{ $proker->kebahasaan == 'Tidak diperlukan' ? 'selected' : '' }}>Tidak diperlukan</option>
                             </select>
+                            @error('kebahasaan')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div> -->
+
+                    <div class="col-md-6 col-12 mb-3">
+                        <div class="form-group">
+                            <label for="kebahasaan">Sertifikasi Kebahasaan (PDF) </label>
+                            <input type="file" name="kebahasaan" id="kebahasaan" class="form-control @error('kebahasaan') is-invalid @enderror mb-3">
+
+                            @if(!empty($proker->kebahasaan))                       
+                            <a href="{{ url('admin/kebahasaan') }}/{{ $proker->kebahasaan }}" target="_blank"> <i class="fas fa-file-pdf"></i> Lihat PDF</a>
+                            @else
+                                File PDF belum ada
+                            @endif
+
                             @error('kebahasaan')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -227,7 +233,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-12">
+                    <!-- <div class="col-md-6 col-12">
                         <div class="form-group">
                                 <label for="first-name-column">Bidang Sertfikasi <code>*Pertanian *kontruksi dll</code> </label>
                             <input type="text" value="{{$proker->sertifikasi}}" name="sertifikasi" id="first-name-column" class="form-control @error('sertifikasi') is-invalid @enderror">
@@ -236,6 +242,25 @@
                                 {{ $message }}
                                 </div>
                                 @enderror
+                        </div>
+                    </div> -->
+
+                    <div class="col-md-6 col-12 mb-3">
+                        <div class="form-group">
+                            <label for="sertifikasi">Sertifikasi Pekerjaan (PDF) </label>
+                            <input type="file" name="sertifikasi" id="sertifikasi" class="form-control @error('sertifikasi') is-invalid @enderror mb-3">
+
+                            @if(!empty($proker->kebahasaan))                       
+                            <a href="{{ url('admin/sertifikasi') }}/{{ $proker->sertifikasi }}" target="_blank"> <i class="fas fa-file-pdf"></i> Lihat PDF</a>
+                            @else
+                                File PDF belum ada
+                            @endif
+
+                            @error('sertifikasi')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
 
@@ -332,13 +357,13 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-12">
+                    <!-- <div class="col-md-6 col-12">
                         <div class="form-group">
                             <label for="proses12">Proses 12 - Keputusan Lembaga </label>
                             <select id="proses12" name="proses12" class="form-control @error('proses12') is-invalid @enderror">
                                 <option value="Menunggu keputusan" {{ $proker->proses12 == 'Menunggu keputusan' ? 'selected' : '' }}>Menunggu keputusan</option>
                                 <option value="Layak dan Siap diberangkatkan" {{ $proker->proses12 == 'Layak dan Siap diberangkatkan' ? 'selected' : '' }}>Layak dan siap diberangkatkan</option>
-                                <!-- <option value="Tidak diperlukan" {{ $proker->sertifikasi == 'Tidak diperlukan' ? 'selected' : '' }}>Tidak diperlukan</option> -->
+                               
                             </select>
                             @error('proses12')
                                 <div class="invalid-feedback">
@@ -346,7 +371,7 @@
                                 </div>
                             @enderror
                         </div>
-                    </div>
+                    </div> -->
 
                         
                     <div class="col-md-6 col-12">

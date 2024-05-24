@@ -249,7 +249,7 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="kk">Fotokopi Kartu Keluarga *kk </label>
+                                                <label for="kk">Fotokopi Kartu Keluarga *PDF </label>
                                             <input type="file" value="{{ old('kk')}}" name="kk" id="kk" class="form-control @error('kk') is-invalid @enderror">
                                             @error('kk')
                                             <div class="invalid-feedback">
@@ -261,7 +261,7 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="akte">Fotokopi Akte Kelahiran </label>
+                                                <label for="akte">Fotokopi Akte Kelahiran *PDF </label>
                                             <input type="file" value="{{ old('akte')}}" name="akte" id="akte" class="form-control @error('akte') is-invalid @enderror">
                                             @error('akte')
                                             <div class="invalid-feedback">
@@ -273,7 +273,7 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="ijazah">Fotokopi Ijazah </label>
+                                                <label for="ijazah">Fotokopi Ijazah *PDF </label>
                                             <input type="file" value="{{ old('ijazah')}}" name="ijazah" id="ijazah" class="form-control @error('ijazah') is-invalid @enderror">
                                             @error('ijazah')
                                             <div class="invalid-feedback">
@@ -285,7 +285,7 @@
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="ktp">Fotokopi ktp </label>
+                                                <label for="ktp">Fotokopi ktp *PDF</label>
                                             <input type="file" value="{{ old('ktp')}}" name="ktp" id="ktp" class="form-control @error('ktp') is-invalid @enderror">
                                             @error('ktp')
                                             <div class="invalid-feedback">

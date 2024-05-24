@@ -35,7 +35,7 @@
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> 
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
 
-
+    @if (Auth::user()->role == 'admin')
     <script>
         $(document).ready(function() {
             $('#table1').DataTable({
@@ -57,7 +57,7 @@
             });
             });
     </script>
-
+    @endif
     <!-- script dibawah untuk swetalert -->
 
 

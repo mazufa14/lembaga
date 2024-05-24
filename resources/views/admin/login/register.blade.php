@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{asset('admin/assets/css/app.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
-    <title>Regitrasi Akun - lembaga lima revisi </title>
+    <title>Regitrasi Akun - Hikkari Gakkai</title>
     <style>
         body {
             background-image:  url('{{ asset('depan/images/depanbaru.jpg') }}');
