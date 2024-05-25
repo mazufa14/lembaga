@@ -2,11 +2,6 @@
 @section('content')
 
 
-  <!-- about section -->
-
-
-<!-- about section -->
-
 <section class="about_section layout_padding-bottom">
     <div class="container  ">
       <div class="row">
@@ -14,17 +9,14 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                VISI DAN MISI </span>
+                TENTANG KAMI</span>
               </h2>
             </div>
             <p>
-              Visi
-              Menjadi Lembaga Pendidikan Dan Pelatihan bahasa jepang terkemuka dan terpercaya, dalam menghantarkan generasi muda bangsa Indonesia yang mempunyai semangat belajar yang tinggi, cerdas dan berkompetensi
-              
+              HIKARI GAKKAI adalah lembaga pendidikan da pelatihan bahasa Jepang yang memberikan garan: kepada semua siswanya lulus tes kemampuan bahas Jepang JLPT atau sejenisnya dengan biaya yam terjangkau. Dan kami juga memberikan supports kepada semua siswa yang memiliki minat dan tujua melanjutkan pendidikan ataupun yang akan bekerja Jepang.
             </p>
 
-            <p>Misi 
-            Ikut berperan aktif dan berpartisipasi, sesuai dengan program pemerintah dalam rangka mencerdaskan kehidupan bangsa, yang akan mampu menjawab tantangan di masa kini maupun masa yang akan datang.
+            <p>HIKARI GAKKAI merupakan lembaga pendidika bahasa Jepang yang berada di Tangerang. Kan memiliki program pendidikan bahasa Jepang meliputi kelas reguler, kelas intensif dan pendidikan pra magang ke Jepang.
             </p> 
 
   
@@ -46,10 +38,4 @@
 
   <!-- end about section -->
 
-
-
-<!-- slider section -->
-  
-
-
-@endsection
+  @endsection

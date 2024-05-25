@@ -39,8 +39,8 @@
                         <th>No</th>
                         <th>Akun</th>
                         <!-- <th>Keterangan</th> -->
-                        <th>Status</th>
-                        <th>Bukti</th>
+                        <th>Status pembayaran</th>
+                        <th>Bukti pembayaran</th>
                         <th>Action</th>
                         </tr>
                     </thead>

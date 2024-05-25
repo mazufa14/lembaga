@@ -74,12 +74,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
              
               <ul class="navbar-nav">
-                  <li class="nav-item active">
-                      <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  <li class="nav-item ">
+                      <a class="nav-link" href="{{url('/rumah')}}">Home <span class="sr-only">(current)</span></a>
                   </li>
-
+                 
                   <li class="nav-item">
-                      <a class="nav-link" href="about.html">Tentang Kami</a>
+                      <a class="nav-link" href="{{url('/about')}}">Tentang Kami</a>
                   </li>
 
                   <li class="nav-item dropdown">
@@ -87,7 +87,7 @@
                           Layanan
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="about.html">Cara Pendaftaran</a>
+                          <a class="dropdown-item" href="{{url('/caradaftar')}}">Cara Pendaftaran</a>
                           <a class="dropdown-item" href="about.html">Program Tersedia</a>
                           <a class="dropdown-item" href="about.html">Hubungi Kami</a>
                       </div>

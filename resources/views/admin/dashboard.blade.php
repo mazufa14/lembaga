@@ -181,7 +181,7 @@
       <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
           <div class="fw-bold">Pembayaran Awal / Daftar Ulang</div>
-          Selesaikan pembayaran awal dan lakukan daftar ulang .
+          Selesaikan pembayaran daftar ulang .
         </div>
       </li>
 

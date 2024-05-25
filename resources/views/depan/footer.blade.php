@@ -1,8 +1,8 @@
 
   <!-- footer section -->
-  <section class="footer_section">
+  <section class="footer_section bg-dark ">
     <div class="container">
-      <p>
+      <p class="text-white">
         &copy; <span id="displayYear"></span> Husein Maulana Zoelva
       </p>
     </div>

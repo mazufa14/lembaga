@@ -52,6 +52,7 @@ Route::get('/rumah',[DepanController::class, 'rumah']);
 Route::get('/about',[DepanController::class, 'about']);
 Route::get('/contact',[DepanController::class, 'contact']);
 Route::get('/program',[DepanController::class, 'program']);
+Route::get('/caradaftar',[DepanController::class, 'caradaftar']);
 
 Route::middleware(['guest'])->group(function() {
     Route::get('/login',[SesiController::class,'index'])->name('login');
