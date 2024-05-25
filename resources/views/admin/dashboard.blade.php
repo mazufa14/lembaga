@@ -234,9 +234,14 @@
                         document.getElementById("tanggal").innerHTML = currentDate.toLocaleDateString();
                         </script>
                   </div>
-
+               @elseif($berkas === 'unverified')
+                  <h5 class="text-center">PROSES VERIFIKASI</h5>
+                  <div class="text-center border-radius"> <img src="{{asset('admin/lulus/loading.png')}}" class="card-img rounded-circle img-thumbnail mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Checklist"></div>
+                  <div class="text-center mb-5">
+                     <h6 class='text-green'> Terimakasih banyak sudah melakukan pendaftaran. Admin akan segera verifikasi data </h6>
+                  </div>
                @else
-                  <h5 class="text-center">PROSES PENILAIAN</h5>
+                  <h5 class="text-center">PROSES ISI DATA</h5>
                   <div class="text-center "> <img src="{{asset('admin/lulus/loading.png')}}" class="card-img  mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Proses"></div>
                   <div class="text-center mb-5">
                      <h6 class='text-green'>Silahkan lakukan isi data diri anda dan lengkapi berkas-berkas</h6>
@@ -258,6 +263,12 @@
                   <div class="text-center border-radius"> <img src="{{asset('admin/lulus/checklist.png')}}" class="card-img rounded-circle img-thumbnail mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Checklist"></div>
                   <div class="text-center mb-5">
                      <h6 class='text-green'>Selamat anda lolos seleksi di lembaga hikkari gakkai sebagai siswa, Segera Lakukan pembayaran daftar ulang</h6>
+                  </div>
+               @elseif ($akademik === 'Belum lulus')
+               <h5 class="text-center">ANDA BELUM LOLOS </h5>
+                  <div class="text-center border-radius"> <img src="{{asset('admin/lulus/loading.png')}}" class="card-img rounded-circle img-thumbnail mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Checklist"></div>
+                  <div class="text-center mb-5">
+                     <h6 class='text-green'>Anda belum lulus tes tulis, Silahkan melakukan tes tulis ulang</h6>
                   </div>
                @else
                   <h5 class="text-center">PROSES PENILAIAN </h5>
@@ -284,9 +295,14 @@
                   <div class="text-center mb-5">
                      <h6 class='text-green'> Terimakasih banyak sudah melakukan pembayaran daftar ulang, Selamat bergabung di lembaga hikari gakkai</h6>
                   </div>
-                  
+               @elseif($statuspembayaran === 'unverified')
+               <h5 class="text-center">SUDAH MELAKUKAN PEMBAYARAN</h5>
+                  <div class="text-center border-radius"> <img src="{{asset('admin/lulus/loading.png')}}" class="card-img rounded-circle img-thumbnail mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Checklist"></div>
+                  <div class="text-center mb-5">
+                     <h6 class='text-green'> Terimakasih banyak sudah melakukan pembayaran daftar ulang, Pembayaran anda akan segera diverifikasi admin</h6>
+                  </div>
                @else
-                  <h5 class="text-center">PROSES PENILAIAN</h5>
+                  <h5 class="text-center">PROSES PEMBAYARAN</h5>
                   <div class="text-center "> <img src="{{asset('admin/lulus/loading.png')}}" class="card-img  mb-2" style="width: 100px; height: 100px; object-fit: cover;" alt="Proses"></div>
                   <div class="text-center mb-5">
                      <h6 class='text-green'>Segera lakukan pembayaran daftar ulang setelah anda lolos tes tulis</h6>

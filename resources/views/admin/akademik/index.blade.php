@@ -42,6 +42,10 @@
                     </div>
             <div class="card-body">
 
+            @if (Auth::user()->role == 'siswa')
+            <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Hasil Test Siswa</h5>
+            <hr>
+            @endif
                 <table class='table table-striped' id="table1">
                     
                     <thead>

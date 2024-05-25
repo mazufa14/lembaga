@@ -22,23 +22,23 @@
             <div class="card-header">      
                         @if (Auth::user()->role == 'admin')
                         <a href="{{url('pembayaran/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a>
-                        <a href="{{url('pembayaran/pdf')}}" target="_blank" class="btn btn-success" ><i class="fas fa-file-pdf"></i> Laporan Pembayaran</a>
+                        <a href="{{url('pembayaran/pdf')}}" target="_blank" class="btn btn-success" ><i class="fas fa-file-pdf"></i> Lap. Pembayaran</a>
                         @endif
 
                         @if (Auth::user()->role == 'siswa')
-                        <a href="{{url('pembayaran/create')}}" class="btn btn-primary" ><i class="fas fa-dollar-sign"></i> Pembayaran </a>
+                        <a href="{{url('pembayaran/create')}}" class="btn btn-primary" ><i class="fas fa-dollar-sign"></i> Daftar Ulang </a>
                         @endif
 
                     </div>
+                    
             <div class="card-body">
-
                 <table class='table table-striped' id="table1">
                     
                     <thead>
                         <tr>
                         <th>No</th>
                         <th>Akun</th>
-                        <th>Keterangan</th>
+                        <!-- <th>Keterangan</th> -->
                         <th>Status</th>
                         <th>Bukti</th>
                         <th>Action</th>
@@ -53,7 +53,7 @@
                         <tr>
                             <td>{{$no++}}</td>
                             <td>{{$proker->namaakun}}</td>
-                            <td>{{$proker->keterangan}}</td>
+                            <!-- <td>{{$proker->keterangan}}</td> -->
                             <td>
                                 <span class="badge {{$proker->status == 'verified' ? 'bg-success' : 'bg-danger'}}">
                                 {{$proker->status}}
@@ -61,17 +61,20 @@
                             </td>
 
                             <td>
-                                <div class="text-center">
+                               
+
+                            <div class="">
                                     @isset($proker->fotopembayaran)
-                                        <img class="card-img p-2" src="{{ url('admin/pembayaran') }}/{{ $proker->fotopembayaran }}" alt="{{ $proker->namaakun }}" style="width: 160px; height: 160px; object-fit: cover;" data-toggle="modal" data-target="#exampleModal{{ $proker->id }}">
+                                        <img class="card-img p-2 border" src="{{ url('admin/pembayaran') }}/{{ $proker->fotopembayaran }}" alt="{{ $proker->namaakun }}" style="width: 160px; height: 160px; object-fit: cover ;" data-toggle="modal" data-target="#exampleModal{{ $proker->id }}">
                                     @else
                                         <img class="card-img p-2" src="{{ url('admin/img/nophoto.png') }}" alt="No Photo">
                                     @endisset
                                 </div>
 
+
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal{{ $proker->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Bukti Pembayaran</h5>
@@ -79,12 +82,21 @@
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
-                                            <div class="modal-body p-3">
+                                            <div class="modal-body ml-3">
                                                 <img src="{{ url('admin/pembayaran') }}/{{ $proker->fotopembayaran }}" alt="{{ $proker->namaakun }}" class="img-fluid d-block mx-auto" >
+                                                 <hr>               
+                                                <!-- Tambahkan status dan keterangan di sini -->
+                                                <div class="mt-3">
+                                                    <p>Nama Siswa : {{ $proker->namaakun }}</p>
+                                                    <p>Id Pembayaran : {{ $proker->id }}</p>
+                                                    <p>Status : {{ $proker->status }}</p>
+                                                    <p>Keterangan : {{ $proker->keterangan }}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </td>
 
                             <td>
@@ -96,12 +108,14 @@
                                 </button>
                             @endif
 
-
                             @if (Auth::user()->role == 'siswa')
-                                <button type="button" class="btn btn-sm btn-danger mb-2" data-toggle="modal" data-target="#hapusModal{{$proker->id}}">
-                                    <i class="fas fa-trash"></i> Hapus data
+                                <button type="button" class="btn btn-sm btn-primary mb-2" data-toggle="modal" data-target="#exampleModal{{ $proker->id }}">
+                                    <i class="fas fa-eye"></i> Detail
                                 </button>
-                            @endif    
+                            @endif
+
+                           
+
 
                                 <!-- Modal hapus -->
                                 <div class="modal fade" id="hapusModal{{$proker->id}}" tabindex="-1" role="dialog" aria-labelledby="hapusModalLabel{{$proker->id}}" aria-hidden="true">
@@ -137,6 +151,8 @@
         </div>
 
     </section>
+
+ 
 
 @endif
 @endsection

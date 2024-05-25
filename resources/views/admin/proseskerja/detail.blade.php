@@ -88,9 +88,9 @@
         <h5 class="card-title"> Proses 2 - Tes Akademik dasar </h5>
         <p class="card-text">Mengerjakan tes potensi akademik dasar</p>
         <hr>    
-        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Mengerjakan test </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Mengerjakan test tulis </p>
         <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Terdiri dari beberapa soal </p>
-        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Nilai minimal yag didapat >70 </p>
+        <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Nilai minimal yag didapat >= 300 </p>
     </div>
 
     <div class="card-body">

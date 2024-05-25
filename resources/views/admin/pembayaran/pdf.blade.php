@@ -32,10 +32,7 @@
 <h2>Data Pembayaran Siswa</h2>
 <img src="depan/images/hikka.jpg" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; display: block; margin-left: auto; margin-right: auto;" alt="Gambar Lingkaran">
 
-
 <h5 class="card-text">{{ now()->format('l, d F Y H:i:s') }} WIB</h5>
-
-<!-- <h5> Rekap data pada Tanggal {{ date('d-M-Y') }}</h5> -->
 <hr>
 <table>
     <thead>
@@ -43,23 +40,35 @@
             <th>No</th>
             <th>Nama</th>
             <th>Keterangan</th>
+            <th>status</th>
             <th>Jumlah</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($pembayaran as $key => $bayar)
+        <?php
+        $total_pembayaran = 0; // Inisialisasi total pembayaran
+        foreach($pembayaran as $key => $bayar) {
+            // Cek apakah status terverifikasi
+            if ($bayar->status == 'verified') {
+                // Jika status terverifikasi, tambahkan jumlah pembayaran ke total
+                $total_pembayaran += 500000;
+        ?>
         <tr>
             <td>{{ $key + 1 }}</td>
             <td>{{ $bayar->nama}}</td>
             <td>{{ $bayar->keterangan }}</td>
+            <td>{{ $bayar->status }}</td>
             <td>Rp. 500.000</td>
         </tr>
-        @endforeach
+        <?php
+            } // Tutup if
+        } // Tutup foreach
+        ?>
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="3" style="text-align:right;"><strong>Total :</strong></td>
-            <td><strong>Rp. {{ number_format($pembayaran->count() * 500000, 0, ',', '.') }}</strong></td>
+            <td colspan="4" style="text-align:right;"><strong>Total :</strong></td>
+            <td><strong>Rp. {{ number_format($total_pembayaran, 0, ',', '.') }}</strong></td>
         </tr>
     </tfoot>
 </table>

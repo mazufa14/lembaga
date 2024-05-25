@@ -2,14 +2,18 @@
 @section('content')
 
 
-    @if (Auth::user()->role == 'siswa')
+@if (Auth::user()->role == 'siswa')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Halaman Pembayaran Siswa</h5>
+            <h5 class="card-title"> </i> Halaman Pembayaran Siswa</h5>
             <p class="card-text">Penting!</p>
+            <p class="card-text"> <i class="fas fa-money-check-alt"></i> No Rekening BANK (BNI): 1298544410 - A/N - Nur Khodijah</p>
             <hr>    
+            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Lakukan pembayaran pada rekening yang tertera</p>
             <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Pastikan data yang input valid</p>
-            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Admin akan segera verifikasi data siswa yang masuk </p>
+            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Siswa hanya dapat melakukan 1 kali pembayaran</p>
+            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Screenshoot bukti pembayaran </p>
+            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Admin akan segera verifikasi pembayaran siswa yang masuk </p>
         </div>
     </div>    
     <hr>
