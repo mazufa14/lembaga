@@ -22,7 +22,7 @@
             <div class="card-header">      
                         @if (Auth::user()->role == 'admin')
                         <a href="{{url('pembayaran/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a>
-                        <a href="{{url('pembayaran/pdf')}}" target="_blank" class="btn btn-success" ><i class="fas fa-file-pdf"></i> Lap. Pembayaran</a>
+                        <!-- <a href="{{url('pembayaran/pdf')}}" target="_blank" class="btn btn-success" ><i class="fas fa-file-pdf"></i> Lap. Pembayaran</a> -->
                         @endif
 
                         @if (Auth::user()->role == 'siswa')

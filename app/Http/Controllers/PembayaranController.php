@@ -197,7 +197,7 @@ class PembayaranController extends Controller
         // $pembayaran = pembayaran::all();
 
         $pembayaran = Pembayaran::join('users', 'pembayaran.user_id', '=', 'users.id')
-        ->select('pembayaran.*', 'users.name as nama')
+        ->select('pembayaran.*', 'users.name as nama','program_kerja.name as namaprogram')
         ->get();
     
         $pdf = FacadePdf::loadview('admin.pembayaran.pdf', compact('pembayaran'));
