@@ -3,19 +3,27 @@
 
 
 @if (Auth::user()->role == 'siswa')
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title"> </i> Halaman Pembayaran Siswa</h5>
-            <p class="card-text">Penting!</p>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title"> Halaman Pembayaran Siswa</h5>
+            <p class="card-text"> <i class="fas fa-exclamation"></i> Sesuaikan Pembayaran Dengan Program Yang Dipilih</p>
             <p class="card-text"> <i class="fas fa-money-check-alt"></i> No Rekening BANK (BNI): 1298544410 - A/N - Nur Khodijah</p>
-            <hr>    
-            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Lakukan pembayaran pada rekening yang tertera</p>
-            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Pastikan data yang input valid</p>
-            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Siswa hanya dapat melakukan 1 kali pembayaran</p>
-            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Screenshoot bukti pembayaran </p>
-            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Admin akan segera verifikasi pembayaran siswa yang masuk </p>
+            
+        <hr>    
+        <div class="row">
+            <div class="col d-flex flex-column align-items-center">
+                <h5 class="card-title">KELAS INTENSIF MAGANG/TOKUTEI GINOU</h5>
+                <img src="{{ asset('depan/images/kelasintensifpay.jpg') }}" class="card-img" style="max-width: 400px; max-height: 400px;">
+            </div>
+            <div class="col d-flex flex-column align-items-center">
+                <h5 class="card-title">KELAS KARYAWAN TOKUTEI GINOU</h5>
+                <img src="{{ asset('depan/images/kelasregular2.jpg') }}" class="card-img" style="max-width: 400px; max-height: 400px;">
+            </div>
         </div>
-    </div>    
+    </div>
+</div>
+  
     <hr>
     @endif
 

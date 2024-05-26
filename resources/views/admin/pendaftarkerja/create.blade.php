@@ -8,9 +8,9 @@
             <h5 class="card-title"> <i class="fas fa-clipboard-list"></i> Halaman Pendaftaran Siswa</h5>
             <p class="card-text">Penting!</p>
             <hr>    
-            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Pastikan data yang input valid</p>
-            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Siswa hanya dapat melakukan 1 kali pendaftaran</p>
-            <p class="card-text "> <i class="fas fa-minus-circle" style="color: #FFD43B;"></i> Admin akan segera verifikasi data siswa yang masuk </p>
+            <p class="card-text ">  <i class="fas fa-minus-circle" style="color: #FFD43B;"> </i> Pastikan data yang input valid </p>
+            <p class="card-text ">  <i class="fas fa-minus-circle" style="color: #FFD43B;"> </i> Siswa hanya dapat melakukan 1 kali pendaftaran </p>
+            <p class="card-text ">  <i class="fas fa-minus-circle" style="color: #FFD43B;"> </i> Admin akan segera verifikasi data siswa yang masuk  </p>
         </div>
     </div>    
     <hr>

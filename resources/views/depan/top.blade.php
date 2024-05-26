@@ -27,7 +27,7 @@
 
   <!-- font awesome style -->
   <link href="{{asset('depan/css/font-awesome.min.css')}}" rel="stylesheet" />
-
+  <link rel="shortcut icon" href="{{asset('admin/assets/images/hikkari.png')}}" type="image/x-icon">
   <!-- Custom styles for this template -->
   <link href="{{asset('depan/css/style.css')}}" rel="stylesheet" />
   <!-- responsive style -->

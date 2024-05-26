@@ -75,7 +75,7 @@ class PendaftarkerjaController extends Controller
 
         if (Auth::user()->role === 'admin') {
             $users = DB::table('users')
-                ->whereNotIn('role', ['admin', 'owner'])
+                ->whereNotIn('role', ['admin', 'penguji'])
                 ->get();
         } else {
             $userId = Auth::id();
