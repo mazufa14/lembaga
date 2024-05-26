@@ -27,4 +27,12 @@ class DepanController extends Controller
         return view ('depan.caradaftar');
     }
 
+    public function kerjasama(){
+        return view ('depan.kerjasama');
+    }
+
+    public function keberangkatan(){
+        return view ('depan.keberangkatan');
+    }
+
 }

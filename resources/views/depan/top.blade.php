@@ -88,8 +88,8 @@
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="{{url('/caradaftar')}}">Cara Pendaftaran</a>
-                          <a class="dropdown-item" href="about.html">Program Tersedia</a>
-                          <a class="dropdown-item" href="about.html">Hubungi Kami</a>
+                          <a class="dropdown-item" href="{{url('/program')}}">Program Tersedia</a>
+                          <a class="dropdown-item" href="{{url('/contact')}}">Hubungi Kami</a>
                       </div>
                   </li>
 
@@ -99,9 +99,8 @@
                           Program
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="about.html">Kunjungan</a>
-                          <a class="dropdown-item" href="about.html">Kerja Sama</a>
-                          <a class="dropdown-item" href="about.html">Keberangkatan</a>
+                          <a class="dropdown-item" href="{{url('/kerjasama')}}">Kerja Sama</a>
+                          <a class="dropdown-item" href="{{url('/keberangkatan')}}">Keberangkatan</a>
                       </div>
                   </li>
 

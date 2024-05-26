@@ -53,6 +53,8 @@ Route::get('/about',[DepanController::class, 'about']);
 Route::get('/contact',[DepanController::class, 'contact']);
 Route::get('/program',[DepanController::class, 'program']);
 Route::get('/caradaftar',[DepanController::class, 'caradaftar']);
+Route::get('/kerjasama',[DepanController::class, 'kerjasama']);
+Route::get('/keberangkatan',[DepanController::class, 'keberangkatan']);
 
 Route::middleware(['guest'])->group(function() {
     Route::get('/login',[SesiController::class,'index'])->name('login');

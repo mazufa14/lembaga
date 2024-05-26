@@ -4,7 +4,7 @@
 <section class="about_section layout_padding-bottom">
     <div class="container text-center">
         <div class="heading_container">
-            <h2 >Alur Pendaftaran -> </h2>
+            <h2 >Alur Pendaftaran : </h2>
         </div>
         <br>
         <div class="row">
