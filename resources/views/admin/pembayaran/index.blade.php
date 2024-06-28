@@ -37,10 +37,10 @@
                     <thead>
                         <tr>
                         <th>No</th>
-                        <th>Akun</th>
+                        <th>User Id</th>
                         <!-- <th>Keterangan</th> -->
-                        <th>Status pembayaran</th>
-                        <th>Bukti pembayaran</th>
+                        <th>Status </th>
+                        <th>Foto pembayaran</th>
                         <th>Action</th>
                         </tr>
                     </thead>

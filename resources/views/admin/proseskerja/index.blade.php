@@ -28,9 +28,9 @@
                     <thead>
                         <tr>
                         <th>No</th>
-                        <th>Akun</th>
-                        <th>Nama Pendaftar</th>
-                        <th>Program </th>
+                        <th>User Id</th>
+                        <th>Nama Pekerja</th>
+                        <th>Program Proses Kerja</th>
                         <!-- <th>Sertfikasi Kebahasaan</th> -->
                         <th>Action</th>
                         </tr>

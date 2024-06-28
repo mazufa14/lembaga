@@ -51,7 +51,7 @@
                     <thead>
                         <tr>
                         <th>No</th>
-                        <th>Akun</th>
+                        <th>User Id</th>
                         <th>Nilai (TPA)</th>
                         <th>Status</th>
                         <!-- <th>Hasil Test</th> -->

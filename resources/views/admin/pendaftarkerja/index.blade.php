@@ -19,7 +19,7 @@
         <div class="card">
             <div class="card-header">
                         @if (Auth::user()->role == 'admin')
-                        <a href="{{url('pendaftarkerja/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a>
+                        <!-- <a href="{{url('pendaftarkerja/create')}}" class="btn btn-primary" ><i class="fas fa-plus"></i> Tambah Data</a> -->
                         <a href="{{url('pendaftarkerja/pdf')}}" target="_blank" class="btn btn-success" ><i class="fas fa-file-pdf"></i> Laporan Data Siswa</a>
                         @endif
 
@@ -34,12 +34,12 @@
                     <thead>
                         <tr>
                         <th>No</th>
-                        <th>Nama </th>
-                        <th>Asal</th>
-                        <th>Kelamin</th>
+                        <th>Pendaftar Pekerja</th>
+                        <th>Tempat Lahir</th>
+                        <th>Jenis Kelamin</th>
                         <th>Program </th> 
                         <th>Status</th>
-                        <th>User</th>
+                        <th>User Id</th>
                         <th>Action</th>
                         
                         </tr>

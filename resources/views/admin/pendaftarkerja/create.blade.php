@@ -53,7 +53,7 @@
                                     <div class="row">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="first-name-column">Nama Pendaftar </label>
+                                                <label for="first-name-column">Pendaftar Pekerja</label>
                                             <input type="text" value="{{ old('nama')}}" name="nama" id="first-name-column" class="form-control @error('nama') is-invalid @enderror">
                                             @error('nama')
                                             <div class="invalid-feedback">
@@ -80,6 +80,12 @@
                                                 @enderror
                                             </div>
                                         </div>
+
+
+                                       
+
+
+
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">

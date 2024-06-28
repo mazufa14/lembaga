@@ -89,6 +89,8 @@ class PendaftarkerjaController extends Controller
 
     }
 
+    // 'required|unique:pendaftar_kerja,user_id',
+
     public function store(Request $request)
     {
         $this->validate($request,[
